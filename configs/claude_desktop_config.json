@@ -1,0 +1,50 @@
+{
+  "mcpServers": {
+    "drawio": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@drawio/mcp"
+      ],
+      "disabled": false
+    },
+    "ripple": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@ytsuda/ripple@latest"
+      ]
+    },
+    "android-emulator": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "mcp-android-emulator"
+      ],
+      "disabled": false,
+      "env": {
+        "ADB_PATH": "__ANDROID_ADB_PATH__",
+        "ANDROID_HOME": "__ANDROID_HOME__",
+        "ANDROID_SDK_ROOT": "__ANDROID_HOME__"
+      }
+    },
+    "arduino": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "arduino-mcp-server"
+      ],
+      "disabled": false,
+      "env": {
+        "ARDUINO_CLI_PATH": "__ARDUINO_CLI_PATH__"
+      }
+    }
+  },
+  "preferences": {
+    "coworkBrowserToolsEnabled": true,
+    "coworkPreferredBrowser": "built_in",
+    "coworkScheduledTasksEnabled": true,
+    "coworkWebSearchEnabled": true,
+    "chicagoEnabled": true
+  }
+}

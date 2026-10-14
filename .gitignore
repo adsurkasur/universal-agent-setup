@@ -1,0 +1,15 @@
+# OS generated files
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Temporary files
+*.tmp
+*.log
+
+# Python cache if any
+__pycache__/
+*.pyc
+
+# Local backup / node_modules if created
+node_modules/
