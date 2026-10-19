@@ -40,3 +40,13 @@ Every AI agent operating in this portfolio—whether in the root superproject or
 - **Root Cause over Symptom**: Fix shared utilities and underlying root causes rather than patching one-off symptoms.
 - **Verification is Mandatory**: Every non-trivial change must leave behind a runnable verification check (test suite, verification script, or assertion check).
 - **Preserve Documentation Integrity**: Do not delete unrelated comments, docstrings, or architectural notes without explicit instructions.
+
+---
+
+## 4. RTK - Rust Token Killer
+
+RTK filters and compresses command output before it reaches the LLM context (60-90% fewer tokens).
+
+- Prefix supported CLI commands with `rtk`: `rtk git status`, `rtk ls src/`, `rtk grep "pattern" src/`, `rtk find "*.rs" .`, `rtk npm test`, `rtk cargo test`, `rtk docker ps`, `rtk gh pr list`.
+- Do not prefix PowerShell cmdlets (`Get-ChildItem`, `Select-String`, ...) or commands whose raw output you must parse exactly; use `rtk proxy <cmd>` when you need unfiltered output.
+- Meta: `rtk gain` (savings), `rtk gain --history`, `rtk discover` (missed opportunities).

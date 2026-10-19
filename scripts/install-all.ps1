@@ -3,9 +3,9 @@
     Automated Multi-Agent Setup & Skills Installer for Windows.
 .DESCRIPTION
     Script instalasi lengkap untuk mereplikasi seluruh konfigurasi AI Agent:
-    - 154 Unified Skills (Engineering Superpowers, Matt Pocock, Ponytail, Scientific Writing, Vercel, Bio/Science, dll.)
+    - 174 Unified Skills (Engineering Superpowers, Matt Pocock, Ponytail, GSAP, Scientific Writing, Vercel, Bio/Science, dll.)
     - Sinkronisasi ke 4 Direktori: ~/.agents, ~/.codex, ~/.gemini, dan ~/.claude
-    - Setup Konfigurasi MCP (Draw.io, Ripple, Android Emulator, Arduino)
+    - Setup Konfigurasi MCP (Figma, Draw.io, Ripple, Android Emulator, Arduino)
 #>
 
 [CmdletBinding()]
@@ -168,7 +168,7 @@ Write-Host "`n==========================================================" -Foreg
 Write-Host "         INSTALLASI DAN SETUP SELESAI DENGAN SUKSES!      " -ForegroundColor Green
 Write-Host "==========================================================" -ForegroundColor Cyan
 Write-Host "Ringkasan Hasil:" -ForegroundColor White
-Write-Host "1. Seluruh 154 skills kini tersedia di Antigravity, Claude, Codex, dan ~/.agents."
-Write-Host "2. MCP Servers Draw.io, Ripple, Android Emulator, dan Arduino siap dijalankan."
+Write-Host "1. Seluruh 174 skills kini tersedia di Antigravity, Claude, Codex, dan ~/.agents."
+Write-Host "2. MCP Servers Figma, Draw.io, Ripple, Android Emulator, dan Arduino siap dijalankan."
 Write-Host "3. Buka 'New Chat' pada ChatGPT Desktop atau Claude Desktop untuk memuat ulang skill."
 Write-Host ""

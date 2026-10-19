@@ -39,6 +39,9 @@
       "env": {
         "ARDUINO_CLI_PATH": "__ARDUINO_CLI_PATH__"
       }
+    },
+    "figma": {
+      "url": "https://mcp.figma.com/mcp"
     }
   }
 }

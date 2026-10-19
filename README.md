@@ -15,8 +15,8 @@ Dengan paket ini, mesin baru akan langsung memiliki konfigurasi yang **100% seta
 
 ## 📦 Apa Saja yang Ada di Dalam Bundle Ini?
 
-### 1. Koleksi 154 Unified Skills (`skills/`)
-Seluruh 154 skill sudah disusun dalam format standar `SKILL.md` yang dapat dibaca oleh seluruh agent:
+### 1. Koleksi 174 Unified Skills (`skills/`)
+Seluruh 174 skill sudah disusun dalam format standar `SKILL.md` yang dapat dibaca oleh seluruh agent:
 * **Engineering Skills (`obra/superpowers`)**:
   * `test-driven-development` (TDD)
   * `systematic-debugging` (investigasi bug terstruktur)
@@ -32,20 +32,23 @@ Seluruh 154 skill sudah disusun dalam format standar `SKILL.md` yang dapat dibac
 * **Scientific & Academic Writing (`k-dense-ai`)**:
   * `scientific-writing` (struktur bab ilmiah, metodologi, narasi tesis/jurnal)
   * `paper-lookup` (pencarian sitasi dan literatur)
-* **Frontend, UI/UX & Vercel**:
+  * Dokumen akademik: `academic-pptx`, `pptx`, `docx`, `xlsx`, `pdf`
+* **Frontend, UI/UX & Web Animation**:
   * `vercel-react-best-practices`, `vercel-optimize`, `vercel-composition-patterns`
   * `ui-ux-pro-max`, `frontend-design`, `web-design-guidelines`
+  * **GSAP Animation Suite (8 skills)**: `gsap-core`, `gsap-frameworks`, `gsap-performance`, `gsap-plugins`, `gsap-react`, `gsap-scrolltrigger`, `gsap-timeline`, `gsap-utils`
 * **Cloud & Big Data**:
   * 34 skills Google Cloud Platform, BigQuery, BigLake, Dataproc, GCS
-* **Sains & Basis Data Hayati**:
-  * 29 skills pencarian struktur (AlphaFold, ChEMBL, PDB, PubMed, UniProt, ClinVar, dbSNP, dll.)
+* **Sains Hayati & Genomika**:
+  * 32 skills pencarian struktur & genomika (AlphaFold, AlphaGenome, Biomolecular Mol*, ChEMBL, PDB, PubMed, UniProt, ClinVar, dbSNP, dll.)
 * **Protokol Portofolio & Logging**:
   * `project-logger` & `AGENTS.md` (pencatatan otomatis `logs/ACTIVITY_LOG.md`, `logs/DECISION_LOG.md`, dan Git submodule hygiene).
 
 ---
 
-### 2. Standar 4 MCP Servers (`configs/`)
+### 2. Standar 5 MCP Servers (`configs/`)
 Konfigurasi MCP yang seragam di seluruh agent:
+* **`figma` (`https://mcp.figma.com/mcp`)**: Integrasi desain resmi Figma via Streamable HTTP untuk seluruh agent.
 * **`drawio` (`@drawio/mcp`)**: Membuat dan membuka diagram alir / arsitektur Draw.io langsung dari prompt.
 * **`ripple` (`@ytsuda/ripple@latest`)**: Terminal emulator native ConPTY untuk eksekusi konsol Windows interaktif.
 * **`android-emulator` (`mcp-android-emulator`)**: Otomasi pengujian UI, screenshot, gesture, dan inspeksi tree emulator Android.

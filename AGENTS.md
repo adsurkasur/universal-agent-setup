@@ -8,8 +8,8 @@
 ## 🎯 Primary Agent Objective
 You are tasked with replicating this standardized multi-agent setup onto the host machine.
 This repository contains:
-1. **154 Unified Skills** in `skills/` (covering Engineering Superpowers, Matt Pocock, Ponytail, Scientific Writing, Vercel React, BigQuery/GCP, Bio/Science, and Project Logging).
-2. **Standard MCP Server Configurations** in `configs/` (`drawio`, `ripple`, `android-emulator`, `arduino`).
+1. **174 Unified Skills** in `skills/` (covering Engineering Superpowers, Matt Pocock, Ponytail, GSAP Animation, Scientific Writing, Vercel React, BigQuery/GCP, Bio/Science, and Project Logging).
+2. **Standard MCP Server Configurations** in `configs/` (`figma`, `drawio`, `ripple`, `android-emulator`, `arduino`).
 3. **Automated Setup Scripts** in `scripts/`.
 
 ---

@@ -36,3 +36,6 @@ args = ["-y", "arduino-mcp-server"]
 
 [mcp_servers.arduino.env]
 ARDUINO_CLI_PATH = "__ARDUINO_CLI_PATH__"
+
+[mcp_servers.figma]
+url = "https://mcp.figma.com/mcp"
