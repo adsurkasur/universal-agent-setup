@@ -1,6 +1,6 @@
 # Universal AI Agent Setup & Skills Bundle (Multi-Machine)
 
-> 🤖 **FOR AI AGENTS (Antigravity, Claude, ChatGPT/Codex, Cursor, Cline, etc.):**
+> **FOR AI AGENTS (Antigravity, Claude, ChatGPT/Codex, Cursor, Cline, etc.):**
 > If the user asked you to setup or install this repository on this machine, please read and follow [`AGENTS.md`](./AGENTS.md) immediately to execute the automated installation.
 
 Paket distribusi dan panduan instalasi komprehensif untuk mereplikasi ekosistem AI Agent dari PC ini ke komputer atau mesin lain.
@@ -13,10 +13,10 @@ Dengan paket ini, mesin baru akan langsung memiliki konfigurasi yang **100% seta
 
 ---
 
-## 📦 Apa Saja yang Ada di Dalam Bundle Ini?
+## Apa Saja yang Ada di Dalam Bundle Ini?
 
-### 1. Koleksi 174 Unified Skills (`skills/`)
-Seluruh 174 skill sudah disusun dalam format standar `SKILL.md` yang dapat dibaca oleh seluruh agent:
+### 1. Koleksi 183 Unified Skills (`skills/`)
+Seluruh 183 skill sudah disusun dalam format standar `SKILL.md` yang dapat dibaca oleh seluruh agent:
 * **Engineering Skills (`obra/superpowers`)**:
   * `test-driven-development` (TDD)
   * `systematic-debugging` (investigasi bug terstruktur)
@@ -29,14 +29,25 @@ Seluruh 174 skill sudah disusun dalam format standar `SKILL.md` yang dapat dibac
   * `setup-matt-pocock-skills`, `wayfinder`, `to-spec`, `to-tickets`, `triage`, `codebase-design`
 * **Ponytail Development (`DietrichGebert/ponytail`)**:
   * `ponytail`, `ponytail-audit`, `ponytail-debt`, `ponytail-gain`, `ponytail-review` (filosofi kode paling ringkas, YAGNI, eliminasi over-engineering)
+* **Design Direction, Taste & Frontend Craft**:
+  * `impeccable` (`pbakaus/impeccable`) — Direction & craft floor standar penghargaan dunia untuk product UI, landing pages, dan design system.
+  * `taste-skill` / `design-taste-frontend` (`Leonxlnx/taste-skill`) — Anti-slop frontend art direction dari 247 curated gallery sites.
+  * `hallmark` (`Nutlope/hallmark`) — Next-gen design taste dan modern frontend patterns.
+  * `better-icons` (`better-auth/better-icons`) — Integrasi dan pencarian 200.000+ ikon dari 150+ pustaka ikon.
+  * `ui-ux-pro-max`, `frontend-design`, `web-design-guidelines`
+  * `vercel-react-best-practices`, `vercel-optimize`, `vercel-composition-patterns`
+* **Motion & Animation Suite**:
+  * `framer-motion` — Animasi produksi tinggi untuk React & modern `motion/react` (v12+), gesture, layoutId, AnimatePresence, dan SSR.
+  * `motion-design` (`LottieFiles/motion-design-skill`) — Prinsip gerak, Disney principles adapted for UI, koreografi multi-elemen.
+  * `lottie-maker` (`FWcloud916/skill-lottie-maker`) — Diagnostik, inspeksi, dan pembuatan bundel animasi portabel Lottie JSON.
+  * **GSAP Animation Suite (8 skills)**: `gsap-core`, `gsap-frameworks`, `gsap-performance`, `gsap-plugins`, `gsap-react`, `gsap-scrolltrigger`, `gsap-timeline`, `gsap-utils`
+* **Anti-AI Writing & Prose Refining**:
+  * `humanizer` (`blader/humanizer`) — Menghilangkan tanda-tanda teks buatan AI berdasarkan Wikipedia "Signs of AI writing" agar terdengar otentik.
+  * `stop-slop` (`hardikpandya/stop-slop`) — Memotong filler phrases, formula buatan AI, kalimat pasif, dan adverb berlebihan.
 * **Scientific & Academic Writing (`k-dense-ai`)**:
   * `scientific-writing` (struktur bab ilmiah, metodologi, narasi tesis/jurnal)
   * `paper-lookup` (pencarian sitasi dan literatur)
   * Dokumen akademik: `academic-pptx`, `pptx`, `docx`, `xlsx`, `pdf`
-* **Frontend, UI/UX & Web Animation**:
-  * `vercel-react-best-practices`, `vercel-optimize`, `vercel-composition-patterns`
-  * `ui-ux-pro-max`, `frontend-design`, `web-design-guidelines`
-  * **GSAP Animation Suite (8 skills)**: `gsap-core`, `gsap-frameworks`, `gsap-performance`, `gsap-plugins`, `gsap-react`, `gsap-scrolltrigger`, `gsap-timeline`, `gsap-utils`
 * **Cloud & Big Data**:
   * 34 skills Google Cloud Platform, BigQuery, BigLake, Dataproc, GCS
 * **Sains Hayati & Genomika**:
@@ -46,8 +57,9 @@ Seluruh 174 skill sudah disusun dalam format standar `SKILL.md` yang dapat dibac
 
 ---
 
-### 2. Standar 5 MCP Servers (`configs/`)
+### 2. Standar 6 MCP Servers (`configs/`)
 Konfigurasi MCP yang seragam di seluruh agent:
+* **`better-icons` (`better-icons`)**: Cari dan pasang langsung 200.000+ ikon dari 150+ pustaka ikon (Lucide, Heroicons, Material, dll.) ke proyek tanpa manual copy-paste SVG.
 * **`figma` (`https://mcp.figma.com/mcp`)**: Integrasi desain resmi Figma via Streamable HTTP untuk seluruh agent.
 * **`drawio` (`@drawio/mcp`)**: Membuat dan membuka diagram alir / arsitektur Draw.io langsung dari prompt.
 * **`ripple` (`@ytsuda/ripple@latest`)**: Terminal emulator native ConPTY untuk eksekusi konsol Windows interaktif.
@@ -56,21 +68,21 @@ Konfigurasi MCP yang seragam di seluruh agent:
 
 ---
 
-## 🚀 Panduan Instalasi Cepat di Mesin Baru
+## Panduan Instalasi Cepat di Mesin Baru
 
 ### Opsi A: Instalasi Otomatis 1-Klik (Windows PowerShell)
 
-1. **Salin atau ekstrak folder `agent-setup-bundle`** ke mesin baru (misalnya di Desktop atau Downloads).
+1. **Salin atau clone repository ini** ke mesin baru (misalnya di Desktop atau Downloads).
 2. Buka **PowerShell** (Run as Administrator jika memungkinkan).
 3. Jalankan script installer:
    ```powershell
-   cd path\to\agent-setup-bundle\scripts
+   cd path\to\universal-agent-setup\scripts
    Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
    .\install-all.ps1
    ```
 4. **Selesai!** Script secara otomatis:
    * Membuat folder `~/.agents/skills`, `~/.codex/skills`, `~/.gemini/skills`, dan `~/.claude/skills`.
-   * Menyalin 154 skills ke seluruh direktori agent.
+   * Menyalin seluruh 183 skills ke seluruh direktori agent.
    * Mendeteksi path Android SDK dan Arduino CLI di mesin baru.
    * Memasang konfigurasi MCP ke Claude Desktop, Antigravity, dan ChatGPT Codex.
 
@@ -80,14 +92,14 @@ Konfigurasi MCP yang seragam di seluruh agent:
 
 1. Ekstrak bundle, buka Terminal:
    ```bash
-   cd path/to/agent-setup-bundle/scripts
+   cd path/to/universal-agent-setup/scripts
    chmod +x install-all.sh
    ./install-all.sh
    ```
 
 ---
 
-## 🔄 Cara Menambah Skill Baru di Kemudian Hari
+## Cara Menambah Skill Baru di Kemudian Hari
 
 Untuk menjaga seluruh agent tetap setara ketika Anda ingin menambahkan skill baru:
 
@@ -98,13 +110,13 @@ Untuk menjaga seluruh agent tetap setara ketika Anda ingin menambahkan skill bar
    *(Atau unduh menggunakan command: `npx skills add <nama-repo> -g`)*
 2. **Jalankan script sinkronisasi**:
    ```powershell
-   powershell -File "path\to\agent-setup-bundle\scripts\sync-skills.ps1"
+   powershell -File "path\to\universal-agent-setup\scripts\sync-skills.ps1"
    ```
 3. Script akan menyalin skill baru tersebut secara serentak ke `.codex\skills`, `.gemini\skills`, dan `.claude\skills`.
 
 ---
 
-## 💡 Catatan Khusus & Troubleshooting Tiap Agent
+## Catatan Khusus & Troubleshooting Tiap Agent
 
 ### 1. ChatGPT Desktop (Codex) & "Work Mode"
 * **Kenapa slash command (seperti `/grill-me`) belum muncul?**
@@ -115,7 +127,6 @@ Untuk menjaga seluruh agent tetap setara ketika Anda ingin menambahkan skill bar
 
 ### 2. Claude Desktop
 * Konfigurasi tersimpan di `%APPDATA%\Claude\claude_desktop_config.json`.
-* MCP kustom `my-skills-mcp` yang lama telah dihapus karena obsolete.
 * Claude Desktop memuat server MCP saat aplikasi dibuka. Jika mengubah konfigurasi MCP, cukup tutup dan buka kembali Claude Desktop.
 
 ### 3. Antigravity (IDE & CLI)
@@ -124,10 +135,10 @@ Untuk menjaga seluruh agent tetap setara ketika Anda ingin menambahkan skill bar
 
 ---
 
-## 📁 Struktur Direktori Bundle
+## Struktur Direktori Bundle
 
 ```text
-agent-setup-bundle/
+universal-agent-setup/
 ├── README.md                           <-- Dokumen panduan ini
 ├── agent-setup-bundle.zip              <-- Arsip zip siap kirim
 ├── configs/
@@ -139,13 +150,21 @@ agent-setup-bundle/
 │   ├── install-all.ps1                 <-- Script master installer Windows
 │   ├── sync-skills.ps1                 <-- Script sinkronisasi ulang skills
 │   └── install-all.sh                  <-- Script installer macOS/Linux
-└── skills/                             <-- 154 direktori skills lengkap
+└── skills/                             <-- 183 direktori skills lengkap
+    ├── better-icons/
+    ├── framer-motion/
+    ├── hallmark/
+    ├── humanizer/
+    ├── impeccable/
+    ├── lottie-maker/
+    ├── motion-design/
+    ├── stop-slop/
+    ├── taste-skill/
     ├── grill-me/
     ├── grilling/
     ├── test-driven-development/
     ├── systematic-debugging/
     ├── ponytail/
     ├── scientific-writing/
-    ├── project-logger/
-    └── ... (147 skills lainnya)
+    └── ... (168 skills lainnya)
 ```

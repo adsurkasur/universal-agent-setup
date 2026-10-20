@@ -39,3 +39,7 @@ ARDUINO_CLI_PATH = "__ARDUINO_CLI_PATH__"
 
 [mcp_servers.figma]
 url = "https://mcp.figma.com/mcp"
+
+[mcp_servers.better-icons]
+command = "npx"
+args = ["-y", "better-icons"]

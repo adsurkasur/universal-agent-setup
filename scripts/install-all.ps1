@@ -3,9 +3,9 @@
     Automated Multi-Agent Setup & Skills Installer for Windows.
 .DESCRIPTION
     Script instalasi lengkap untuk mereplikasi seluruh konfigurasi AI Agent:
-    - 174 Unified Skills (Engineering Superpowers, Matt Pocock, Ponytail, GSAP, Scientific Writing, Vercel, Bio/Science, dll.)
+    - 183 Unified Skills (Engineering Superpowers, Matt Pocock, Ponytail, GSAP, Motion Design, Framer Motion, Taste/Impeccable, Scientific Writing, Vercel, Bio/Science, dll.)
     - Sinkronisasi ke 4 Direktori: ~/.agents, ~/.codex, ~/.gemini, dan ~/.claude
-    - Setup Konfigurasi MCP (Figma, Draw.io, Ripple, Android Emulator, Arduino)
+    - Setup Konfigurasi MCP (Figma, Draw.io, Ripple, Android Emulator, Arduino, Better Icons)
 #>
 
 [CmdletBinding()]
@@ -36,7 +36,7 @@ $hasGit = Get-Command git -ErrorAction SilentlyContinue
 if ($hasNode -and $hasNpm) {
     Write-Host "  [OK] Node.js & npm terdeteksi ($(node -v))" -ForegroundColor Green
 } else {
-    Write-Warning "  [PERINGATAN] Node.js/npm belum terdeteksi. Server MCP berbasis npx (draw.io, ripple, arduino) memerlukan Node.js."
+    Write-Warning "  [PERINGATAN] Node.js/npm belum terdeteksi. Server MCP berbasis npx (draw.io, ripple, arduino, better-icons) memerlukan Node.js."
 }
 
 if ($hasGit) {
@@ -88,7 +88,7 @@ foreach ($d in $dirs) {
 }
 
 # 4. Salin Skills ke Source Hub (~/.agents/skills)
-Write-Host "`n[4/6] Menyalin 154 Skills ke Central Hub (~/.agents/skills)..." -ForegroundColor Yellow
+Write-Host "`n[4/6] Menyalin Skills ke Central Hub (~/.agents/skills)..." -ForegroundColor Yellow
 if (Test-Path $skillsBundle) {
     robocopy $skillsBundle "$env:USERPROFILE\.agents\skills" /E /XO /NP /NFL /NDL /NJH /NJS | Out-Null
     $totalHub = (Get-ChildItem "$env:USERPROFILE\.agents\skills" -Directory).Count
@@ -168,7 +168,7 @@ Write-Host "`n==========================================================" -Foreg
 Write-Host "         INSTALLASI DAN SETUP SELESAI DENGAN SUKSES!      " -ForegroundColor Green
 Write-Host "==========================================================" -ForegroundColor Cyan
 Write-Host "Ringkasan Hasil:" -ForegroundColor White
-Write-Host "1. Seluruh 174 skills kini tersedia di Antigravity, Claude, Codex, dan ~/.agents."
-Write-Host "2. MCP Servers Figma, Draw.io, Ripple, Android Emulator, dan Arduino siap dijalankan."
+Write-Host "1. Seluruh 183 skills kini tersedia di Antigravity, Claude, Codex, dan ~/.agents."
+Write-Host "2. MCP Servers Figma, Draw.io, Ripple, Android Emulator, Arduino, dan Better Icons siap dijalankan."
 Write-Host "3. Buka 'New Chat' pada ChatGPT Desktop atau Claude Desktop untuk memuat ulang skill."
 Write-Host ""

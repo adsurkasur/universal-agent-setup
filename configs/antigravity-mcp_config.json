@@ -42,6 +42,14 @@
     },
     "figma": {
       "url": "https://mcp.figma.com/mcp"
+    },
+    "better-icons": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "better-icons"
+      ],
+      "disabled": false
     }
   }
 }
