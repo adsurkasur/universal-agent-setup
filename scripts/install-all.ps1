@@ -3,9 +3,9 @@
     Automated Multi-Agent Setup & Skills Installer for Windows.
 .DESCRIPTION
     Script instalasi lengkap untuk mereplikasi seluruh konfigurasi AI Agent:
-    - 183 Unified Skills (Engineering Superpowers, Matt Pocock, Ponytail, GSAP, Motion Design, Framer Motion, Taste/Impeccable, Scientific Writing, Vercel, Bio/Science, dll.)
+    - 192 Unified Skills (Engineering Superpowers, Matt Pocock, Ponytail, GSAP, Motion Design, Framer Motion, Taste/Impeccable, Bahasa Indonesia EYD V & KBBI, Scientific Writing, Vercel, Bio/Science, Playwright, Three.js, Shadcn UI, Tailwind v4, Typst, Remotion, Skill Router, dll.)
     - Sinkronisasi ke 4 Direktori: ~/.agents, ~/.codex, ~/.gemini, dan ~/.claude
-    - Setup Konfigurasi MCP (Figma, Draw.io, Ripple, Android Emulator, Arduino, Better Icons)
+    - Setup Konfigurasi 10 MCP Servers (Figma, Draw.io, Ripple, Android Emulator, Arduino, Better Icons, Playwright, Chrome DevTools, GitHub, Context7)
 #>
 
 [CmdletBinding()]
@@ -36,7 +36,7 @@ $hasGit = Get-Command git -ErrorAction SilentlyContinue
 if ($hasNode -and $hasNpm) {
     Write-Host "  [OK] Node.js & npm terdeteksi ($(node -v))" -ForegroundColor Green
 } else {
-    Write-Warning "  [PERINGATAN] Node.js/npm belum terdeteksi. Server MCP berbasis npx (draw.io, ripple, arduino, better-icons) memerlukan Node.js."
+    Write-Warning "  [PERINGATAN] Node.js/npm belum terdeteksi. Server MCP berbasis npx memerlukan Node.js."
 }
 
 if ($hasGit) {
@@ -45,8 +45,8 @@ if ($hasGit) {
     Write-Host "  [INFO] Git belum terpasang." -ForegroundColor Gray
 }
 
-# 2. Deteksi Path Khusus (Android SDK & Arduino CLI)
-Write-Host "`n[2/6] Mendeteksi Hardware & SDK Paths..." -ForegroundColor Yellow
+# 2. Deteksi Path Khusus (Android SDK, Arduino CLI, Browser & GitHub Token)
+Write-Host "`n[2/6] Mendeteksi Hardware & Browser Paths..." -ForegroundColor Yellow
 $androidHome = "$env:LOCALAPPDATA\Android\Sdk"
 if (Test-Path "E:\Android\Sdk") {
     $androidHome = "E:\Android\Sdk"
@@ -63,9 +63,30 @@ if (Test-Path $scoopArduino) {
     $arduinoCli = (Get-Command arduino-cli).Source
 }
 
+$browserPath = "msedge.exe"
+if (Test-Path "C:\Program Files\Google\Chrome\Application\chrome.exe") {
+    $browserPath = "C:\Program Files\Google\Chrome\Application\chrome.exe"
+} elseif (Test-Path "C:\Program Files (x86)\Google\Chrome\Application\chrome.exe") {
+    $browserPath = "C:\Program Files (x86)\Google\Chrome\Application\chrome.exe"
+} elseif (Test-Path "C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe") {
+    $browserPath = "C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe"
+} elseif (Test-Path "C:\Program Files\Microsoft\Edge\Application\msedge.exe") {
+    $browserPath = "C:\Program Files\Microsoft\Edge\Application\msedge.exe"
+}
+
+$ghToken = ""
+if (Get-Command gh -ErrorAction SilentlyContinue) {
+    try { $ghToken = (gh auth token 2>$null) } catch {}
+}
+if (-not $ghToken -and $env:GITHUB_TOKEN) {
+    $ghToken = $env:GITHUB_TOKEN
+}
+
 Write-Host "  Android SDK Root : $androidHome" -ForegroundColor Gray
 Write-Host "  ADB Executable   : $adbPath" -ForegroundColor Gray
 Write-Host "  Arduino CLI Path : $arduinoCli" -ForegroundColor Gray
+Write-Host "  Target Browser   : $browserPath" -ForegroundColor Gray
+Write-Host "  GitHub Auth      : $(if ($ghToken) { 'Terdeteksi (Aktif)' } else { 'Tidak terdeteksi (Gunakan gh auth login)' })" -ForegroundColor Gray
 
 # 3. Membuat Struktur Direktori Agent
 Write-Host "`n[3/6] Mempersiapkan Struktur Direktori Agent..." -ForegroundColor Yellow
@@ -88,7 +109,7 @@ foreach ($d in $dirs) {
 }
 
 # 4. Salin Skills ke Source Hub (~/.agents/skills)
-Write-Host "`n[4/6] Menyalin Skills ke Central Hub (~/.agents/skills)..." -ForegroundColor Yellow
+Write-Host "`n[4/6] Menyalin 192 Skills ke Central Hub (~/.agents/skills)..." -ForegroundColor Yellow
 if (Test-Path $skillsBundle) {
     robocopy $skillsBundle "$env:USERPROFILE\.agents\skills" /E /XO /NP /NFL /NDL /NJH /NJS | Out-Null
     $totalHub = (Get-ChildItem "$env:USERPROFILE\.agents\skills" -Directory).Count
@@ -111,18 +132,22 @@ if (Test-Path $syncScript) {
 }
 
 # 6. Setup Konfigurasi MCP (Antigravity, Claude, Codex)
-Write-Host "`n[6/6] Memasang Konfigurasi MCP Servers..." -ForegroundColor Yellow
+Write-Host "`n[6/6] Memasang Konfigurasi 10 MCP Servers..." -ForegroundColor Yellow
 
 # Helper untuk replace placeholder path
 function Process-Template([string]$content) {
-    $escapedAdb = $adbPath.Replace('\', '\\')
+    $escapedAdb = $androidHome.Replace('\', '\\')
     $escapedAndroid = $androidHome.Replace('\', '\\')
     $escapedArduino = $arduinoCli.Replace('\', '\\')
+    $escapedBrowser = $browserPath.Replace('\', '\\')
+    $escapedToken = if ($ghToken) { $ghToken } else { "" }
     
     return $content.
         Replace('__ANDROID_ADB_PATH__', $escapedAdb).
         Replace('__ANDROID_HOME__', $escapedAndroid).
-        Replace('__ARDUINO_CLI_PATH__', $escapedArduino)
+        Replace('__ARDUINO_CLI_PATH__', $escapedArduino).
+        Replace('__BROWSER_PATH__', $escapedBrowser).
+        Replace('__GITHUB_PERSONAL_ACCESS_TOKEN__', $escapedToken)
 }
 
 # A. Antigravity MCP Config
@@ -168,7 +193,7 @@ Write-Host "`n==========================================================" -Foreg
 Write-Host "         INSTALLASI DAN SETUP SELESAI DENGAN SUKSES!      " -ForegroundColor Green
 Write-Host "==========================================================" -ForegroundColor Cyan
 Write-Host "Ringkasan Hasil:" -ForegroundColor White
-Write-Host "1. Seluruh 183 skills kini tersedia di Antigravity, Claude, Codex, dan ~/.agents."
-Write-Host "2. MCP Servers Figma, Draw.io, Ripple, Android Emulator, Arduino, dan Better Icons siap dijalankan."
+Write-Host "1. Seluruh 192 skills kini tersedia di Antigravity, Claude, Codex, dan ~/.agents."
+Write-Host "2. 10 MCP Servers (Figma, Draw.io, Ripple, Android, Arduino, Better Icons, Playwright, Chrome DevTools, GitHub, Context7) siap dijalankan."
 Write-Host "3. Buka 'New Chat' pada ChatGPT Desktop atau Claude Desktop untuk memuat ulang skill."
 Write-Host ""

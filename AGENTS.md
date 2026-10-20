@@ -8,8 +8,8 @@
 ## Primary Agent Objective
 You are tasked with replicating this standardized multi-agent setup onto the host machine.
 This repository contains:
-1. **183 Unified Skills** in `skills/` (covering Engineering Superpowers, Matt Pocock, Ponytail, GSAP & Framer Motion Animation, Lottie Motion Design, Taste & Impeccable Craft, Humanizer & Anti-Slop Writing, Scientific Writing, Vercel React, BigQuery/GCP, Bio/Science, and Project Logging).
-2. **Standard 6 MCP Server Configurations** in `configs/` (`better-icons`, `figma`, `drawio`, `ripple`, `android-emulator`, `arduino`).
+1. **192 Unified Skills** in `skills/` (covering `skill-router` Meta-Orchestrator, Indonesian EYD V & KBBI standards, Engineering Superpowers, Matt Pocock, Ponytail, GSAP & Framer Motion Animation, Three.js 3D, Lottie Motion Design, Taste & Impeccable Craft, Humanizer & Anti-Slop Writing, Scientific Writing, Typst, Remotion, Shadcn UI, Tailwind v4, Playwright, Vercel React, BigQuery/GCP, Bio/Science, and Project Logging).
+2. **Standard 10 MCP Server Configurations** in `configs/` (`playwright`, `chrome-devtools`, `github`, `context7`, `better-icons`, `figma`, `drawio`, `ripple`, `android-emulator`, `arduino`).
 3. **Automated Setup Scripts** in `scripts/`.
 
 ---
@@ -38,9 +38,9 @@ powershell.exe -ExecutionPolicy Bypass -File ".\scripts\install-all.ps1"
 
 What `install-all.ps1` does:
 1. Creates `$HOME\.agents\skills`, `$HOME\.codex\skills`, `$HOME\.gemini\skills`, `$HOME\.claude\skills`.
-2. Copies all 183 skills to each location.
-3. Automatically detects local Android SDK & Arduino CLI paths.
-4. Generates/merges MCP configurations for Antigravity (`~/.gemini/config/mcp_config.json`), Claude Desktop (`%APPDATA%\Claude\claude_desktop_config.json`), and ChatGPT Codex (`~/.codex/config.toml`).
+2. Copies all 192 skills to each location.
+3. Automatically detects local browser path (Chrome/Edge), Android SDK, Arduino CLI, and GitHub CLI auth token.
+4. Generates/merges 10 MCP configurations for Antigravity (`~/.gemini/config/mcp_config.json`), Claude Desktop (`%APPDATA%\Claude\claude_desktop_config.json`), and ChatGPT Codex (`~/.codex/config.toml`).
 
 ---
 
@@ -67,22 +67,14 @@ Verify that the skills are properly distributed by running:
 }
 ```
 
-**On Linux/macOS (Bash):**
-```bash
-echo "Shared: $(ls -d ~/.agents/skills/* 2>/dev/null | wc -l)"
-echo "Codex:  $(ls -d ~/.codex/skills/* 2>/dev/null | wc -l)"
-echo "Gemini: $(ls -d ~/.gemini/skills/* 2>/dev/null | wc -l)"
-echo "Claude: $(ls -d ~/.claude/skills/* 2>/dev/null | wc -l)"
-```
-
-Expected result: Each directory should report the unified skill set (183 skills, plus any environment-specific overrides).
+Expected result: Each directory should report the unified skill set (192 skills, plus any environment-specific overrides).
 
 ---
 
 ### Step 4: Final Report to the User
 After successful execution, provide the user with a concise summary:
-1. Confirm that all 183 skills were successfully copied to `~/.agents`, `~/.codex`, `~/.gemini`, and `~/.claude`.
+1. Confirm that all 192 skills were successfully copied to `~/.agents`, `~/.codex`, `~/.gemini`, and `~/.claude`.
 2. Remind them to:
-   - **For ChatGPT Desktop**: Start a **New Chat** (or restart the app) so that `/grill-me` and all skills are re-indexed.
-   - **For Claude Desktop**: Restart the app so the new MCP servers (`better-icons`, `drawio`, `ripple`, etc.) are recognized.
+   - **For ChatGPT Desktop**: Start a **New Chat** (or restart the app) so that `/grill-me`, `skill-router`, and all skills are re-indexed.
+   - **For Claude Desktop**: Restart the app so the 10 MCP servers (`playwright`, `chrome-devtools`, `github`, `context7`, etc.) are recognized.
 3. Inform them that whenever they want to add new skills, they can place them into `~/.agents/skills/` and run `.\scripts\sync-skills.ps1`.

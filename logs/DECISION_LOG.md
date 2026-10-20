@@ -1,5 +1,21 @@
 # Architecture Decision Log (ADR)
 
+## [DEC-003] Meta-Skill Orchestrator Architecture (skill-router)
+- **Status**: Accepted
+- **Context**: As the skill arsenal scales past 180+ skills and 10 MCP servers, agents suffer from "skill blindness" and difficulty orchestrating complex multi-skill pipelines (e.g. chaining planning, art direction, component architecture, icon retrieval, motion, and browser verification).
+- **Decision**: Adopt the proven 6-stage lifecycle from `Liber1917/skill-router` (`ENTRY GUARD` -> `SCAN` -> `MATCH` -> `LOAD GUARD` -> `VERIFY HOOK` -> `CONTROL HOOK`) and upgrade it into a bilingual (ID/EN) meta-skill that coordinates both Skills and MCP tools, with pre-configured playbooks for Frontend Craft, Academic Writing, Bugfixing, 3D/Motion, Cloud, and Hardware.
+- **Consequences**:
+  - Positive: Guarantees reliable skill discovery and systematic multi-step execution.
+  - Positive: Drastically cuts token waste by eliminating the need to brute-force inspect entire skill trees.
+
+## [DEC-004] Formal Indonesian Language Standards Adoption (EYD V & KBBI VI)
+- **Status**: Accepted
+- **Context**: AI models frequently produce Indonesian text with machine-translation artifacts, incorrect comma usage before subordinating conjunctions (*sehingga, bahwa*), decorative em dashes, and outdated non-standard spelling.
+- **Decision**: Integrate `bahasa-inti` and `bahasa-peneliti` from `alvinindra/bahasa-skills` based on official Kepmendikbudristek No. 342/M/2022 (EYD Edisi V), KBBI Daring VI, and Ivan Lanin's linguistic frameworks.
+- **Consequences**:
+  - Positive: High-quality, publication-ready academic and content writing without AI slop.
+  - Positive: Direct adherence to Indonesian thesis (skripsi) and journal formatting standards.
+
 ## [DEC-001] Centralized Hub Pattern for Cross-Agent Skills Synchronization
 - **Status**: Accepted
 - **Context**: Different AI agent environments (Claude, Codex, Antigravity) expect skills in different directory paths (`~/.claude/skills`, `~/.codex/skills`, `~/.gemini/skills` or `~/.gemini/config/skills`). Maintaining duplicate independent directories leads to configuration drift and missing skills.

@@ -15,8 +15,13 @@ Dengan paket ini, mesin baru akan langsung memiliki konfigurasi yang **100% seta
 
 ## Apa Saja yang Ada di Dalam Bundle Ini?
 
-### 1. Koleksi 183 Unified Skills (`skills/`)
-Seluruh 183 skill sudah disusun dalam format standar `SKILL.md` yang dapat dibaca oleh seluruh agent:
+### 1. Koleksi 192 Unified Skills (`skills/`)
+Seluruh 192 skill sudah disusun dalam format standar `SKILL.md` yang dapat dibaca oleh seluruh agent:
+* **The Meta-Orchestrator (Pemandu Utama)**:
+  * `skill-router` — Pusat navigasi penentuan skill & alat MCP. Menghilangkan *skill blindness*, memetakan intensi secara bilingual (ID/EN), dan mengorkestrasi *multi-skill playbooks*.
+* **Kepenulisan Bahasa Indonesia (EYD V & KBBI Anti-Slop)**:
+  * `bahasa-inti` (`alvinindra/bahasa-skills`) — Standar baku resmi EYD Edisi V dan KBBI VI. Larangan koma sebelum *sehingga/karena/bahwa*, larangan em dash hiasan, kata baku (*silakan, sekadar, risiko, praktik, mengubah*), dan anti-slop bahasa Indonesia (*hiruk pikuk, lanskap, di era digital*).
+  * `bahasa-peneliti` (`alvinindra/bahasa-skills`) — Khusus karya ilmiah, draf skripsi, tesis, dan jurnal. Larangan keras sitasi fiktif/halu, latar belakang berdata + kesenjangan riset (*research gap*), serta kalimat efektif akademik.
 * **Engineering Skills (`obra/superpowers`)**:
   * `test-driven-development` (TDD)
   * `systematic-debugging` (investigasi bug terstruktur)
@@ -34,19 +39,26 @@ Seluruh 183 skill sudah disusun dalam format standar `SKILL.md` yang dapat dibac
   * `taste-skill` / `design-taste-frontend` (`Leonxlnx/taste-skill`) — Anti-slop frontend art direction dari 247 curated gallery sites.
   * `hallmark` (`Nutlope/hallmark`) — Next-gen design taste dan modern frontend patterns.
   * `better-icons` (`better-auth/better-icons`) — Integrasi dan pencarian 200.000+ ikon dari 150+ pustaka ikon.
+  * `shadcn-ui` — Pola arsitektur komponen berbasis Radix UI primitives dan CLI generator.
+  * `tailwind-v4` — Panduan CSS-first `@theme` Tailwind CSS v4 terbaru.
   * `ui-ux-pro-max`, `frontend-design`, `web-design-guidelines`
   * `vercel-react-best-practices`, `vercel-optimize`, `vercel-composition-patterns`
-* **Motion & Animation Suite**:
+* **Motion, 3D & Creative Web**:
+  * `threejs-fiber` — 3D WebGL, Three.js, React Three Fiber (R3F), GLSL shaders, dan kanvas 3D interaktif.
   * `framer-motion` — Animasi produksi tinggi untuk React & modern `motion/react` (v12+), gesture, layoutId, AnimatePresence, dan SSR.
   * `motion-design` (`LottieFiles/motion-design-skill`) — Prinsip gerak, Disney principles adapted for UI, koreografi multi-elemen.
   * `lottie-maker` (`FWcloud916/skill-lottie-maker`) — Diagnostik, inspeksi, dan pembuatan bundel animasi portabel Lottie JSON.
   * **GSAP Animation Suite (8 skills)**: `gsap-core`, `gsap-frameworks`, `gsap-performance`, `gsap-plugins`, `gsap-react`, `gsap-scrolltrigger`, `gsap-timeline`, `gsap-utils`
-* **Anti-AI Writing & Prose Refining**:
+  * `remotion` — Pembuatan animasi video terprogram menggunakan React dan TypeScript.
+* **Testing & Quality Assurance**:
+  * `playwright` — Otomasi browser E2E, interaksi klik/form, evaluasi visual, dan tangkapan layar web live.
+* **Anti-AI Writing & Prose Refining (English & Universal)**:
   * `humanizer` (`blader/humanizer`) — Menghilangkan tanda-tanda teks buatan AI berdasarkan Wikipedia "Signs of AI writing" agar terdengar otentik.
   * `stop-slop` (`hardikpandya/stop-slop`) — Memotong filler phrases, formula buatan AI, kalimat pasif, dan adverb berlebihan.
 * **Scientific & Academic Writing (`k-dense-ai`)**:
   * `scientific-writing` (struktur bab ilmiah, metodologi, narasi tesis/jurnal)
   * `paper-lookup` (pencarian sitasi dan literatur)
+  * `typst` — Typesetting modern pengganti LaTeX untuk dokumen ilmiah & laporan berpresisi tinggi.
   * Dokumen akademik: `academic-pptx`, `pptx`, `docx`, `xlsx`, `pdf`
 * **Cloud & Big Data**:
   * 34 skills Google Cloud Platform, BigQuery, BigLake, Dataproc, GCS
@@ -57,8 +69,12 @@ Seluruh 183 skill sudah disusun dalam format standar `SKILL.md` yang dapat dibac
 
 ---
 
-### 2. Standar 6 MCP Servers (`configs/`)
+### 2. Standar 10 MCP Servers (`configs/`)
 Konfigurasi MCP yang seragam di seluruh agent:
+* **`playwright` (`@playwright/mcp@latest`)**: Otomasi browser E2E, interaksi klik/form, evaluasi visual, dan tangkapan layar web *live*.
+* **`chrome-devtools` (`chrome-devtools-mcp@latest`)**: Inspeksi network tab, console error, dan manipulasi DOM langsung pada Edge atau Chrome.
+* **`github` (`@modelcontextprotocol/server-github`)**: Review PR, triage issues, pencarian kode lintas repo via token `gh` yang aktif.
+* **`context7` (`@upstash/context7-mcp`)**: Dokumentasi *real-time* library terkini (Next.js 15, Tailwind v4, React 19, Motion v12) langsung ke prompt.
 * **`better-icons` (`better-icons`)**: Cari dan pasang langsung 200.000+ ikon dari 150+ pustaka ikon (Lucide, Heroicons, Material, dll.) ke proyek tanpa manual copy-paste SVG.
 * **`figma` (`https://mcp.figma.com/mcp`)**: Integrasi desain resmi Figma via Streamable HTTP untuk seluruh agent.
 * **`drawio` (`@drawio/mcp`)**: Membuat dan membuka diagram alir / arsitektur Draw.io langsung dari prompt.
@@ -82,9 +98,9 @@ Konfigurasi MCP yang seragam di seluruh agent:
    ```
 4. **Selesai!** Script secara otomatis:
    * Membuat folder `~/.agents/skills`, `~/.codex/skills`, `~/.gemini/skills`, dan `~/.claude/skills`.
-   * Menyalin seluruh 183 skills ke seluruh direktori agent.
-   * Mendeteksi path Android SDK dan Arduino CLI di mesin baru.
-   * Memasang konfigurasi MCP ke Claude Desktop, Antigravity, dan ChatGPT Codex.
+   * Menyalin seluruh 192 skills ke seluruh direktori agent.
+   * Mendeteksi browser target (Chrome/Edge), Android SDK, Arduino CLI, dan token GitHub CLI.
+   * Memasang konfigurasi 10 server MCP ke Claude Desktop, Antigravity, dan ChatGPT Codex.
 
 ---
 
@@ -99,58 +115,35 @@ Konfigurasi MCP yang seragam di seluruh agent:
 
 ---
 
-## Cara Menambah Skill Baru di Kemudian Hari
-
-Untuk menjaga seluruh agent tetap setara ketika Anda ingin menambahkan skill baru:
-
-1. **Buat atau unduh skill baru** ke dalam folder Central Hub:
-   ```
-   C:\Users\<User>\.agents\skills\<nama-skill>\SKILL.md
-   ```
-   *(Atau unduh menggunakan command: `npx skills add <nama-repo> -g`)*
-2. **Jalankan script sinkronisasi**:
-   ```powershell
-   powershell -File "path\to\universal-agent-setup\scripts\sync-skills.ps1"
-   ```
-3. Script akan menyalin skill baru tersebut secara serentak ke `.codex\skills`, `.gemini\skills`, dan `.claude\skills`.
-
----
-
-## Catatan Khusus & Troubleshooting Tiap Agent
-
-### 1. ChatGPT Desktop (Codex) & "Work Mode"
-* **Kenapa slash command (seperti `/grill-me`) belum muncul?**
-  * Sesi chat yang sedang terbuka menyimpan cache tool pada saat percakapan dibuat.
-  * **Solusi**: Mulai **New Chat** (atau restart ChatGPT Desktop). Di chat baru, ketikkan `/grill-me` dan skill akan langsung aktif.
-* **Work Mode (Work with Apps)**:
-  * Tidak memerlukan konfigurasi manual di dalam UI app. Aplikasi membaca file konfigurasi global di `~/.codex/config.toml` dan `~/.codex/skills/`.
-
-### 2. Claude Desktop
-* Konfigurasi tersimpan di `%APPDATA%\Claude\claude_desktop_config.json`.
-* Claude Desktop memuat server MCP saat aplikasi dibuka. Jika mengubah konfigurasi MCP, cukup tutup dan buka kembali Claude Desktop.
-
-### 3. Antigravity (IDE & CLI)
-* Konfigurasi MCP tersimpan di `~/.gemini/config/mcp_config.json`.
-* Antigravity membaca skill dari `~/.gemini/skills/` secara global, atau dari folder `.agents/skills` di dalam workspace proyek aktif.
-
----
-
 ## Struktur Direktori Bundle
 
 ```text
 universal-agent-setup/
 ├── README.md                           <-- Dokumen panduan ini
-├── agent-setup-bundle.zip              <-- Arsip zip siap kirim
+├── agent-setup-bundle.zip              <-- Arsip zip siap kirim (192 skills + 10 MCP)
+├── logs/
+│   ├── ACTIVITY_LOG.md                 <-- Log sesi kerja & histori instalasi
+│   ├── DECISION_LOG.md                 <-- Architecture Decision Records (ADR)
+│   └── CHANGELOG.md                    <-- Riwayat rilis Keep a Changelog
 ├── configs/
 │   ├── AGENTS.md                       <-- Standar protokol multi-agent portofolio
-│   ├── antigravity-mcp_config.json     <-- Template MCP Antigravity
-│   ├── claude_desktop_config.json      <-- Template MCP Claude Desktop
-│   └── codex_config.toml               <-- Template MCP & settings ChatGPT Codex
+│   ├── antigravity-mcp_config.json     <-- Template MCP Antigravity (10 server)
+│   ├── claude_desktop_config.json      <-- Template MCP Claude Desktop (10 server)
+│   └── codex_config.toml               <-- Template MCP & settings ChatGPT Codex (10 server)
 ├── scripts/
 │   ├── install-all.ps1                 <-- Script master installer Windows
 │   ├── sync-skills.ps1                 <-- Script sinkronisasi ulang skills
 │   └── install-all.sh                  <-- Script installer macOS/Linux
-└── skills/                             <-- 183 direktori skills lengkap
+└── skills/                             <-- 192 direktori skills lengkap
+    ├── skill-router/                   <-- The Meta-Orchestrator
+    ├── bahasa-inti/                    <-- EYD V & KBBI Anti-Slop (Alvin Indra)
+    ├── bahasa-peneliti/                <-- Karya Ilmiah & Skripsi (Alvin Indra)
+    ├── playwright/                     <-- E2E Browser Testing
+    ├── threejs-fiber/                  <-- 3D WebGL & R3F
+    ├── shadcn-ui/                      <-- Radix Primitives Architecture
+    ├── tailwind-v4/                    <-- Modern CSS-first @theme
+    ├── typst/                          <-- Modern Scientific Typesetting
+    ├── remotion/                       <-- Programmatic Video Creation
     ├── better-icons/
     ├── framer-motion/
     ├── hallmark/
@@ -160,11 +153,5 @@ universal-agent-setup/
     ├── motion-design/
     ├── stop-slop/
     ├── taste-skill/
-    ├── grill-me/
-    ├── grilling/
-    ├── test-driven-development/
-    ├── systematic-debugging/
-    ├── ponytail/
-    ├── scientific-writing/
-    └── ... (168 skills lainnya)
+    └── ... (174 skills lainnya)
 ```
