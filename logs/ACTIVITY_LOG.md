@@ -1,5 +1,17 @@
 # Activity Log
 
+## [2026-10-21 01:10 +07:00] - Documentation, Attribution & Governance (v1.3.1)
+- **Agent Identity / Role**: Antigravity Assistant (AI Systems Architect)
+- **Session Goal**: Add full upstream attribution catalog (`SOURCES.md`), establish compilation MIT license with third-party open-source disclaimer (`LICENSE`), enrich `README.md` with personal-use disclaimer and shields badges, and integrate `readme-generator` skill (bringing total skills to 193).
+- **Actions Taken**:
+  1. Drafted `SOURCES.md` documenting upstream authors, repos, and licenses across all 193 skills and 10 MCP servers.
+  2. Established `LICENSE` (MIT) with explicit third-party attribution notice.
+  3. Installed `readme-generator` skill from `kimduhee7524/readme-generator` into Hub, local agents, and remote repo.
+  4. Updated `README.md` with open workstation disclaimer, shields.io badges, and links to `SOURCES.md` and `LICENSE`.
+  5. Updated `scripts/install-all.ps1` and `AGENTS.md` to reflect 193 skills.
+  6. Rebuilt `agent-setup-bundle.zip` (20.35 MB).
+  7. Synchronized all local agents via `sync-agents.ps1`.
+
 ## [2026-10-21 01:00 +07:00] - Phase 2 Expansion: Meta-Orchestrator, Indonesian EYD/KBBI, Playwright, 3D & 4 New MCP Servers (Total 192 Skills & 10 MCP Servers)
 - **Agent Identity / Role**: Antigravity Assistant (AI Systems Architect)
 - **Session Goal**: Add 9 new skills including `skill-router` (Meta-Orchestrator), Indonesian EYD V & KBBI suite (`bahasa-inti`, `bahasa-peneliti`), `playwright`, `threejs-fiber`, `shadcn-ui`, `tailwind-v4`, `typst`, and `remotion`. Add 4 new MCP servers (`playwright`, `chrome-devtools`, `github`, `context7`) bringing total skills to 192 and MCP servers to 10.

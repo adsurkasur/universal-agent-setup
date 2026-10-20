@@ -4,6 +4,17 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.3.1] - 2026-10-21
+
+### Added
+- **Attribution & Transparency**: Added `SOURCES.md` comprehensively detailing upstream authors, repositories, and licenses across all 193 skills and 10 MCP servers.
+- **Repository License**: Added `LICENSE` (MIT) with explicit third-party open-source disclaimer for compilation copyright.
+- **`readme-generator` Skill**: Professional README auditing and creation tool (total skills increased from 192 to 193).
+
+### Changed
+- **README Overhaul**: Enhanced `README.md` with shields.io badges, personal workstation usage disclaimer, and direct links to `SOURCES.md` and `LICENSE`.
+- Rebuilt `agent-setup-bundle.zip` (20.35 MB).
+
 ## [1.3.0] - 2026-10-21
 
 ### Added

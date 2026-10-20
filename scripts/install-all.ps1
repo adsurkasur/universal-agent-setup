@@ -3,7 +3,7 @@
     Automated Multi-Agent Setup & Skills Installer for Windows.
 .DESCRIPTION
     Script instalasi lengkap untuk mereplikasi seluruh konfigurasi AI Agent:
-    - 192 Unified Skills (Engineering Superpowers, Matt Pocock, Ponytail, GSAP, Motion Design, Framer Motion, Taste/Impeccable, Bahasa Indonesia EYD V & KBBI, Scientific Writing, Vercel, Bio/Science, Playwright, Three.js, Shadcn UI, Tailwind v4, Typst, Remotion, Skill Router, dll.)
+    - 193 Unified Skills (Engineering Superpowers, Matt Pocock, Ponytail, GSAP, Motion Design, Framer Motion, Taste/Impeccable, Bahasa Indonesia EYD V & KBBI, Scientific Writing, Vercel, Bio/Science, Playwright, Three.js, Shadcn UI, Tailwind v4, Typst, Remotion, Readme Generator, Skill Router, dll.)
     - Sinkronisasi ke 4 Direktori: ~/.agents, ~/.codex, ~/.gemini, dan ~/.claude
     - Setup Konfigurasi 10 MCP Servers (Figma, Draw.io, Ripple, Android Emulator, Arduino, Better Icons, Playwright, Chrome DevTools, GitHub, Context7)
 #>
@@ -109,7 +109,7 @@ foreach ($d in $dirs) {
 }
 
 # 4. Salin Skills ke Source Hub (~/.agents/skills)
-Write-Host "`n[4/6] Menyalin 192 Skills ke Central Hub (~/.agents/skills)..." -ForegroundColor Yellow
+Write-Host "`n[4/6] Menyalin 193 Skills ke Central Hub (~/.agents/skills)..." -ForegroundColor Yellow
 if (Test-Path $skillsBundle) {
     robocopy $skillsBundle "$env:USERPROFILE\.agents\skills" /E /XO /NP /NFL /NDL /NJH /NJS | Out-Null
     $totalHub = (Get-ChildItem "$env:USERPROFILE\.agents\skills" -Directory).Count
@@ -193,7 +193,7 @@ Write-Host "`n==========================================================" -Foreg
 Write-Host "         INSTALLASI DAN SETUP SELESAI DENGAN SUKSES!      " -ForegroundColor Green
 Write-Host "==========================================================" -ForegroundColor Cyan
 Write-Host "Ringkasan Hasil:" -ForegroundColor White
-Write-Host "1. Seluruh 192 skills kini tersedia di Antigravity, Claude, Codex, dan ~/.agents."
+Write-Host "1. Seluruh 193 skills kini tersedia di Antigravity, Claude, Codex, dan ~/.agents."
 Write-Host "2. 10 MCP Servers (Figma, Draw.io, Ripple, Android, Arduino, Better Icons, Playwright, Chrome DevTools, GitHub, Context7) siap dijalankan."
 Write-Host "3. Buka 'New Chat' pada ChatGPT Desktop atau Claude Desktop untuk memuat ulang skill."
 Write-Host ""
