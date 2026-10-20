@@ -90,6 +90,13 @@ Workstation ini memiliki 190+ skill dan 10 server MCP. Gunakan playbook siap pak
   1. `arduino` [MCP] (Kompilasi & upload sketch via Arduino CLI)
   2. `android-emulator` [MCP] (Otomasi UI & inspeksi emulator Android)
 
+### Playbook G: Repository Polish, Documentation & Release Readiness
+**Pemicu**: Menyiapkan rilis open-source, merapikan repositori, membuat README profesional, menambahkan badge & arsitektur, audit log & atribusi.
+* **Alur Eksekusi**:
+  1. `readme-generator` (Deep scan repo, ekstrak stack/scripts, generate README standar GitHub)
+  2. `project-logger` (Pencatatan sesi, pembaruan CHANGELOG & DECISION_LOG)
+  3. `github` [MCP] (Sinkronisasi issue, push commits, buat release PR)
+
 ---
 
 ## 3. Matriks Keputusan MCP Server
