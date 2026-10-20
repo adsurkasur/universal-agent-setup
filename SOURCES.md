@@ -1,6 +1,6 @@
 # Upstream Sources & Attribution Catalog
 
-Dokumen ini memuat atribusi lengkap, pencipta asli (*upstream authors*), lisensi, dan tautan repositori sumber untuk seluruh **192 Agent Skills** dan **10 Server MCP** yang terkurasi di dalam repositori ini.
+Dokumen ini memuat atribusi lengkap, pencipta asli (*upstream authors*), lisensi, dan tautan repositori sumber untuk seluruh **193 Agent Skills** dan **10 Server MCP** yang terkurasi di dalam repositori ini.
 
 Repositori ini berperan sebagai sistem distribusi, orkestrator, dan kurator multi-mesin (*compilation & distribution framework*). Hak cipta atas masing-masing skill dan perkakas tetap dimiliki sepenuhnya oleh para pencipta aslinya masing-masing.
 
