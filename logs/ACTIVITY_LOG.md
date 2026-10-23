@@ -1,5 +1,16 @@
 # Activity Log
 
+## [2026-10-23 15:40 +07:00] - Release v1.4.0: Presentation Engineering (deck-builder) & Reverse Engineering (REA)
+- **Agent Identity / Role**: Antigravity Assistant (AI Systems Architect)
+- **Session Goal**: Integrate `deck-builder` and `reverse-engineer-anything` into the repository and synchronize across all 64 workstation agent hubs.
+- **Actions Taken**:
+  1. Deployed `deck-builder` (Universal Presentation Engineering) with PptxGenJS and Sharp support to Hub and repository.
+  2. Deployed `reverse-engineer-anything` (REA Suite) with 207 MCP tools and 153 CLI commands across all 64 local agent directories.
+  3. Configured Node runtime dependencies (`pptxgenjs@4.0.1`, `sharp@0.35.5`, `react@19.3.1`, `react-dom@19.3.1`, `react-icons@5.7.0`) and permanent `%NODE_PATH%` resolution.
+  4. Tested end-to-end slide generation on 20-slide analytical lecture deck (*Gradient Boosting: Dari Nol Hingga Pakar*).
+  5. Updated `README.md`, `AGENTS.md`, `SOURCES.md`, `install-all.ps1`, `DECISION_LOG.md`, `CHANGELOG.md`.
+  6. Rebuilt `agent-setup-bundle.zip` (195 skills total).
+
 ## [2026-10-22 21:58 +07:00] - Full Parity Update: Remote (GitHub) to Local Hub & Multi-Agent Targets
 - **Agent Identity / Role**: Antigravity Assistant (AI Systems Architect)
 - **Session Goal**: Synchronize 28 updated skills from remote repository (`origin/main`) to local hub (`~/.agents/skills`) and propagate to all target runtimes (`~/.codex`, `~/.gemini`, `~/.claude`), achieving 100% bit-for-bit parity across all 193 skills.

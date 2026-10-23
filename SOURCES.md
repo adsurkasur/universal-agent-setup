@@ -1,6 +1,6 @@
 # Upstream Sources & Attribution Catalog
 
-Dokumen ini memuat atribusi lengkap, pencipta asli (*upstream authors*), lisensi, dan tautan repositori sumber untuk seluruh **193 Agent Skills** dan **10 Server MCP** yang terkurasi di dalam repositori ini.
+Dokumen ini memuat atribusi lengkap, pencipta asli (*upstream authors*), lisensi, dan tautan repositori sumber untuk seluruh **195 Agent Skills** dan **10 Server MCP** yang terkurasi di dalam repositori ini.
 
 Repositori ini berperan sebagai sistem distribusi, orkestrator, dan kurator multi-mesin (*compilation & distribution framework*). Hak cipta atas masing-masing skill dan perkakas tetap dimiliki sepenuhnya oleh para pencipta aslinya masing-masing.
 
@@ -111,6 +111,20 @@ Repositori ini berperan sebagai sistem distribusi, orkestrator, dan kurator mult
 | Kumpulan Skill | Sumber Asli & Pangkalan Data | Lisensi |
 | :--- | :--- | :--- |
 | `alphafold_database_fetch_and_analyze`, `alphagenome_atlas_website_links`, `alphagenome_single_variant_analysis`, `alphagenome_variant_impact_score`, `biomolecular_structure_viewer`, `chembl_database`, `clinical_trials_database`, `clinvar_database`, `credentials`, `dbsnp_database`, `embl_ebi_ols`, `encode_ccres_database`, `ensembl_database`, `foldseek_structural_search`, `gnomad_database`, `gtex_database`, `human_protein_atlas_database`, `interpro_database`, `jaspar_database`, `literature-search-arxiv`, `literature-search-biorxiv`, `literature-search-europepmc`, `literature-search-openalex`, `ncbi_sequence_fetch`, `openfda_database`, `opentargets_database`, `pdb_database`, `predictingthepast`, `protein-sequence-msa`, `protein-sequence-similarity-search`, `pubchem_database`, `pubmed_database`, `pymol`, `quickgo_database`, `reactome_database`, `string_database`, `ucsc_conservation_and_tfbs`, `unibind_database`, `uniprot_database`, `uv`, `workflow_skill_creator` | **Google DeepMind Science Plugin, EMBL-EBI, NCBI, AlphaFold DB, PDB, NIH** | Open Data / Open Source |
+
+---
+
+### N. Presentation Engineering Suite
+| Skill | Pencipta / Sumber Asli | Repositori Asal | Lisensi |
+| :--- | :--- | :--- | :--- |
+| `deck-builder` | **Ade Surya Ananda** | Distilasi Produksi Presentation Engineering Framework (PptxGenJS & Sharp) | MIT |
+
+---
+
+### O. Reverse Engineering & Binary Analysis Suite
+| Skill | Pencipta / Sumber Asli | Repositori Asal | Lisensi |
+| :--- | :--- | :--- | :--- |
+| `reverse-engineer-anything` | **morluto** | [`morluto/rea`](https://github.com/morluto/rea) | MIT |
 
 ---
 

@@ -1,5 +1,15 @@
 # Architecture Decision Log (ADR)
 
+## [DEC-005] Presentation Engineering (deck-builder) & Reverse Engineering (REA)
+- **Status**: Accepted
+- **Context**: AI agents often produce PowerPoint presentations with generic templated layouts, stretched images, and manual typos in analytical figures. Furthermore, agents lacked a standardized reverse-engineering suite for inspecting binaries, web bundles, and native packages.
+- **Decision**: 
+  1. Integrate `deck-builder`, establishing a dual-mode presentation architecture (Talk Mode for narrative persuasion and Analytical Mode for academic defense) using PptxGenJS and Sharp image pre-cropping.
+  2. Integrate `reverse-engineer-anything` (REA by morluto) providing 207 MCP tools and 153 CLI commands for deep multi-target decompilation, disassembly, and dynamic runtime observation.
+- **Consequences**:
+  - Positive: Guarantees publication-grade, aspect-ratio-accurate PPTX generation directly from agent code without manual polishing.
+  - Positive: Equips all 64 workstation agents with binary, managed, web, and firmware reverse engineering capabilities out-of-the-box.
+
 ## [DEC-003] Meta-Skill Orchestrator Architecture (skill-router)
 - **Status**: Accepted
 - **Context**: As the skill arsenal scales past 180+ skills and 10 MCP servers, agents suffer from "skill blindness" and difficulty orchestrating complex multi-skill pipelines (e.g. chaining planning, art direction, component architecture, icon retrieval, motion, and browser verification).

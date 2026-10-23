@@ -1,6 +1,6 @@
 # Universal AI Agent Setup & Skills Bundle (Multi-Machine)
 
-[![Skills](https://img.shields.io/badge/Skills-193%20Unified%20Skills-blue?style=for-the-badge&logo=anthropic)](./skills/)
+[![Skills](https://img.shields.io/badge/Skills-195%20Unified%20Skills-blue?style=for-the-badge&logo=anthropic)](./skills/)
 [![MCP Servers](https://img.shields.io/badge/MCP%20Servers-10%20Active-green?style=for-the-badge&logo=fastapi)](./configs/)
 [![License](https://img.shields.io/badge/License-MIT-orange?style=for-the-badge)](./LICENSE)
 [![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20macOS%20%7C%20Linux-lightgrey?style=for-the-badge&logo=windows)](./scripts/)
@@ -14,7 +14,7 @@
 
 > **Repositori ini awalnya dibuat dan dikelola untuk menyinkronkan ekosistem AI Agent pribadi saya antar-mesin (laptop dan desktop)** agar memiliki standar kemampuan, *skills*, dan perkakas MCP yang 100% seragam.
 > 
-> Namun, seluruh konfigurasi, arsitektur *router*, skrip otomasi, serta kurasi **193 skills** dan **10 MCP servers** di sini dirancang secara terbuka dan modular. **Jika bundel ini bermanfaat untuk setup produktivitas Anda, silakan gunakan, fork, atau adaptasi dengan bebas!**
+> Namun, seluruh konfigurasi, arsitektur *router*, skrip otomasi, serta kurasi **195 skills** dan **10 MCP servers** di sini dirancang secara terbuka dan modular. **Jika bundel ini bermanfaat untuk setup produktivitas Anda, silakan gunakan, fork, atau adaptasi dengan bebas!**
 
 Dengan bundel ini, setiap mesin baru akan langsung memiliki lingkungan kerja yang setara untuk 4 platform agent utama:
 1. **Google Antigravity** (IDE & CLI)
@@ -26,8 +26,8 @@ Dengan bundel ini, setiap mesin baru akan langsung memiliki lingkungan kerja yan
 
 ## 🌟 Apa Saja yang Ada di Dalam Bundle Ini?
 
-### 1. Koleksi 193 Unified Skills (`skills/`)
-Seluruh 193 skill tersusun dalam format standar `SKILL.md` (progressive disclosure) yang didukung oleh berbagai agen:
+### 1. Koleksi 195 Unified Skills (`skills/`)
+Seluruh 195 skill tersusun dalam format standar `SKILL.md` (progressive disclosure) yang didukung oleh berbagai agen:
 
 * **The Meta-Orchestrator (Pusat Navigasi Utama)**:
   * `skill-router` — Otomatis menganalisis maksud prompt secara bilingual (ID/EN), menghilangkan *skill blindness*, memetakan alat MCP yang relevan, dan menjalankan *multi-skill playbooks*.
@@ -62,7 +62,10 @@ Seluruh 193 skill tersusun dalam format standar `SKILL.md` (progressive disclosu
 * **Scientific Writing & Documentation**:
   * `typst` — Typesetting modern pengganti LaTeX untuk dokumen ilmiah & laporan berpresisi tinggi.
   * `readme-generator` (`kimduhee7524/readme-generator`) — Pembuatan dokumentasi README repositori berstandar profesional.
+  * `deck-builder` (Ade Surya Ananda) — Universal presentation engineering framework (Talk & Analytical modes, PptxGenJS, Sharp image aspect-fit, zero manual number binding).
   * `scientific-writing`, `paper-lookup`, `academic-pptx`, `pptx`, `docx`, `xlsx`, `pdf`.
+* **Reverse Engineering, Binary Analysis & System Diagnostics**:
+  * `reverse-engineer-anything` (`morluto/rea`) — Universal reverse engineering engine untuk native binaries, managed artifacts (PE/CLI), Electron/JS web bundles, APK Android, dan firmware dengan 207 MCP tools terintegrasi.
 * **Cloud & Big Data**:
   * 34 skills Google Cloud Platform, BigQuery, BigLake, Dataproc, GCS.
 * **Sains Hayati & Genomika**:
@@ -101,7 +104,7 @@ Konfigurasi MCP yang seragam di seluruh agent:
    ```
 3. **Selesai!** Script secara otomatis:
    * Menyiapkan folder `~/.agents/skills`, `~/.codex/skills`, `~/.gemini/skills`, dan `~/.claude/skills`.
-   * Menyalin seluruh **193 skills** ke seluruh direktori agent.
+   * Menyalin seluruh **195 skills** ke seluruh direktori agent.
    * Mendeteksi browser target (Chrome/Edge), Android SDK, Arduino CLI, dan token GitHub CLI.
    * Memasang konfigurasi **10 server MCP** ke Claude Desktop, Antigravity, dan ChatGPT Codex.
 

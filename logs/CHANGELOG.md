@@ -4,6 +4,19 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.4.0] - 2026-10-23
+
+### Added
+- **2 New Unified Skills** (total skills increased from 193 to 195):
+  - `deck-builder`: Universal presentation engineering framework supporting Talk Mode (narrative, vector illustrations, exact photo cropping via Sharp) and Analytical Mode (assertion takeaways, method steps, zebra-striped data tables, zero manual number binding) using PptxGenJS and Sharp.
+  - `reverse-engineer-anything` (REA): Universal reverse engineering suite by `morluto` for analyzing native binaries, managed artifacts (PE/CLI), Electron/JS web bundles, APKs, and firmware with 207 MCP tools.
+- **Node.js Global Dependencies**: Provisioned `pptxgenjs`, `sharp`, `react`, `react-dom`, and `react-icons` with permanent `%NODE_PATH%` configuration.
+- **Multi-Agent Hub Distribution**: Synchronized across 64 AI agent hubs on workstation.
+
+### Changed
+- Rebuilt `agent-setup-bundle.zip` to include all 195 unified skills.
+- Updated `README.md`, `AGENTS.md`, `SOURCES.md`, `scripts/install-all.ps1`, `DECISION_LOG.md`, and `ACTIVITY_LOG.md`.
+
 ## [1.3.1] - 2026-10-21
 
 ### Added
