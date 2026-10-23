@@ -97,6 +97,20 @@ Workstation ini memiliki 190+ skill dan 10 server MCP. Gunakan playbook siap pak
   2. `project-logger` (Pencatatan sesi, pembaruan CHANGELOG & DECISION_LOG)
   3. `github` [MCP] (Sinkronisasi issue, push commits, buat release PR)
 
+### Playbook H: Presentation Engineering & Slide Decks
+**Pemicu**: Membuat slide presentasi PowerPoint/deck (.pptx), pitch deck bisnis, kuliah teknis/akademik, atau visual briefing.
+* **Alur Eksekusi**:
+  1. `deck-builder` (Talk Mode vs Analytical Mode, kalkulasi layout presisi, styling PptxGenJS & visual cropping Sharp)
+  2. `bahasa-inti` (Jika naskah berbahasa Indonesia: kepatuhan tata bahasa EYD V baku)
+  3. `better-icons` [MCP] (Ekstraksi SVG/vektor untuk visual slide pendukung)
+
+### Playbook I: Reverse Engineering & Deep Binary/Code Auditing
+**Pemicu**: Dekompilasi APK/Android, bedah executable biner (PE/ELF/Mach-O), audit bundle JavaScript/Electron yang di-minify/obfuscate, analisis firmware, atau observasi runtime/memori.
+* **Alur Eksekusi**:
+  1. `reverse-engineer-anything` (REA suite: inspeksi header/metadata, disassembler, dekompiler, string/symbol recovery)
+  2. `systematic-debugging` (Isolasi alur eksekusi & identifikasi fungsi kunci)
+  3. `accidental-data-loss-prevention` (Integritas lingkungan & keamanan eksekusi)
+
 ---
 
 ## 3. Matriks Keputusan MCP Server
