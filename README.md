@@ -1,7 +1,7 @@
 # Universal AI Agent Setup & Skills Bundle (Multi-Machine)
 
-[![Skills](https://img.shields.io/badge/Skills-195%20Unified%20Skills-blue?style=for-the-badge&logo=anthropic)](./skills/)
-[![MCP Servers](https://img.shields.io/badge/MCP%20Servers-10%20Active-green?style=for-the-badge&logo=fastapi)](./configs/)
+[![Skills](https://img.shields.io/badge/Skills-196%20Unified%20Skills-blue?style=for-the-badge&logo=anthropic)](./skills/)
+[![MCP Servers](https://img.shields.io/badge/MCP%20Servers-11%20Active-green?style=for-the-badge&logo=fastapi)](./configs/)
 [![License](https://img.shields.io/badge/License-MIT-orange?style=for-the-badge)](./LICENSE)
 [![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20macOS%20%7C%20Linux-lightgrey?style=for-the-badge&logo=windows)](./scripts/)
 
@@ -14,7 +14,7 @@
 
 > **Repositori ini awalnya dibuat dan dikelola untuk menyinkronkan ekosistem AI Agent pribadi saya antar-mesin (laptop dan desktop)** agar memiliki standar kemampuan, *skills*, dan perkakas MCP yang 100% seragam.
 > 
-> Namun, seluruh konfigurasi, arsitektur *router*, skrip otomasi, serta kurasi **195 skills** dan **10 MCP servers** di sini dirancang secara terbuka dan modular. **Jika bundel ini bermanfaat untuk setup produktivitas Anda, silakan gunakan, fork, atau adaptasi dengan bebas!**
+> Namun, seluruh konfigurasi, arsitektur *router*, skrip otomasi, serta kurasi **196 skills** dan **11 MCP servers** di sini dirancang secara terbuka dan modular. **Jika bundel ini bermanfaat untuk setup produktivitas Anda, silakan gunakan, fork, atau adaptasi dengan bebas!**
 
 Dengan bundel ini, setiap mesin baru akan langsung memiliki lingkungan kerja yang setara untuk 4 platform agent utama:
 1. **Google Antigravity** (IDE & CLI)
@@ -26,7 +26,7 @@ Dengan bundel ini, setiap mesin baru akan langsung memiliki lingkungan kerja yan
 
 ## 🌟 Apa Saja yang Ada di Dalam Bundle Ini?
 
-### 1. Koleksi 195 Unified Skills (`skills/`)
+### 1. Koleksi 196 Unified Skills (`skills/`)
 Seluruh 195 skill tersusun dalam format standar `SKILL.md` (progressive disclosure) yang didukung oleh berbagai agen:
 
 * **The Meta-Orchestrator (Pusat Navigasi Utama)**:
@@ -68,12 +68,14 @@ Seluruh 195 skill tersusun dalam format standar `SKILL.md` (progressive disclosu
   * `reverse-engineer-anything` (`morluto/rea`) — Universal reverse engineering engine untuk native binaries, managed artifacts (PE/CLI), Electron/JS web bundles, APK Android, dan firmware dengan 207 MCP tools terintegrasi.
 * **Cloud & Big Data**:
   * 34 skills Google Cloud Platform, BigQuery, BigLake, Dataproc, GCS.
+* **Mobile & App Publishing**:
+  * `play-console` — Manajemen rilis Google Play Console, audit bundle/APK, staged rollout, reviews, dan Android Vitals.
 * **Sains Hayati & Genomika**:
   * 32 skills pencarian struktur & genomika (AlphaFold, AlphaGenome, Biomolecular Mol*, ChEMBL, PDB, PubMed, UniProt, ClinVar, dbSNP, dll.).
 
 ---
 
-### 2. Standar 10 MCP Servers (`configs/`)
+### 2. Standar 11 MCP Servers (`configs/`)
 Konfigurasi MCP yang seragam di seluruh agent:
 1. **`playwright` (`@playwright/mcp@latest`)**: Otomasi browser E2E, klik/form, evaluasi visual, dan tangkapan layar web *live*.
 2. **`chrome-devtools` (`chrome-devtools-mcp@latest`)**: Inspeksi network tab, console error, dan DOM (otomatis mendeteksi Edge atau Chrome).
@@ -85,6 +87,7 @@ Konfigurasi MCP yang seragam di seluruh agent:
 8. **`ripple` (`@ytsuda/ripple@latest`)**: Terminal emulator native ConPTY untuk eksekusi konsol Windows interaktif.
 9. **`android-emulator` (`mcp-android-emulator`)**: Otomasi pengujian UI, screenshot, gesture, dan inspeksi tree emulator Android.
 10. **`arduino` (`arduino-mcp-server`)**: Kompilasi dan flashing sketch mikrokontroler via Arduino CLI.
+11. **`play-console` (`@orellbuehler/play-console-mcp@0.3.1`)**: Query Google Play Console, rilis aplikasi (internal, alpha, beta, production), staged rollout, Android Vitals (crash, ANR), dan review pengguna.
 
 ---
 

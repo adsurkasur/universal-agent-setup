@@ -86,7 +86,13 @@ Write-Host "  Android SDK Root : $androidHome" -ForegroundColor Gray
 Write-Host "  ADB Executable   : $adbPath" -ForegroundColor Gray
 Write-Host "  Arduino CLI Path : $arduinoCli" -ForegroundColor Gray
 Write-Host "  Target Browser   : $browserPath" -ForegroundColor Gray
+$playConsoleKey = "$env:USERPROFILE\.gemini\play-console-key.json"
+if ($env:GOOGLE_SERVICE_ACCOUNT_KEY_PATH -and (Test-Path $env:GOOGLE_SERVICE_ACCOUNT_KEY_PATH)) {
+    $playConsoleKey = $env:GOOGLE_SERVICE_ACCOUNT_KEY_PATH
+}
+
 Write-Host "  GitHub Auth      : $(if ($ghToken) { 'Terdeteksi (Aktif)' } else { 'Tidak terdeteksi (Gunakan gh auth login)' })" -ForegroundColor Gray
+Write-Host "  Play Console Key : $(if (Test-Path $playConsoleKey) { $playConsoleKey } else { 'Tidak terdeteksi (~/.gemini/play-console-key.json)' })" -ForegroundColor Gray
 
 # 3. Membuat Struktur Direktori Agent
 Write-Host "`n[3/6] Mempersiapkan Struktur Direktori Agent..." -ForegroundColor Yellow
@@ -132,7 +138,7 @@ if (Test-Path $syncScript) {
 }
 
 # 6. Setup Konfigurasi MCP (Antigravity, Claude, Codex)
-Write-Host "`n[6/6] Memasang Konfigurasi 10 MCP Servers..." -ForegroundColor Yellow
+Write-Host "`n[6/6] Memasang Konfigurasi 11 MCP Servers..." -ForegroundColor Yellow
 
 # Helper untuk replace placeholder path
 function Process-Template([string]$content) {
@@ -141,13 +147,15 @@ function Process-Template([string]$content) {
     $escapedArduino = $arduinoCli.Replace('\', '\\')
     $escapedBrowser = $browserPath.Replace('\', '\\')
     $escapedToken = if ($ghToken) { $ghToken } else { "" }
+    $escapedPlayKey = $playConsoleKey.Replace('\', '\\')
     
     return $content.
         Replace('__ANDROID_ADB_PATH__', $escapedAdb).
         Replace('__ANDROID_HOME__', $escapedAndroid).
         Replace('__ARDUINO_CLI_PATH__', $escapedArduino).
         Replace('__BROWSER_PATH__', $escapedBrowser).
-        Replace('__GITHUB_PERSONAL_ACCESS_TOKEN__', $escapedToken)
+        Replace('__GITHUB_PERSONAL_ACCESS_TOKEN__', $escapedToken).
+        Replace('__GOOGLE_PLAY_KEY_PATH__', $escapedPlayKey)
 }
 
 # A. Antigravity MCP Config
@@ -193,7 +201,7 @@ Write-Host "`n==========================================================" -Foreg
 Write-Host "         INSTALLASI DAN SETUP SELESAI DENGAN SUKSES!      " -ForegroundColor Green
 Write-Host "==========================================================" -ForegroundColor Cyan
 Write-Host "Ringkasan Hasil:" -ForegroundColor White
-Write-Host "1. Seluruh 193 skills kini tersedia di Antigravity, Claude, Codex, dan ~/.agents."
-Write-Host "2. 10 MCP Servers (Figma, Draw.io, Ripple, Android, Arduino, Better Icons, Playwright, Chrome DevTools, GitHub, Context7) siap dijalankan."
+Write-Host "1. Seluruh 196 skills kini tersedia di Antigravity, Claude, Codex, dan ~/.agents."
+Write-Host "2. 11 MCP Servers (Figma, Draw.io, Ripple, Android, Arduino, Better Icons, Playwright, Chrome DevTools, GitHub, Context7, Play Console) siap dijalankan."
 Write-Host "3. Buka 'New Chat' pada ChatGPT Desktop atau Claude Desktop untuk memuat ulang skill."
 Write-Host ""

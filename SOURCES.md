@@ -1,6 +1,6 @@
 # Upstream Sources & Attribution Catalog
 
-Dokumen ini memuat atribusi lengkap, pencipta asli (*upstream authors*), lisensi, dan tautan repositori sumber untuk seluruh **195 Agent Skills** dan **10 Server MCP** yang terkurasi di dalam repositori ini.
+Dokumen ini memuat atribusi lengkap, pencipta asli (*upstream authors*), lisensi, dan tautan repositori sumber untuk seluruh **196 Agent Skills** dan **11 Server MCP** yang terkurasi di dalam repositori ini.
 
 Repositori ini berperan sebagai sistem distribusi, orkestrator, dan kurator multi-mesin (*compilation & distribution framework*). Hak cipta atas masing-masing skill dan perkakas tetap dimiliki sepenuhnya oleh para pencipta aslinya masing-masing.
 
@@ -128,6 +128,13 @@ Repositori ini berperan sebagai sistem distribusi, orkestrator, dan kurator mult
 
 ---
 
+### P. Mobile & App Publishing Suite
+| Skill | Pencipta / Sumber Asli | Repositori Asal | Lisensi |
+| :--- | :--- | :--- | :--- |
+| `play-console` | **Orell Buehler** & Community | [`orellbuehler/play-console-mcp`](https://github.com/orellbuehler/play-console-mcp) | MIT |
+
+---
+
 ## 🔌 2. Daftar Sumber Model Context Protocol (MCP) Servers
 
 | Server MCP | Penyedia / Maintainer Asli | Paket / Distribusi | Repositori / Dokumentasi | Lisensi |
@@ -142,6 +149,7 @@ Repositori ini berperan sebagai sistem distribusi, orkestrator, dan kurator mult
 | **`ripple`** | Yohei Tsuda | `@ytsuda/ripple` | [`ytsuda/ripple`](https://github.com/ytsuda/ripple) | MIT |
 | **`android-emulator`**| Android MCP Community | `mcp-android-emulator` | npm registry | MIT |
 | **`arduino`** | Arduino CLI MCP Community | `arduino-mcp-server` | npm registry | MIT |
+| **`play-console`** | Orell Buehler | `@orellbuehler/play-console-mcp` | [`orellbuehler/play-console-mcp`](https://github.com/orellbuehler/play-console-mcp) | MIT |
 
 ---
 

@@ -8,8 +8,8 @@
 ## Primary Agent Objective
 You are tasked with replicating this standardized multi-agent setup onto the host machine.
 This repository contains:
-1. **195 Unified Skills** in `skills/` (covering `skill-router` Meta-Orchestrator, Indonesian EYD V & KBBI standards, Engineering Superpowers, Matt Pocock, Ponytail, GSAP & Framer Motion Animation, Three.js 3D, Lottie Motion Design, Taste & Impeccable Craft, Humanizer & Anti-Slop Writing, Scientific Writing, Typst, Remotion, Readme Generator, Deck Builder, Reverse Engineer Anything (REA), Shadcn UI, Tailwind v4, Playwright, Vercel React, BigQuery/GCP, Bio/Science, and Project Logging).
-2. **Standard 10 MCP Server Configurations** in `configs/` (`playwright`, `chrome-devtools`, `github`, `context7`, `better-icons`, `figma`, `drawio`, `ripple`, `android-emulator`, `arduino`).
+1. **196 Unified Skills** in `skills/` (covering `skill-router` Meta-Orchestrator, Indonesian EYD V & KBBI standards, Engineering Superpowers, Matt Pocock, Ponytail, GSAP & Framer Motion Animation, Three.js 3D, Lottie Motion Design, Taste & Impeccable Craft, Humanizer & Anti-Slop Writing, Scientific Writing, Typst, Remotion, Readme Generator, Deck Builder, Reverse Engineer Anything (REA), Play Console, Shadcn UI, Tailwind v4, Playwright, Vercel React, BigQuery/GCP, Bio/Science, and Project Logging).
+2. **Standard 11 MCP Server Configurations** in `configs/` (`playwright`, `chrome-devtools`, `github`, `context7`, `better-icons`, `figma`, `drawio`, `ripple`, `android-emulator`, `arduino`, `play-console`).
 3. **Automated Setup Scripts** in `scripts/`.
 
 ---
@@ -38,9 +38,9 @@ powershell.exe -ExecutionPolicy Bypass -File ".\scripts\install-all.ps1"
 
 What `install-all.ps1` does:
 1. Creates `$HOME\.agents\skills`, `$HOME\.codex\skills`, `$HOME\.gemini\skills`, `$HOME\.claude\skills`.
-2. Copies all 195 skills to each location.
+2. Copies all 196 skills to each location.
 3. Automatically detects local browser path (Chrome/Edge), Android SDK, Arduino CLI, and GitHub CLI auth token.
-4. Generates/merges 10 MCP configurations for Antigravity (`~/.gemini/config/mcp_config.json`), Claude Desktop (`%APPDATA%\Claude\claude_desktop_config.json`), and ChatGPT Codex (`~/.codex/config.toml`).
+4. Generates/merges 11 MCP configurations for Antigravity (`~/.gemini/config/mcp_config.json`), Claude Desktop (`%APPDATA%\Claude\claude_desktop_config.json`), and ChatGPT Codex (`~/.codex/config.toml`).
 
 ---
 

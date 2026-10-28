@@ -1,5 +1,17 @@
 # Architecture Decision Log (ADR)
 
+## [DEC-006] Google Play Developer Console (play-console) MCP & Universal Skill
+- **Status**: Accepted
+- **Context**: Mobile app developers and AI pair programmers need seamless direct querying, track management, release deployment, staged rollout adjustments, user reviews handling, and Android Vitals diagnostics directly from prompt interactions without manual browser dashboard overhead.
+- **Decision**: 
+  1. Register `@orellbuehler/play-console-mcp@0.3.1` across Google Antigravity, Anthropic Claude Desktop, and OpenAI ChatGPT Codex.
+  2. Implement `skills/play-console/SKILL.md` documenting publishing workflows, track promotion, version code integrity, and vitals query syntax.
+  3. Support parameterized Google Service Account JSON path via `GOOGLE_SERVICE_ACCOUNT_KEY_PATH` with workstation default at `~/.gemini/play-console-key.json`.
+- **Consequences**:
+  - Positive: All workstation AI agents can inspect releases, draft updates, monitor ANRs/crashes, and reply to Google Play reviews.
+  - Positive: Standardized MCP configuration ensures identical tools and parameters across Claude, ChatGPT, and Antigravity.
+
+
 ## [DEC-005] Presentation Engineering (deck-builder) & Reverse Engineering (REA)
 - **Status**: Accepted
 - **Context**: AI agents often produce PowerPoint presentations with generic templated layouts, stretched images, and manual typos in analytical figures. Furthermore, agents lacked a standardized reverse-engineering suite for inspecting binaries, web bundles, and native packages.

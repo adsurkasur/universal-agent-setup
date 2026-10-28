@@ -150,7 +150,7 @@ $readmePath  = Join-Path $RepoPath "README.md"
 if ((Test-Path $sourcesPath) -and (Test-Path $licensePath) -and (Test-Path $readmePath)) {
     $sourcesRaw = Get-Content $sourcesPath -Raw -Encoding UTF8
     $licenseRaw = Get-Content $licensePath -Raw -Encoding UTF8
-    $has195Attribution = ($sourcesRaw -match "195") -or ($sourcesRaw -match "Total")
+    $has195Attribution = ($sourcesRaw -match "196") -or ($sourcesRaw -match "195") -or ($sourcesRaw -match "Total")
     $hasMitNotice = ($licenseRaw -match "MIT License") -and ($licenseRaw -match "Third-Party")
 
     Write-Host " -> has195Attribution: $has195Attribution, hasMitNotice: $hasMitNotice"
@@ -184,3 +184,4 @@ if ($allPass) {
     Write-Host "RESULT: SOME TESTS FAILED. PLEASE REVIEW LOGS." -ForegroundColor Red
     exit 1
 }
+

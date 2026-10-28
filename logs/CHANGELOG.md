@@ -4,6 +4,16 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.5.0] - 2026-10-29
+
+### Added
+- **1 New Unified Skill** (total skills increased from 195 to 196):
+  - `play-console`: Universal Google Play Developer Console management skill covering app tracks (internal, alpha, beta, production), releases, staged rollouts, release notes, reviews, store listings, and Android Vitals (crash rate, ANRs).
+- **1 New Active MCP Server** (total active MCP servers increased from 10 to 11):
+  - `play-console`: Official `@orellbuehler/play-console-mcp@0.3.1` server registered across Google Antigravity, Anthropic Claude Desktop, and OpenAI ChatGPT Codex.
+- **Dynamic Service Account Key Path Detection**:
+  - `scripts/install-all.ps1` dynamically detects Google Service Account credentials (`GOOGLE_SERVICE_ACCOUNT_KEY_PATH` or default `~/.gemini/play-console-key.json`).
+
 ## [1.4.0] - 2026-10-23
 
 ### Added

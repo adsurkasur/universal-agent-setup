@@ -81,6 +81,19 @@
         "-y",
         "@upstash/context7-mcp"
       ]
+    },
+    "play-console": {
+      "command": "cmd.exe",
+      "args": [
+        "/d",
+        "/c",
+        "npx",
+        "-y",
+        "@orellbuehler/play-console-mcp@0.3.1"
+      ],
+      "env": {
+        "GOOGLE_SERVICE_ACCOUNT_KEY_PATH": "__GOOGLE_PLAY_KEY_PATH__"
+      }
     }
   },
   "preferences": {
