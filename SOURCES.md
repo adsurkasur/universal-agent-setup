@@ -118,6 +118,7 @@ Repositori ini berperan sebagai sistem distribusi, orkestrator, dan kurator mult
 | Skill | Pencipta / Sumber Asli | Repositori Asal | Lisensi |
 | :--- | :--- | :--- | :--- |
 | `deck-builder` | **Ade Surya Ananda** | Distilasi Produksi Presentation Engineering Framework (PptxGenJS & Sharp) | MIT |
+| nti-slop-presentation | **Koleksi Komunitas Antigravity** | Anti-AI Slop Human-Level Presentation Framework | MIT |
 
 ---
 

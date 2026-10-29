@@ -1,5 +1,18 @@
 # Activity Log
 
+## [2026-10-30 00:48 +07:00] - Release v1.6.0: Codex Crash Fix, Smart MCP Merging & 197 Skills Parity
+- **Agent Identity / Role**: Antigravity Assistant (AI Systems Architect)
+- **Session Goal**: Diagnose and resolve OpenAI ChatGPT Codex workspace crash (config.toml:205:1), implement non-destructive smart configuration merging with auto-backup, synchronize 197 unified skills across all agent platforms (Codex, Antigravity, Claude, ~/.agents), and integrate REA as the 12th universal MCP server.
+- **Actions Taken**:
+  1. Diagnosed and fixed fatal deserialization error in ~/.codex/config.toml where [mcp_servers.figma] specified rgs = [] alongside url, causing untagged enum parser failure. Validated fix with codex doctor (0 failures) and codex mcp list (13 enabled servers).
+  2. Integrated nti-slop-presentation and verified full 197 skills parity across all 5 directories (~/.agents/skills, ~/.gemini/config/skills, ~/.gemini/skills, ~/.codex/skills, ~/.claude/skills).
+  3. Created scripts/merge-configs.py enabling non-destructive JSON and TOML configuration merging with automatic timestamped backups (.bak_<timestamp>), preventing user config loss and syntax errors.
+  4. Registered 
+ea (
+ea-agents@6.7.0 mcp) as the 12th universal MCP server across all config templates.
+  5. Upgraded scripts/sync-skills.ps1 to high-performance cryptographic SHA-256 validation with line-ending normalization.
+  6. Updated README.md, AGENTS.md, SOURCES.md, CHANGELOG.md, and configs.
+
 ## [2026-10-29 05:35 +07:00] - Release v1.5.0: Google Play Developer Console Integration (play-console)
 - **Agent Identity / Role**: Antigravity Assistant (AI Systems Architect)
 - **Session Goal**: Integrate `play-console` MCP server and universal skill across all AI agent environments (Antigravity, Claude, Codex, and ~/.agents) and synchronize the universal agent setup repository.

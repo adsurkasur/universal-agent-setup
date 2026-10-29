@@ -3,9 +3,9 @@
     Automated Multi-Agent Setup & Skills Installer for Windows.
 .DESCRIPTION
     Script instalasi lengkap untuk mereplikasi seluruh konfigurasi AI Agent:
-    - 195 Unified Skills (Engineering Superpowers, Matt Pocock, Ponytail, GSAP, Motion Design, Framer Motion, Taste/Impeccable, Bahasa Indonesia EYD V & KBBI, Scientific Writing, Vercel, Bio/Science, Playwright, Three.js, Shadcn UI, Tailwind v4, Typst, Remotion, Readme Generator, Skill Router, Deck Builder, Reverse Engineer Anything, dll.)
-    - Sinkronisasi ke 4 Direktori: ~/.agents, ~/.codex, ~/.gemini, dan ~/.claude
-    - Setup Konfigurasi 10 MCP Servers (Figma, Draw.io, Ripple, Android Emulator, Arduino, Better Icons, Playwright, Chrome DevTools, GitHub, Context7)
+    - 197 Unified Skills (Engineering Superpowers, Matt Pocock, Ponytail, GSAP, Motion Design, Framer Motion, Taste/Impeccable, Bahasa Indonesia EYD V & KBBI, Scientific Writing, Vercel, Bio/Science, Playwright, Three.js, Shadcn UI, Tailwind v4, Typst, Remotion, Readme Generator, Skill Router, Deck Builder, Reverse Engineer Anything, dll.)
+    - Sinkronisasi ke 5 Direktori: ~/.agents/skills, ~/.codex/skills, ~/.gemini/config/skills, ~/.gemini/skills, dan ~/.claude/skills
+    - Setup Konfigurasi 12 MCP Servers (Draw.io, Ripple, Android Emulator, Arduino, Figma, Better Icons, Playwright, Chrome DevTools, GitHub, Context7, REA, Play Console) dengan Smart Merge & Auto-Backup
 #>
 
 [CmdletBinding()]
@@ -32,6 +32,7 @@ Write-Host "[1/6] Memeriksa Prasyarat Sistem..." -ForegroundColor Yellow
 $hasNode = Get-Command node -ErrorAction SilentlyContinue
 $hasNpm = Get-Command npm -ErrorAction SilentlyContinue
 $hasGit = Get-Command git -ErrorAction SilentlyContinue
+$hasPython = Get-Command python -ErrorAction SilentlyContinue
 
 if ($hasNode -and $hasNpm) {
     Write-Host "  [OK] Node.js & npm terdeteksi ($(node -v))" -ForegroundColor Green
@@ -43,6 +44,12 @@ if ($hasGit) {
     Write-Host "  [OK] Git terdeteksi" -ForegroundColor Green
 } else {
     Write-Host "  [INFO] Git belum terpasang." -ForegroundColor Gray
+}
+
+if ($hasPython) {
+    Write-Host "  [OK] Python terdeteksi ($(python --version))" -ForegroundColor Green
+} else {
+    Write-Host "  [INFO] Python belum terdeteksi di PATH." -ForegroundColor Gray
 }
 
 # 2. Deteksi Path Khusus (Android SDK, Arduino CLI, Browser & GitHub Token)
@@ -82,15 +89,15 @@ if (-not $ghToken -and $env:GITHUB_TOKEN) {
     $ghToken = $env:GITHUB_TOKEN
 }
 
-Write-Host "  Android SDK Root : $androidHome" -ForegroundColor Gray
-Write-Host "  ADB Executable   : $adbPath" -ForegroundColor Gray
-Write-Host "  Arduino CLI Path : $arduinoCli" -ForegroundColor Gray
-Write-Host "  Target Browser   : $browserPath" -ForegroundColor Gray
 $playConsoleKey = "$env:USERPROFILE\.gemini\play-console-key.json"
 if ($env:GOOGLE_SERVICE_ACCOUNT_KEY_PATH -and (Test-Path $env:GOOGLE_SERVICE_ACCOUNT_KEY_PATH)) {
     $playConsoleKey = $env:GOOGLE_SERVICE_ACCOUNT_KEY_PATH
 }
 
+Write-Host "  Android SDK Root : $androidHome" -ForegroundColor Gray
+Write-Host "  ADB Executable   : $adbPath" -ForegroundColor Gray
+Write-Host "  Arduino CLI Path : $arduinoCli" -ForegroundColor Gray
+Write-Host "  Target Browser   : $browserPath" -ForegroundColor Gray
 Write-Host "  GitHub Auth      : $(if ($ghToken) { 'Terdeteksi (Aktif)' } else { 'Tidak terdeteksi (Gunakan gh auth login)' })" -ForegroundColor Gray
 Write-Host "  Play Console Key : $(if (Test-Path $playConsoleKey) { $playConsoleKey } else { 'Tidak terdeteksi (~/.gemini/play-console-key.json)' })" -ForegroundColor Gray
 
@@ -99,8 +106,9 @@ Write-Host "`n[3/6] Mempersiapkan Struktur Direktori Agent..." -ForegroundColor 
 $dirs = @(
     "$env:USERPROFILE\.agents\skills",
     "$env:USERPROFILE\.codex\skills",
+    "$env:USERPROFILE\.gemini\config\skills",
     "$env:USERPROFILE\.gemini\skills",
-    "$env:USERPROFILE\.gemini\config",
+    "$env:USERPROFILE\.gemini\antigravity-ide",
     "$env:USERPROFILE\.claude\skills",
     "$env:APPDATA\Claude"
 )
@@ -115,32 +123,37 @@ foreach ($d in $dirs) {
 }
 
 # 4. Salin Skills ke Source Hub (~/.agents/skills)
-Write-Host "`n[4/6] Menyalin 195 Skills ke Central Hub (~/.agents/skills)..." -ForegroundColor Yellow
+Write-Host "`n[4/6] Menyalin 197 Skills ke Central Hub (~/.agents/skills)..." -ForegroundColor Yellow
 if (Test-Path $skillsBundle) {
     robocopy $skillsBundle "$env:USERPROFILE\.agents\skills" /E /XO /NP /NFL /NDL /NJH /NJS | Out-Null
-    $totalHub = (Get-ChildItem "$env:USERPROFILE\.agents\skills" -Directory).Count
+    $totalHub = (Get-ChildItem "$env:USERPROFILE\.agents\skills" -Directory | Where-Object { -not $_.Name.StartsWith(".") }).Count
     Write-Host "  [OK] Berhasil menyalin $totalHub skills ke Central Hub." -ForegroundColor Green
 } else {
     Write-Error "Direktori sumber skills tidak ditemukan di '$skillsBundle'!"
     exit 1
 }
 
-# 5. Sinkronisasi ke Codex, Antigravity, dan Claude
-Write-Host "`n[5/6] Menyinkronkan Skills ke Seluruh Agent Directory..." -ForegroundColor Yellow
+# 5. Sinkronisasi Presisi ke Seluruh Agent Directory
+Write-Host "`n[5/6] Menyinkronkan Skills ke Seluruh Agent Directory (Codex, Antigravity, Claude)..." -ForegroundColor Yellow
 $syncScript = Join-Path $scriptDir "sync-skills.ps1"
 if (Test-Path $syncScript) {
     & $syncScript -SourceHub "$env:USERPROFILE\.agents\skills"
 } else {
     # Fallback copy manual
     robocopy "$env:USERPROFILE\.agents\skills" "$env:USERPROFILE\.codex\skills" /E /XO /NP /NFL /NDL /NJH /NJS | Out-Null
+    robocopy "$env:USERPROFILE\.agents\skills" "$env:USERPROFILE\.gemini\config\skills" /E /XO /NP /NFL /NDL /NJH /NJS | Out-Null
     robocopy "$env:USERPROFILE\.agents\skills" "$env:USERPROFILE\.gemini\skills" /E /XO /NP /NFL /NDL /NJH /NJS | Out-Null
     robocopy "$env:USERPROFILE\.agents\skills" "$env:USERPROFILE\.claude\skills" /E /XO /NP /NFL /NDL /NJH /NJS | Out-Null
 }
 
-# 6. Setup Konfigurasi MCP (Antigravity, Claude, Codex)
-Write-Host "`n[6/6] Memasang Konfigurasi 11 MCP Servers..." -ForegroundColor Yellow
+# 6. Setup & Smart Merge Konfigurasi MCP (Antigravity, Claude, Codex)
+Write-Host "`n[6/6] Memasang & Menggabungkan Konfigurasi 12 MCP Servers..." -ForegroundColor Yellow
 
-# Helper untuk replace placeholder path
+# Generate resolved template files temporarily if needed
+$tempConfigDir = Join-Path $env:TEMP "agent_configs_resolved"
+if (Test-Path $tempConfigDir) { Remove-Item -Path $tempConfigDir -Recurse -Force | Out-Null }
+New-Item -ItemType Directory -Path $tempConfigDir -Force | Out-Null
+
 function Process-Template([string]$content) {
     $escapedAdb = $androidHome.Replace('\', '\\')
     $escapedAndroid = $androidHome.Replace('\', '\\')
@@ -158,50 +171,40 @@ function Process-Template([string]$content) {
         Replace('__GOOGLE_PLAY_KEY_PATH__', $escapedPlayKey)
 }
 
-# A. Antigravity MCP Config
-$antigravityDst = "$env:USERPROFILE\.gemini\config\mcp_config.json"
-$antigravitySrc = Join-Path $configsBundle "antigravity-mcp_config.json"
-if (Test-Path $antigravitySrc) {
-    if ($ForceOverwriteConfigs -or (-not (Test-Path $antigravityDst))) {
-        $raw = Get-Content $antigravitySrc -Raw
-        Process-Template $raw | Set-Content $antigravityDst -Encoding UTF8
-        Write-Host "  [OK] Antigravity MCP config terpasang di $antigravityDst" -ForegroundColor Green
-    } else {
-        Write-Host "  [INFO] $antigravityDst sudah ada (gunakan -ForceOverwriteConfigs jika ingin menimpa)." -ForegroundColor Gray
+# Resolve each config template into temp
+Get-ChildItem $configsBundle | ForEach-Object {
+    if (-not $_.PSIsContainer) {
+        $raw = Get-Content $_.FullName -Raw -Encoding UTF8
+        $resolved = Process-Template $raw
+        $dest = Join-Path $tempConfigDir $_.Name
+        [System.IO.File]::WriteAllText($dest, $resolved, [System.Text.Encoding]::UTF8)
     }
 }
 
-# B. Claude Desktop MCP Config
-$claudeDst = "$env:APPDATA\Claude\claude_desktop_config.json"
-$claudeSrc = Join-Path $configsBundle "claude_desktop_config.json"
-if (Test-Path $claudeSrc) {
-    if ($ForceOverwriteConfigs -or (-not (Test-Path $claudeDst))) {
-        $raw = Get-Content $claudeSrc -Raw
-        Process-Template $raw | Set-Content $claudeDst -Encoding UTF8
-        Write-Host "  [OK] Claude Desktop MCP config terpasang di $claudeDst" -ForegroundColor Green
-    } else {
-        Write-Host "  [INFO] $claudeDst sudah ada (gunakan -ForceOverwriteConfigs jika ingin menimpa)." -ForegroundColor Gray
-    }
+$mergePy = Join-Path $scriptDir "merge-configs.py"
+if ($hasPython -and (Test-Path $mergePy)) {
+    $forceFlag = if ($ForceOverwriteConfigs) { "--force" } else { "" }
+    python $mergePy --action all $forceFlag --bundle-dir (Split-Path -Parent $tempConfigDir)
+} else {
+    Write-Warning "Python tidak ditemukan, beralih ke pemasangan langsung..."
+    # Fallback copy
+    $agSrc = Join-Path $tempConfigDir "antigravity-mcp_config.json"
+    $clSrc = Join-Path $tempConfigDir "claude_desktop_config.json"
+    $cdSrc = Join-Path $tempConfigDir "codex_config.toml"
+
+    if (Test-Path $agSrc) { Copy-Item $agSrc "$env:USERPROFILE\.gemini\config\mcp_config.json" -Force }
+    if (Test-Path $clSrc) { Copy-Item $clSrc "$env:APPDATA\Claude\claude_desktop_config.json" -Force }
+    if (Test-Path $cdSrc) { Copy-Item $cdSrc "$env:USERPROFILE\.codex\config.toml" -Force }
 }
 
-# C. Codex / ChatGPT Config
-$codexDst = "$env:USERPROFILE\.codex\config.toml"
-$codexSrc = Join-Path $configsBundle "codex_config.toml"
-if (Test-Path $codexSrc) {
-    if ($ForceOverwriteConfigs -or (-not (Test-Path $codexDst))) {
-        $raw = Get-Content $codexSrc -Raw
-        Process-Template $raw | Set-Content $codexDst -Encoding UTF8
-        Write-Host "  [OK] Codex / ChatGPT config terpasang di $codexDst" -ForegroundColor Green
-    } else {
-        Write-Host "  [INFO] $codexDst sudah ada (gunakan -ForceOverwriteConfigs jika ingin menimpa)." -ForegroundColor Gray
-    }
-}
+# Cleanup temp
+Remove-Item -Path $tempConfigDir -Recurse -Force -ErrorAction SilentlyContinue | Out-Null
 
 Write-Host "`n==========================================================" -ForegroundColor Cyan
 Write-Host "         INSTALLASI DAN SETUP SELESAI DENGAN SUKSES!      " -ForegroundColor Green
 Write-Host "==========================================================" -ForegroundColor Cyan
 Write-Host "Ringkasan Hasil:" -ForegroundColor White
-Write-Host "1. Seluruh 196 skills kini tersedia di Antigravity, Claude, Codex, dan ~/.agents."
-Write-Host "2. 11 MCP Servers (Figma, Draw.io, Ripple, Android, Arduino, Better Icons, Playwright, Chrome DevTools, GitHub, Context7, Play Console) siap dijalankan."
+Write-Host "1. Seluruh 197 skills kini tersedia di Antigravity, Claude, Codex, dan ~/.agents."
+Write-Host "2. 12 MCP Servers (Figma, Draw.io, Ripple, Android, Arduino, Better Icons, Playwright, Chrome DevTools, GitHub, Context7, REA, Play Console) siap dijalankan."
 Write-Host "3. Buka 'New Chat' pada ChatGPT Desktop atau Claude Desktop untuk memuat ulang skill."
 Write-Host ""

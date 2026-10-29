@@ -1,5 +1,17 @@
 # Architecture Decision Log (ADR)
 
+## [DEC-007] Codex TOML Schema Deserialization Defense & Non-Destructive Smart Merging
+- **Status**: Accepted
+- **Context**: OpenAI Codex crashes completely upon startup if config.toml contains extraneous keys for untagged MCP server enums (e.g. rgs = [] inside a streamable HTTP server [mcp_servers.figma]). Additionally, previous installers skipped configuration updates if files existed, preventing agents from acquiring newly registered MCP servers without manually editing or destroying their configs.
+- **Decision**: 
+  1. Develop scripts/merge-configs.py that implements safe AST/regex-based smart merging for both JSON and TOML configuration files.
+  2. Implement schema sanitization that automatically detects and strips invalid fields (e.g. rgs on HTTP/SSE servers) in Codex TOML.
+  3. Ensure automated timestamped backups (.bak_<timestamp>) are created prior to any file writes.
+  4. Integrate REA as standard universal MCP server #12 across all agent platforms.
+- **Consequences**:
+  - Positive: Eliminates brittle manual configuration and prevents fatal startup crashes in ChatGPT Codex.
+  - Positive: Non-destructive merging ensures user tokens and custom settings are permanently preserved across updates.
+
 ## [DEC-006] Google Play Developer Console (play-console) MCP & Universal Skill
 - **Status**: Accepted
 - **Context**: Mobile app developers and AI pair programmers need seamless direct querying, track management, release deployment, staged rollout adjustments, user reviews handling, and Android Vitals diagnostics directly from prompt interactions without manual browser dashboard overhead.

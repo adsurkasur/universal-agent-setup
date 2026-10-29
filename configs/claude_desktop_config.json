@@ -82,6 +82,17 @@
         "@upstash/context7-mcp"
       ]
     },
+    "rea": {
+      "command": "cmd.exe",
+      "args": [
+        "/d",
+        "/c",
+        "npx",
+        "-y",
+        "rea-agents@6.7.0",
+        "mcp"
+      ]
+    },
     "play-console": {
       "command": "cmd.exe",
       "args": [

@@ -1,52 +1,81 @@
-# Portfolio Agent Guide & Mandatory Protocols (Managed Projects)
+# AI AGENT OPERATIONAL DIRECTIVE & AUTOMATED INSTALLATION GUIDE
 
-This repository serves as the root orchestration superproject aggregating independent projects and submodules.
-All AI agents (Antigravity, Gemini, Claude, ChatGPT/Codex, Cursor, etc.) and human contributors working across this portfolio **MUST** comply with these instructions.
-
----
-
-## 1. Portfolio Working Principles
-
-1. **Read Core Context**: Read the root `README.md`, `PORTFOLIO_GUIDE.md`, and any project-specific guidelines before changing portfolio-level files.
-2. **Project-Specific Scope**: Read the nearest project `README.md`, maintainer guide, and any submodule-specific `AGENTS.md`.
-3. **Preserve User Changes**: Inspect the relevant Git worktree and preserve unrelated user changes.
-4. **Fact Classification**: Treat every status claim as local, remote-verified, operator-reported, proposed, or unknown.
-5. **Security & Privacy**: Never copy credentials, API keys, passwords, or production member data into general documentation.
-6. **No Spurious Remote Mutation**: Do not mutate remote services merely because local code or a deployment artifact exists.
-7. **Scoped Commits**: Prefer additive documentation and small scoped commits. Do not reorganize paths until dependencies and references are proven safe.
-8. **Register Updates**: Update the task register and evidence link when work materially changes project state.
+> **ATTENTION AI AGENT (Antigravity, Claude Code, Codex, Cursor, Cline, Copilot, or similar):**
+> If the user has cloned this repository and asked you to "scan", "install", "setup", or "configure" the agents/skills on this machine, **follow the execution instructions below immediately**.
 
 ---
 
-## 2. Mandatory Modular Logging Protocol
-
-Every AI agent operating in this portfolio—whether in the root superproject or within any submodule—**MUST** maintain and update the `logs/` directory:
-
-1. **`logs/ACTIVITY_LOG.md` (Session Work Stream)**:
-   - At the conclusion of every work session or task execution, append a new entry at the top of the activity log.
-   - Required fields: timestamp (`[YYYY-MM-DD HH:MM]`), agent identity/role, session goal, specific actions taken, files modified/created, and verification results.
-2. **`logs/DECISION_LOG.md` (Architecture & Methodological Decision Records - ADR)**:
-   - Record any significant structural, architectural, algorithmic, dependency, or policy decision as an ADR entry (`[DEC-xxx]`).
-   - Required fields: date, status, context, decision made, rationale/alternatives considered, and affected components.
-3. **`logs/CHANGELOG.md` (Version & Milestone History)**:
-   - Document release versions, milestone completions, and notable updates following the Keep a Changelog standard.
-4. **Atomic Git Inclusion**:
-   - Log updates **must never be omitted**. Always stage and commit relevant log files in the same atomic commit as the code or documentation changes.
+## Primary Agent Objective
+You are tasked with replicating this standardized multi-agent setup onto the host machine.
+This repository contains:
+1. **197 Unified Skills** in `skills/` (covering `skill-router` Meta-Orchestrator, Deck Builder, Anti-Slop Presentation, Indonesian EYD V & KBBI standards, Engineering Superpowers, Matt Pocock, Ponytail, GSAP & Framer Motion Animation, Three.js 3D, Lottie Motion Design, Taste & Impeccable Craft, Humanizer & Anti-Slop Writing, Scientific Writing, Typst, Remotion, Readme Generator, Reverse Engineer Anything (REA), Play Console, Shadcn UI, Tailwind v4, Playwright, Vercel React, BigQuery/GCP, Bio/Science, and Project Logging).
+2. **Standard 12 MCP Server Configurations** in `configs/` (`playwright`, `chrome-devtools`, `github`, `context7`, `better-icons`, `figma`, `drawio`, `ripple`, `android-emulator`, `arduino`, `rea`, `play-console`).
+3. **Automated Setup Scripts** in `scripts/` with Smart Merge and hash-based synchronization.
 
 ---
 
-## 3. Engineering & Quality Invariants
+## Execution Protocol for AI Agents
 
-- **Root Cause over Symptom**: Fix shared utilities and underlying root causes rather than patching one-off symptoms.
-- **Verification is Mandatory**: Every non-trivial change must leave behind a runnable verification check (test suite, verification script, or assertion check).
-- **Preserve Documentation Integrity**: Do not delete unrelated comments, docstrings, or architectural notes without explicit instructions.
+### Step 1: Detect Operating System
+Inspect the environment:
+- If running on **Windows** (PowerShell/CMD): proceed to **Protocol Windows**.
+- If running on **macOS / Linux / WSL** (Bash/Zsh): proceed to **Protocol POSIX**.
 
 ---
 
-## 4. RTK - Rust Token Killer
+### Step 2A: Protocol Windows (PowerShell)
+Execute the automated installer script located in this repository:
 
-RTK filters and compresses command output before it reaches the LLM context (60-90% fewer tokens).
+```powershell
+# Run the installation script
+& ".\scripts\install-all.ps1"
+```
 
-- Prefix supported CLI commands with `rtk`: `rtk git status`, `rtk ls src/`, `rtk grep "pattern" src/`, `rtk find "*.rs" .`, `rtk npm test`, `rtk cargo test`, `rtk docker ps`, `rtk gh pr list`.
-- Do not prefix PowerShell cmdlets (`Get-ChildItem`, `Select-String`, ...) or commands whose raw output you must parse exactly; use `rtk proxy <cmd>` when you need unfiltered output.
-- Meta: `rtk gain` (savings), `rtk gain --history`, `rtk discover` (missed opportunities).
+If execution policies restrict running scripts, execute with bypass:
+```powershell
+powershell.exe -ExecutionPolicy Bypass -File ".\scripts\install-all.ps1"
+```
+
+What `install-all.ps1` does:
+1. Creates `$HOME\.agents\skills`, `$HOME\.codex\skills`, `$HOME\.gemini\config\skills`, `$HOME\.gemini\skills`, `$HOME\.claude\skills`.
+2. Synchronizes all 197 skills to each location using SHA-256 hash comparison and line-ending normalization.
+3. Automatically detects local browser path (Chrome/Edge), Android SDK, Arduino CLI, and GitHub CLI auth token.
+4. Smart-merges 12 MCP configurations for Antigravity (`~/.gemini/config/mcp_config.json` & `~/.gemini/antigravity-ide/mcp_config.json`), Claude Desktop (`%APPDATA%\Claude\claude_desktop_config.json`), Claude Code (`~/.claude.json`), and ChatGPT Codex (`~/.codex/config.toml`), auto-creating `.bak` safety backups.
+
+---
+
+### Step 2B: Protocol POSIX (Linux / macOS)
+Execute the shell installer:
+
+```bash
+chmod +x ./scripts/install-all.sh
+./scripts/install-all.sh
+```
+
+---
+
+### Step 3: Verification
+Verify that the skills are properly distributed by running:
+
+**On Windows (PowerShell):**
+```powershell
+[PSCustomObject]@{
+    SharedHub      = (Get-ChildItem "$env:USERPROFILE\.agents\skills" -Directory -ErrorAction SilentlyContinue | Where-Object { -not $_.Name.StartsWith(".") }).Count
+    Codex          = (Get-ChildItem "$env:USERPROFILE\.codex\skills" -Directory -ErrorAction SilentlyContinue | Where-Object { -not $_.Name.StartsWith(".") }).Count
+    GeminiConfig   = (Get-ChildItem "$env:USERPROFILE\.gemini\config\skills" -Directory -ErrorAction SilentlyContinue | Where-Object { -not $_.Name.StartsWith(".") }).Count
+    GeminiFallback = (Get-ChildItem "$env:USERPROFILE\.gemini\skills" -Directory -ErrorAction SilentlyContinue | Where-Object { -not $_.Name.StartsWith(".") }).Count
+    Claude         = (Get-ChildItem "$env:USERPROFILE\.claude\skills" -Directory -ErrorAction SilentlyContinue | Where-Object { -not $_.Name.StartsWith(".") }).Count
+}
+```
+
+Expected result: Each directory should report 197 skills.
+
+---
+
+### Step 4: Final Report to the User
+After successful execution, provide the user with a concise summary:
+1. Confirm that all 197 skills were successfully synchronized across all agent platforms.
+2. Remind them to:
+   - **For ChatGPT Desktop**: Start a **New Chat** (or restart the app) so that `/grill-me`, `skill-router`, and all skills are re-indexed.
+   - **For Claude Desktop**: Restart the app so the 12 MCP servers (`playwright`, `chrome-devtools`, `github`, `context7`, `rea`, etc.) are recognized.
+3. Inform them that whenever they want to add new skills, they can place them into `~/.agents/skills/` and run `.\scripts\sync-skills.ps1`.

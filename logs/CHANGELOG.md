@@ -4,6 +4,28 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.6.0] - 2026-10-30
+
+### Added
+- **1 New Unified Skill** (total skills increased from 196 to 197):
+  - nti-slop-presentation: Human-level, non-cliché presentation engineering framework eliminating AI tropes, generic 3D orbs, low-contrast slides, and empty corporate buzzwords.
+  - Added sub-skills compose-preview and device-hub to ndroid-cli.
+- **12th Universal Active MCP Server**:
+  - 
+ea: Reverse Engineer Anything (
+ea-agents@6.7.0 mcp) integrated across all agent templates (Codex TOML, Claude Desktop JSON, Claude Code, and Antigravity).
+- **Non-Destructive Smart Config Merging (scripts/merge-configs.py)**:
+  - Safely merges missing MCP servers into existing JSON and TOML configurations without destroying existing user settings, tokens, or custom paths.
+  - Implements automatic timestamped backup creation (.bak_<timestamp>).
+- **High-Performance SHA-256 Hash Skill Synchronizer (scripts/sync-skills.ps1)**:
+  - Upgraded from simple robocopy timestamps to cryptographic SHA-256 hash comparison with CRLF/LF line-ending normalization.
+  - Synchronizes across 5 active agent targets: ~/.agents/skills, ~/.codex/skills, ~/.gemini/config/skills, ~/.gemini/skills, and ~/.claude/skills.
+
+### Fixed
+- **Codex TOML Schema Deserialization Crash**:
+  - Identified and fixed critical bug in ~/.codex/config.toml where [mcp_servers.figma] included rgs = [], triggering ailed to load workspace requirements: invalid configuration at config.toml:205:1. Streamable HTTP MCP servers in Codex cannot have arguments.
+  - Added auto-sanitization to merge-configs.py to permanently prevent this crash.
+
 ## [1.5.0] - 2026-10-29
 
 ### Added

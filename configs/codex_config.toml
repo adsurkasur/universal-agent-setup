@@ -63,6 +63,9 @@ GITHUB_PERSONAL_ACCESS_TOKEN = "__GITHUB_PERSONAL_ACCESS_TOKEN__"
 command = "npx"
 args = ["-y", "@upstash/context7-mcp"]
 
+[mcp_servers.rea]
+command = "cmd.exe"
+args = ["/d", "/c", "npx", "-y", "rea-agents@6.7.0", "mcp"]
 
 [mcp_servers.play-console]
 command = "cmd.exe"
