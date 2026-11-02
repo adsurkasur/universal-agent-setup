@@ -110,8 +110,8 @@ Konfigurasi MCP yang seragam di seluruh agent:
    .\install-all.ps1
    ```
 3. **Selesai!** Script secara otomatis:
-   * Menyiapkan folder `~/.agents/skills`, `~/.codex/skills`, `~/.gemini/config/skills`, `~/.gemini/skills`, dan `~/.claude/skills`.
-   * Melakukan sinkronisasi presisi tinggi (hash-based SHA-256) untuk seluruh **197 skills**.
+   * Menyiapkan folder `~/.agents/skills`, `~/.gemini/config/skills`, `~/.gemini/skills`, dan `~/.claude/skills`.
+   * Menyinkronkan skill satu arah dari hub. Codex membaca `~/.agents/skills` langsung tanpa salinan di `~/.codex/skills`. Python 3 diperlukan untuk sinkronisasi.
    * Mendeteksi browser target (Chrome/Edge), Android SDK, Arduino CLI, dan token GitHub CLI.
    * Melakukan **Smart Merge** non-destruktif untuk konfigurasi **12 server MCP** ke Antigravity, Claude Desktop, Claude Code, dan ChatGPT Codex (dilengkapi otomatisasi cadangan/backup `.bak`).
 
@@ -125,6 +125,28 @@ Konfigurasi MCP yang seragam di seluruh agent:
    chmod +x install-all.sh
    ./install-all.sh
    ```
+
+---
+
+## Sumber skill dan pencegahan duplikasi
+
+`~/.agents/skills` adalah sumber bersama. Codex membacanya langsung; jangan menyalin koleksi universal ke `~/.codex/skills` atau menautkan seluruh folder itu ke hub. Folder `.system`, plugin, serta skill khusus Codex tetap dikelola terpisah.
+
+Jalankan `python scripts/sync-skills.py` (Windows) atau `python3 scripts/sync-skills.py` (macOS/Linux), atau wrapper `scripts/sync-skills.ps1` di Windows. `--source` memilih hub lain untuk disalin ke Claude/Gemini; Codex tetap menemukan hub standar `~/.agents/skills`, jadi hub khusus perlu dikurasi ke lokasi standar terlebih dahulu. PowerShell juga mendukung `-SourceHub`. Sinkronisasi hanya menulis ke folder skill Claude, Gemini global, dan Gemini fallback; tidak mengimpor salinan lama dari agent atau menulis balik ke repo. `-Bidirectional` kini ditolak. File tujuan yang berbeda ditimpa dari hub; periksa perubahan lokal Claude/Gemini sebelum menjalankan sinkronisasi. Skill tambahan yang hanya ada di tujuan tidak dihapus.
+
+### Instalasi lama
+
+Skrip memberi peringatan jika nama skill pada hub juga ditemukan di `~/.codex/skills`. Salinan lama tidak dihapus otomatis. Cadangkan, bandingkan **seluruh isi folder** (termasuk skrip dan aset), pindahkan perubahan yang diperlukan ke hub, lalu arsipkan hanya entri universal duplikat di luar folder yang dipindai Codex. Untuk junction, pindahkan tautannya tanpa memindahkan target. Pertahankan `.system`, plugin, dan skill khusus Codex. Mulai chat baru setelah migrasi. Pencegahan pada installer ini tidak membersihkan instalasi lama dengan sendirinya.
+
+Dokumentasi lokasi skill: [OpenAI](https://learn.chatgpt.com/docs/build-skills), [Claude Code](https://code.claude.com/docs/en/skills), [Antigravity](https://antigravity.google/docs/skills).
+
+### Pengujian terisolasi
+
+```bash
+python -m unittest discover -s tests -v
+```
+
+Tes memakai folder pengguna sementara dan tidak menjalankan installer MCP pada profil asli.
 
 ---
 
