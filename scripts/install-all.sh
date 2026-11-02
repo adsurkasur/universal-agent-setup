@@ -5,6 +5,8 @@
 
 set -e
 
+command -v python3 >/dev/null 2>&1 || { echo "Python 3 diperlukan untuk sinkronisasi skill." >&2; exit 1; }
+
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 BUNDLE_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
 SKILLS_SRC="$BUNDLE_ROOT/skills"
@@ -15,7 +17,7 @@ echo "=========================================================="
 
 # 1. Pastikan direktori agent ada
 mkdir -p "$HOME/.agents/skills"
-mkdir -p "$HOME/.codex/skills"
+mkdir -p "$HOME/.codex"
 mkdir -p "$HOME/.gemini/skills"
 mkdir -p "$HOME/.gemini/config"
 mkdir -p "$HOME/.claude/skills"
@@ -30,16 +32,7 @@ else
     exit 1
 fi
 
-# 3. Sinkronkan ke direktori agent lainnya
-echo "Menyinkronkan ke ~/.codex/skills..."
-cp -R "$HOME/.agents/skills"/* "$HOME/.codex/skills/"
+# 3. Sync outward. Codex discovers ~/.agents/skills directly.
+python3 "$SCRIPT_DIR/sync-skills.py" --home "$HOME" --source "$HOME/.agents/skills"
 
-echo "Menyinkronkan ke ~/.gemini/skills..."
-cp -R "$HOME/.agents/skills"/* "$HOME/.gemini/skills/"
-
-echo "Menyinkronkan ke ~/.claude/skills..."
-cp -R "$HOME/.agents/skills"/* "$HOME/.claude/skills/"
-
-echo "=========================================================="
-echo "Setup selesai! Semua direktori agent kini memiliki 154 skills."
-echo "=========================================================="
+echo "Setup selesai. Codex membaca skill dari ~/.agents/skills."

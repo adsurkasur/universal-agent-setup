@@ -28,15 +28,17 @@ $claudePath = "$env:USERPROFILE\.claude\skills"
 $codexPath = "$env:USERPROFILE\.codex\skills"
 $geminiPath = "$env:USERPROFILE\.gemini\config\skills"
 
-$codexCount = if (Test-Path $codexPath) { (Get-ChildItem $codexPath -Directory).Count } else { 0 }
+$codexDuplicates = @(Get-ChildItem $codexPath -Directory -ErrorAction SilentlyContinue | Where-Object {
+    -not $_.Name.StartsWith('.') -and (Test-Path (Join-Path $HubPath ($_.Name + '\SKILL.md')))
+})
 $claudeCount = if (Test-Path $claudePath) { (Get-ChildItem $claudePath -Directory).Count } else { 0 }
 $geminiCount = if (Test-Path $geminiPath) { (Get-ChildItem $geminiPath -Directory).Count } else { 0 }
 
-Write-Host " -> OpenAI Codex: $codexCount skills"
+Write-Host " -> OpenAI Codex: shared hub; $($codexDuplicates.Count) legacy duplicates"
 Write-Host " -> Anthropic Claude: $claudeCount skills"
 Write-Host " -> Google Antigravity: $geminiCount skills"
 
-if ($totalHub -ge 195 -and $codexCount -ge 195) {
+if ($totalHub -ge 195 -and $codexDuplicates.Count -eq 0 -and $claudeCount -ge $totalHub -and $geminiCount -ge $totalHub) {
     Write-Host " [PASS] Hub and Agents are fully synced.`n" -ForegroundColor Green
     $results.HubSync = $true
 } else {

@@ -4,7 +4,7 @@
 .DESCRIPTION
     Script instalasi lengkap untuk mereplikasi seluruh konfigurasi AI Agent:
     - 197 Unified Skills (Engineering Superpowers, Matt Pocock, Ponytail, GSAP, Motion Design, Framer Motion, Taste/Impeccable, Bahasa Indonesia EYD V & KBBI, Scientific Writing, Vercel, Bio/Science, Playwright, Three.js, Shadcn UI, Tailwind v4, Typst, Remotion, Readme Generator, Skill Router, Deck Builder, Reverse Engineer Anything, dll.)
-    - Sinkronisasi ke 5 Direktori: ~/.agents/skills, ~/.codex/skills, ~/.gemini/config/skills, ~/.gemini/skills, dan ~/.claude/skills
+    - Sinkronisasi ke hub dan direktori Claude/Gemini; Codex membaca hub langsung: ~/.agents/skills, ~/.gemini/config/skills, ~/.gemini/skills, dan ~/.claude/skills
     - Setup Konfigurasi 12 MCP Servers (Draw.io, Ripple, Android Emulator, Arduino, Figma, Better Icons, Playwright, Chrome DevTools, GitHub, Context7, REA, Play Console) dengan Smart Merge & Auto-Backup
 #>
 
@@ -49,7 +49,7 @@ if ($hasGit) {
 if ($hasPython) {
     Write-Host "  [OK] Python terdeteksi ($(python --version))" -ForegroundColor Green
 } else {
-    Write-Host "  [INFO] Python belum terdeteksi di PATH." -ForegroundColor Gray
+    throw "Python 3 diperlukan untuk sinkronisasi skill. Pasang Python sebelum menjalankan installer."
 }
 
 # 2. Deteksi Path Khusus (Android SDK, Arduino CLI, Browser & GitHub Token)
@@ -105,7 +105,7 @@ Write-Host "  Play Console Key : $(if (Test-Path $playConsoleKey) { $playConsole
 Write-Host "`n[3/6] Mempersiapkan Struktur Direktori Agent..." -ForegroundColor Yellow
 $dirs = @(
     "$env:USERPROFILE\.agents\skills",
-    "$env:USERPROFILE\.codex\skills",
+    "$env:USERPROFILE\.codex",
     "$env:USERPROFILE\.gemini\config\skills",
     "$env:USERPROFILE\.gemini\skills",
     "$env:USERPROFILE\.gemini\antigravity-ide",
@@ -139,11 +139,7 @@ $syncScript = Join-Path $scriptDir "sync-skills.ps1"
 if (Test-Path $syncScript) {
     & $syncScript -SourceHub "$env:USERPROFILE\.agents\skills"
 } else {
-    # Fallback copy manual
-    robocopy "$env:USERPROFILE\.agents\skills" "$env:USERPROFILE\.codex\skills" /E /XO /NP /NFL /NDL /NJH /NJS | Out-Null
-    robocopy "$env:USERPROFILE\.agents\skills" "$env:USERPROFILE\.gemini\config\skills" /E /XO /NP /NFL /NDL /NJH /NJS | Out-Null
-    robocopy "$env:USERPROFILE\.agents\skills" "$env:USERPROFILE\.gemini\skills" /E /XO /NP /NFL /NDL /NJH /NJS | Out-Null
-    robocopy "$env:USERPROFILE\.agents\skills" "$env:USERPROFILE\.claude\skills" /E /XO /NP /NFL /NDL /NJH /NJS | Out-Null
+    throw 'sync-skills.ps1 is required; refusing fallback copies that can duplicate Codex skills.'
 }
 
 # 6. Setup & Smart Merge Konfigurasi MCP (Antigravity, Claude, Codex)
