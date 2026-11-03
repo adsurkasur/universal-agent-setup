@@ -1,6 +1,6 @@
 ---
 name: skill-router
-description: "Universal Agent Orchestrator & Capability Router. Otomatis menentukan dan merangkai (chaining) skill dan MCP tools yang paling tepat untuk setiap tugas. Mengklasifikasi intensi, memilih playbook multi-skill (Frontend Craft, Penulisan EYD/Akademik, Bugfixing Ponytail, Motion/3D, Cloud, IoT), memetakan panggilan MCP (Playwright, DevTools, GitHub, Better Icons, Ripple, Arduino), dan menyediakan fallback jaringan jika skill belum terpasang."
+description: "Universal Agent Orchestrator & Capability Router. Otomatis menentukan dan merangkai (chaining) skill dan MCP tools yang paling tepat untuk setiap tugas. Mengklasifikasi intensi, memilih playbook multi-skill (Frontend Craft, Penulisan EYD/Akademik, Bugfixing Ponytail, Motion/3D, Cloud, IoT, Mobile/Play Console, Presentations, Reverse Engineering), memetakan 12 panggilan MCP (Playwright, DevTools, GitHub, Better Icons, Ripple, Arduino, Android Emulator, Play Console, REA, Figma, Draw.io, Context7), dan menyediakan fallback jaringan jika skill belum terpasang."
 triggers:
   - route
   - rute
@@ -32,7 +32,7 @@ Audit tag: Every routing output or plan emitted by this router should be tagged 
 1. **ENTRY GUARD**: Tentukan apakah pesan pengguna memerlukan routing skill/tool atau sekadar obrolan kasual.
 2. **INTENT CLASSIFICATION**: Petakan prompt ke dalam salah satu domain inti workstation.
 3. **PLAYBOOK / SKILL MATCH**: Pilih skill tunggal atau rangkaian *multi-skill playbook*.
-4. **MCP TOOL DISPATCH**: Tentukan apakah memerlukan bantuan server MCP (browser, terminal, ikon, DB, hardware).
+4. **MCP TOOL DISPATCH**: Tentukan apakah memerlukan bantuan server MCP (browser, terminal, ikon, DB, hardware, mobile, REA).
 5. **LOAD GUARD**: Konfirmasikan atau umumkan rencana eksekusi kepada pengguna.
 6. **VERIFY HOOK**: Pastikan hasil akhir pekerjaan terverifikasi sebelum sesi diselesaikan.
 
@@ -40,7 +40,7 @@ Audit tag: Every routing output or plan emitted by this router should be tagged 
 
 ## 2. Domain Taxonomy & Core Playbooks
 
-Workstation ini memiliki 190+ skill dan 10 server MCP. Gunakan playbook siap pakai berikut untuk tugas multi-langkah:
+Workstation ini memiliki 197 skill terpadu dan 12 server MCP. Gunakan playbook siap pakai berikut untuk tugas multi-langkah:
 
 ### Playbook A: High-Craft Frontend & Web UI
 **Pemicu**: Membuat tampilan web, dashboard, landing page, komponen React/Next.js, redesign UI, atau perbaikan estetika.
@@ -84,11 +84,13 @@ Workstation ini memiliki 190+ skill dan 10 server MCP. Gunakan playbook siap pak
   1. BigQuery / GCP Suite (`developing-with-bigquery`, `dbt-bigquery`, `gcp-data-pipelines`)
   2. `accidental-data-loss-prevention` (Pencegahan overwrite/drop tabel)
 
-### Playbook F: Hardware & Mobile Testing
-**Pemicu**: Mikrokontroler, IoT, sketch Arduino, atau aplikasi mobile Android.
+### Playbook F: Mobile, Hardware & Google Play Releases
+**Pemicu**: Mikrokontroler, IoT, sketch Arduino, aplikasi Android, Compose UI, atau manajemen Google Play Console.
 * **Alur Eksekusi**:
-  1. `arduino` [MCP] (Kompilasi & upload sketch via Arduino CLI)
+  1. `android-cli` (Compose preview rendering via `compose-preview`, kontrol device mirroring via `device-hub`)
   2. `android-emulator` [MCP] (Otomasi UI & inspeksi emulator Android)
+  3. `play-console` [MCP & Skill] (Otomasi perilisan tracks internal/alpha/beta/production, status staged rollout, APK/AAB metadata, Android vitals)
+  4. `arduino` [MCP] (Kompilasi & upload sketch via Arduino CLI)
 
 ### Playbook G: Repository Polish, Documentation & Release Readiness
 **Pemicu**: Menyiapkan rilis open-source, merapikan repositori, membuat README profesional, menambahkan badge & arsitektur, audit log & atribusi.
@@ -97,25 +99,27 @@ Workstation ini memiliki 190+ skill dan 10 server MCP. Gunakan playbook siap pak
   2. `project-logger` (Pencatatan sesi, pembaruan CHANGELOG & DECISION_LOG)
   3. `github` [MCP] (Sinkronisasi issue, push commits, buat release PR)
 
-### Playbook H: Presentation Engineering & Slide Decks
-**Pemicu**: Membuat slide presentasi PowerPoint/deck (.pptx), pitch deck bisnis, kuliah teknis/akademik, atau visual briefing.
+### Playbook H: Presentation Engineering & Anti-Slop Slide Decks
+**Pemicu**: Membuat slide presentasi PowerPoint/deck (.pptx), pitch deck startup, kuliah teknis/akademik, atau visual briefing anti-slop.
 * **Alur Eksekusi**:
-  1. `deck-builder` (Talk Mode vs Analytical Mode, kalkulasi layout presisi, styling PptxGenJS & visual cropping Sharp)
-  2. `bahasa-inti` (Jika naskah berbahasa Indonesia: kepatuhan tata bahasa EYD V baku)
-  3. `better-icons` [MCP] (Ekstraksi SVG/vektor untuk visual slide pendukung)
+  1. `anti-slop-presentation` (Banned generic AI templates, 3-card pillars; terapkan visual cadence, archetype templates, editorial layout)
+  2. `deck-builder` (Talk Mode vs Analytical Mode, kalkulasi layout presisi, styling PptxGenJS & visual cropping Sharp)
+  3. `bahasa-inti` (Jika naskah berbahasa Indonesia: kepatuhan tata bahasa EYD V baku)
+  4. `better-icons` [MCP] (Ekstraksi SVG/vektor untuk visual slide pendukung)
 
 ### Playbook I: Reverse Engineering & Deep Binary/Code Auditing
 **Pemicu**: Dekompilasi APK/Android, bedah executable biner (PE/ELF/Mach-O), audit bundle JavaScript/Electron yang di-minify/obfuscate, analisis firmware, atau observasi runtime/memori.
 * **Alur Eksekusi**:
   1. `reverse-engineer-anything` (REA suite: inspeksi header/metadata, disassembler, dekompiler, string/symbol recovery)
-  2. `systematic-debugging` (Isolasi alur eksekusi & identifikasi fungsi kunci)
-  3. `accidental-data-loss-prevention` (Integritas lingkungan & keamanan eksekusi)
+  2. `rea` [MCP] (207 MCP tools terpadu untuk analisis statis/dinamis mendalam)
+  3. `systematic-debugging` (Isolasi alur eksekusi & identifikasi fungsi kunci)
+  4. `accidental-data-loss-prevention` (Integritas lingkungan & keamanan eksekusi)
 
 ---
 
 ## 3. Matriks Keputusan MCP Server
 
-Kapan agent harus memanggil tool MCP tertentu:
+Kapan agent harus memanggil tool MCP tertentu (Total 12 Servers):
 
 | Kebutuhan Tugas | Tool MCP yang Dipanggil | Format Pemanggilan |
 | :--- | :--- | :--- |
@@ -124,6 +128,8 @@ Kapan agent harus memanggil tool MCP tertentu:
 | **Butuh ikon UI (Lucide, Heroicons, Material)** | `better-icons` | `better-icons search <query>` / get SVG |
 | **Cari kode di GitHub / Buat PR / Cek CI** | `github` | `@modelcontextprotocol/server-github` via token `gh` |
 | **Dokumentasi library mutakhir (Next.js 15, React 19)** | `context7` | `https://mcp.context7.com/mcp` |
+| **Reverse engineering binary / APK / JS bundle** | `rea` | `cmd.exe /c npx rea-agents@6.7.0 mcp` (207 analysis tools) |
+| **Google Play tracks / Release / Vitals audit** | `play-console` | `cmd.exe /c npx @orellbuehler/play-console-mcp@0.3.1` |
 | **Terminal Windows interaktif / REPL** | `ripple` | `@ytsuda/ripple@latest` |
 | **Mikrokontroler / Sensor / Serial Monitor** | `arduino` | `arduino-mcp-server` |
 | **Uji coba aplikasi Android / Screenshot mobile** | `android-emulator` | `mcp-android-emulator` |
@@ -143,7 +149,7 @@ Jika setelah pemindaian tidak ada skill lokal yang cocok:
    ```bash
    npx skills add <owner/repo> -g -y
    ```
-4. Jalankan `sync-agents.ps1` agar skill baru tersinkronkan ke seluruh agent.
+4. Jalankan `scripts/sync-skills.ps1` agar skill baru tersinkronkan ke seluruh agent.
 
 ---
 

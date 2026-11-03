@@ -1,5 +1,17 @@
 # Activity Log
 
+## [2026-11-03 11:10 +07:00] - Adoption of v1.5.0, v1.6.0 & PR #1 (Shared Hub for Codex, 197 Skills, 12 MCPs)
+- **Agent Identity / Role**: Antigravity Assistant (AI Systems Architect)
+- **Session Goal**: Pull and adopt remote repository updates (v1.5.0 and v1.6.0 with PR #1), migrate Codex to native shared hub discovery without legacy duplicate junctions, smart-merge 12 MCP servers into all agent configurations with UTF-8-sig encoding fix, upgrade `skill-router` to 12 MCP servers and 9 Playbooks, and rebuild distribution bundle.
+- **Actions Taken**:
+  1. Pulled remote commits from `origin/main` (`1924630`, `3f6684f`, `15b4bbf`) adopting `play-console`, `anti-slop-presentation`, `android-cli` enhancements, smart MCP merging, and Python-based outward sync.
+  2. Migrated `~/.codex/skills` by archiving 197 legacy duplicate junction links to `~/.codex/skills_backup_20261103_105913`, leaving `.system` intact while Codex reads `~/.agents/skills` directly.
+  3. Patched `scripts/merge-configs.py` to support `utf-8-sig` encoding (resolving Python 3.14 UTF-8 BOM JSON parsing) and resolved direct bundle path handling in `scripts/install-all.ps1`.
+  4. Executed `install-all.ps1` with smart merging: registered `play-console` and `rea` MCP servers into Antigravity (`~/.gemini/config/mcp_config.json`), Claude Desktop (`%APPDATA%\Claude\claude_desktop_config.json`), Claude Code (`~/.claude.json`), and Codex (`~/.codex/config.toml`).
+  5. Updated `skills/skill-router/SKILL.md` with Playbook F (Play Console & mobile), Playbook H (Anti-slop presentation & deck-builder), Playbook I (REA & reverse engineering), and expanded 12 MCP decision matrix.
+  6. Rebuilt `agent-setup-bundle.zip` (20.36 MB) containing all 197 skills, 12 MCP configs, and updated installer tooling.
+  7. Validated setup with `scripts/test-suite.ps1` (100% PASS across all 6 verification gates) and `tests/test_skill_sync.py` (5 unit tests passed).
+
 ## [2026-10-30 00:48 +07:00] - Release v1.6.0: Codex Crash Fix, Smart MCP Merging & 197 Skills Parity
 - **Agent Identity / Role**: Antigravity Assistant (AI Systems Architect)
 - **Session Goal**: Diagnose and resolve OpenAI ChatGPT Codex workspace crash (config.toml:205:1), implement non-destructive smart configuration merging with auto-backup, synchronize 197 unified skills across all agent platforms (Codex, Antigravity, Claude, ~/.agents), and integrate REA as the 12th universal MCP server.

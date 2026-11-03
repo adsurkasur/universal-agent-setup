@@ -180,7 +180,7 @@ Get-ChildItem $configsBundle | ForEach-Object {
 $mergePy = Join-Path $scriptDir "merge-configs.py"
 if ($hasPython -and (Test-Path $mergePy)) {
     $forceFlag = if ($ForceOverwriteConfigs) { "--force" } else { "" }
-    python $mergePy --action all $forceFlag --bundle-dir (Split-Path -Parent $tempConfigDir)
+    python $mergePy --action all $forceFlag --bundle-dir $tempConfigDir
 } else {
     Write-Warning "Python tidak ditemukan, beralih ke pemasangan langsung..."
     # Fallback copy

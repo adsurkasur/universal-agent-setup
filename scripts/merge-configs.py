@@ -19,7 +19,7 @@ def merge_json_mcp(target_path, template_path, force_overwrite=False):
         print(f"  [Skip] Template not found: {template_path}")
         return
 
-    with open(template_path, 'r', encoding='utf-8') as f:
+    with open(template_path, 'r', encoding='utf-8-sig') as f:
         tpl_data = json.load(f)
 
     tpl_servers = tpl_data.get('mcpServers', {})
@@ -35,7 +35,7 @@ def merge_json_mcp(target_path, template_path, force_overwrite=False):
     # Smart merge
     backup_file(target_path)
     try:
-        with open(target_path, 'r', encoding='utf-8') as f:
+        with open(target_path, 'r', encoding='utf-8-sig') as f:
             cur_data = json.load(f)
     except Exception as e:
         print(f"  [Warn] Failed to parse existing {target_path} ({e}), overwriting with template")
@@ -63,7 +63,7 @@ def merge_codex_toml(target_path, template_path, force_overwrite=False):
         print(f"  [Skip] Template not found: {template_path}")
         return
 
-    with open(template_path, 'r', encoding='utf-8') as f:
+    with open(template_path, 'r', encoding='utf-8-sig') as f:
         tpl_text = f.read()
 
     if force_overwrite or not os.path.exists(target_path) or os.path.getsize(target_path) == 0:
@@ -75,7 +75,7 @@ def merge_codex_toml(target_path, template_path, force_overwrite=False):
         return
 
     backup_file(target_path)
-    with open(target_path, 'r', encoding='utf-8') as f:
+    with open(target_path, 'r', encoding='utf-8-sig') as f:
         cur_text = f.read()
 
     # Critical fix: Ensure [mcp_servers.figma] never has args = []
@@ -115,7 +115,10 @@ if __name__ == '__main__':
 
     user_home = os.path.expanduser('~')
     appdata = os.environ.get('APPDATA', os.path.join(user_home, 'AppData', 'Roaming'))
-    configs_dir = os.path.join(args.bundle_dir, 'configs')
+    if os.path.exists(os.path.join(args.bundle_dir, 'configs')):
+        configs_dir = os.path.join(args.bundle_dir, 'configs')
+    else:
+        configs_dir = args.bundle_dir
 
     if args.action in ['antigravity', 'all']:
         t_antigravity = os.path.join(user_home, '.gemini', 'config', 'mcp_config.json')
