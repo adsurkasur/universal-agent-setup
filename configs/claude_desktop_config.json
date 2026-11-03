@@ -39,9 +39,6 @@
         "ARDUINO_CLI_PATH": "__ARDUINO_CLI_PATH__"
       }
     },
-    "figma": {
-      "url": "https://mcp.figma.com/mcp"
-    },
     "better-icons": {
       "command": "npx",
       "args": [
