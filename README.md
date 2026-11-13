@@ -1,6 +1,6 @@
 # Universal AI Agent Setup & Skills Bundle (Multi-Machine)
 
-[![Skills](https://img.shields.io/badge/Skills-197%20Unified%20Skills-blue?style=for-the-badge&logo=anthropic)](./skills/)
+[![Skills](https://img.shields.io/badge/Skills-198%20Unified%20Skills-blue?style=for-the-badge&logo=anthropic)](./skills/)
 [![MCP Servers](https://img.shields.io/badge/MCP%20Servers-12%20Active-green?style=for-the-badge&logo=fastapi)](./configs/)
 [![License](https://img.shields.io/badge/License-MIT-orange?style=for-the-badge)](./LICENSE)
 [![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20macOS%20%7C%20Linux-lightgrey?style=for-the-badge&logo=windows)](./scripts/)
@@ -14,7 +14,7 @@
 
 > **Repositori ini awalnya dibuat dan dikelola untuk menyinkronkan ekosistem AI Agent pribadi saya antar-mesin (laptop dan desktop)** agar memiliki standar kemampuan, *skills*, dan perkakas MCP yang 100% seragam.
 > 
-> Namun, seluruh konfigurasi, arsitektur *router*, skrip otomasi, serta kurasi **197 skills** dan **12 MCP servers** di sini dirancang secara terbuka dan modular. **Jika bundel ini bermanfaat untuk setup produktivitas Anda, silakan gunakan, fork, atau adaptasi dengan bebas!**
+> Namun, seluruh konfigurasi, arsitektur *router*, skrip otomasi, serta kurasi **198 skills** dan **12 MCP servers** di sini dirancang secara terbuka dan modular. **Jika bundel ini bermanfaat untuk setup produktivitas Anda, silakan gunakan, fork, atau adaptasi dengan bebas!**
 
 Dengan bundel ini, setiap mesin baru akan langsung memiliki lingkungan kerja yang setara untuk 4 platform agent utama:
 1. **Google Antigravity** (IDE & CLI)
@@ -26,8 +26,8 @@ Dengan bundel ini, setiap mesin baru akan langsung memiliki lingkungan kerja yan
 
 ## 🌟 Apa Saja yang Ada di Dalam Bundle Ini?
 
-### 1. Koleksi 197 Unified Skills (`skills/`)
-Seluruh 197 skill tersusun dalam format standar `SKILL.md` (progressive disclosure) yang didukung oleh berbagai agen:
+### 1. Koleksi 198 Unified Skills (`skills/`)
+Seluruh 198 skill tersusun dalam format standar `SKILL.md` (progressive disclosure) yang didukung oleh berbagai agen:
 
 * **The Meta-Orchestrator (Pusat Navigasi Utama)**:
   * `skill-router` — Otomatis menganalisis maksud prompt secara bilingual (ID/EN), menghilangkan *skill blindness*, memetakan alat MCP yang relevan, dan menjalankan *multi-skill playbooks*.
@@ -37,6 +37,7 @@ Seluruh 197 skill tersusun dalam format standar `SKILL.md` (progressive disclosu
 * **Kepenulisan Bahasa Indonesia (EYD V & KBBI Anti-Slop)**:
   * `bahasa-inti` (Alvin Indra / EYD V resmi / KBBI VI) — Kaidah tanda baca presisi (larangan koma sebelum *sehingga/karena/bahwa*, larangan em dash hiasan), kata baku (*silakan, sekadar, risiko, praktik, mengubah*), dan anti-slop bahasa Indonesia (*hiruk pikuk, lanskap, di era digital*).
   * `bahasa-peneliti` (Alvin Indra) — Khusus karya ilmiah, draf skripsi, tesis, dan jurnal. Larangan keras sitasi halu/fiktif, latar belakang berdata + kesenjangan riset (*research gap*), struktur IMRaD, serta kalimat efektif akademik.
+  * penulisan-ilmiah-sinta — Standar penulisan naskah artikel jurnal bereputasi Sinta 1–3, arsitektur kalimat saintifik fleksibel tanpa storytelling/cerpen populer, bebas arkaisme kuno, aturan keutuhan alinea (minimal 3 kalimat per paragraf), dan glosarium teknik/agroindustri.
 * **Engineering Superpowers & Software Methodology (`obra/superpowers`)**:
   * `test-driven-development` (TDD), `systematic-debugging`, `writing-plans`, `executing-plans`, `verification-before-completion`, `subagent-driven-development`, `dispatching-parallel-agents`, `using-git-worktrees`.
 * **Matt Pocock Skills Suite (`mattpocock/skills`)**:

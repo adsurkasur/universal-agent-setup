@@ -20,6 +20,7 @@ Repositori ini berperan sebagai sistem distribusi, orkestrator, dan kurator mult
 | :--- | :--- | :--- | :--- | :--- |
 | `bahasa-inti` | **Alvin Indra** | EYD Edisi V (Kepmendikbudristek 342/M/2022), KBBI Daring VI, Ivan Lanin | [`alvinindra/bahasa-skills`](https://github.com/alvinindra/bahasa-skills) | MIT |
 | `bahasa-peneliti` | **Alvin Indra** | Standar Penulisan Akademik, IMRaD, & Integritas Sitasi | [`alvinindra/bahasa-skills`](https://github.com/alvinindra/bahasa-skills) | MIT |
+| penulisan-ilmiah-sinta | **Komunitas Antigravity & Riset Operasi** | Standar Penulisan Jurnal Bereputasi Sinta 1–3, EYD V, & Anti-Storytelling | Distilasi Panduan Jurnal Terakreditasi Nasional | MIT |
 
 ---
 

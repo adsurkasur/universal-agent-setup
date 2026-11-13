@@ -1,5 +1,16 @@
 # Architecture Decision Log (ADR)
 
+## [DEC-008] Indonesian Academic Journal Standards (Sinta 1–3) Skill Adoption
+- **Status**: Accepted
+- **Context**: While ahasa-inti (EYD V) and ahasa-peneliti (academic integrity and IMRaD structure) cover general grammatical and thesis standards, papers submitted to national accredited journals (Sinta 1 to Sinta 3) frequently fall into two extreme traps: conversational storytelling (popular journalism style with casual metaphors and dangling enclitics) or pompous archaisms (archaic medieval conjunctions like *kendati demikian*, *ihwal*, *niscaya*). Furthermore, journals enforce strict paragraph cohesion (at least 3 sentences per paragraph) and domain-specific terminology for applied sciences, agroindustry, and operations research.
+- **Decision**: 
+  1. Integrate penulisan-ilmiah-sinta as a core skill in the repository and synchronize across all AI agents.
+  2. Embed penulisan-ilmiah-sinta into skill-router (Playbook B) for direct invocation when drafting or auditing journal manuscripts.
+  3. Expand scripts/test-suite.ps1 to verify Sinta rules alongside EYD V.
+- **Consequences**:
+  - Positive: Guarantees publication-ready academic Indonesian prose compliant with Sinta 1–3 editorial standards.
+  - Positive: Prevents fragmented one-to-two sentence paragraphs and ensures accurate terminology across technical disciplines.
+
 ## [DEC-007] Codex TOML Schema Deserialization Defense & Non-Destructive Smart Merging
 - **Status**: Accepted
 - **Context**: OpenAI Codex crashes completely upon startup if config.toml contains extraneous keys for untagged MCP server enums (e.g. rgs = [] inside a streamable HTTP server [mcp_servers.figma]). Additionally, previous installers skipped configuration updates if files existed, preventing agents from acquiring newly registered MCP servers without manually editing or destroying their configs.

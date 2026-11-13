@@ -38,7 +38,7 @@ Write-Host " -> OpenAI Codex: shared hub; $($codexDuplicates.Count) legacy dupli
 Write-Host " -> Anthropic Claude: $claudeCount skills"
 Write-Host " -> Google Antigravity: $geminiCount skills"
 
-if ($totalHub -ge 195 -and $codexDuplicates.Count -eq 0 -and $claudeCount -ge $totalHub -and $geminiCount -ge $totalHub) {
+if ($totalHub -ge 198 -and $codexDuplicates.Count -eq 0 -and $claudeCount -ge $totalHub -and $geminiCount -ge $totalHub) {
     Write-Host " [PASS] Hub and Agents are fully synced.`n" -ForegroundColor Green
     $results.HubSync = $true
 } else {
@@ -102,23 +102,26 @@ if (Test-Path $routerPath) {
     Write-Host " [FAIL] skill-router not found in hub.`n" -ForegroundColor Red
 }
 
-# --- TEST 4: Indonesian EYD V Suite Verification ---
-Write-Host "[TEST 4] Testing 'bahasa-inti' and 'bahasa-peneliti' rules..." -ForegroundColor Yellow
+# --- TEST 4: Indonesian EYD V & Sinta Academic Suite Verification ---
+Write-Host "[TEST 4] Testing 'bahasa-inti', 'bahasa-peneliti', and 'penulisan-ilmiah-sinta' rules..." -ForegroundColor Yellow
 $bahasaInti = Join-Path $HubPath "bahasa-inti\SKILL.md"
 $bahasaPeneliti = Join-Path $HubPath "bahasa-peneliti\SKILL.md"
+$bahasaSinta = Join-Path $HubPath "penulisan-ilmiah-sinta\SKILL.md"
 
-if ((Test-Path $bahasaInti) -and (Test-Path $bahasaPeneliti)) {
+if ((Test-Path $bahasaInti) -and (Test-Path $bahasaPeneliti) -and (Test-Path $bahasaSinta)) {
     $intiRaw = Get-Content $bahasaInti -Raw -Encoding UTF8
     $penelitiRaw = Get-Content $bahasaPeneliti -Raw -Encoding UTF8
+    $sintaRaw = Get-Content $bahasaSinta -Raw -Encoding UTF8
 
     $hasSehinggaRule = ($intiRaw -match "sehingga") -and ($intiRaw -match "koma")
     $hasEmDashRule   = ($intiRaw -match "em dash") -or ($intiRaw -match "tanda pisah")
     $hasNamunRule    = $intiRaw -match "namun"
     $hasResearchGap  = ($penelitiRaw -match "research gap") -or ($penelitiRaw -match "rumusan masalah")
+    $hasSintaRule    = ($sintaRaw -match "Sinta 1") -and ($sintaRaw -match "keutuhan alinea")
 
-    if ($hasSehinggaRule -and $hasEmDashRule -and $hasNamunRule -and $hasResearchGap) {
-        Write-Host " -> Verified: sehingga comma prohibition, em-dash constraints, namun rules, and research gap requirements."
-        Write-Host " [PASS] Bahasa EYD V and Academic writing suite verified.`n" -ForegroundColor Green
+    if ($hasSehinggaRule -and $hasEmDashRule -and $hasNamunRule -and $hasResearchGap -and $hasSintaRule) {
+        Write-Host " -> Verified: sehingga comma prohibition, em-dash constraints, namun rules, research gap requirements, and Sinta alinea unity."
+        Write-Host " [PASS] Bahasa EYD V, Academic & Sinta writing suite verified.`n" -ForegroundColor Green
         $results.BahasaEydSuite = $true
     } else {
         Write-Host " [FAIL] Bahasa rules incomplete.`n" -ForegroundColor Red

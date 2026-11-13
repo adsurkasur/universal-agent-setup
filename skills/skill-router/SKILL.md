@@ -56,12 +56,13 @@ Workstation ini memiliki 197 skill terpadu dan 12 server MCP. Gunakan playbook s
 ### Playbook B: Penulisan Bahasa Indonesia, Skripsi & Laporan Akademik
 **Pemicu**: Menulis/menyunting naskah berbahasa Indonesia, draf skripsi, tesis, jurnal, proposal, atau laporan bisnis.
 * **Alur Eksekusi**:
-  1. `bahasa-inti` (Kaidah EYD V ketat: larangan koma sebelum *sehingga*, larangan em dash hiasan, kata baku KBBI)
-  2. `bahasa-peneliti` (Khusus naskah ilmiah: larangan sitasi halu, latar belakang berbasis data & research gap)
-  3. `paper-lookup` + `pubmed-database` / `literature-search-openalex` (Pencarian literatur kredibel)
-  4. `scientific-writing` (Struktur bab IMRaD & narasi ilmiah)
-  5. `typst` (Typesetting PDF presisi tinggi super cepat) atau `docx`/`academic-pptx`
-  6. `project-logger` (Pencatatan sesi)
+  1. ahasa-inti (Kaidah EYD V ketat: larangan koma sebelum *sehingga*, larangan em dash hiasan, kata baku KBBI)
+  2. ahasa-peneliti (Khusus naskah ilmiah: larangan sitasi halu, latar belakang berbasis data & research gap)
+  3. penulisan-ilmiah-sinta (Khusus naskah jurnal Sinta 1–3: arsitektur kalimat bebas storytelling/cerpen & bebas arkaisme, keutuhan alinea ≥3 kalimat, glosarium teknik/agroindustri)
+  4. paper-lookup + pubmed-database / literature-search-openalex (Pencarian literatur kredibel)
+  5. scientific-writing (Struktur bab IMRaD & narasi ilmiah)
+  6. 	ypst (Typesetting PDF presisi tinggi super cepat) atau docx/cademic-pptx
+  7. project-logger (Pencatatan sesi)
 
 ### Playbook C: Lazy Senior Dev Bugfixing & Refactoring
 **Pemicu**: Menemukan bug, optimasi kode, refactoring, atau membersihkan bloat/over-engineering.

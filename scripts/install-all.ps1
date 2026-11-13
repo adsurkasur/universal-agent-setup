@@ -3,7 +3,7 @@
     Automated Multi-Agent Setup & Skills Installer for Windows.
 .DESCRIPTION
     Script instalasi lengkap untuk mereplikasi seluruh konfigurasi AI Agent:
-    - 197 Unified Skills (Engineering Superpowers, Matt Pocock, Ponytail, GSAP, Motion Design, Framer Motion, Taste/Impeccable, Bahasa Indonesia EYD V & KBBI, Scientific Writing, Vercel, Bio/Science, Playwright, Three.js, Shadcn UI, Tailwind v4, Typst, Remotion, Readme Generator, Skill Router, Deck Builder, Reverse Engineer Anything, dll.)
+    - 198 Unified Skills (Engineering Superpowers, Matt Pocock, Ponytail, GSAP, Motion Design, Framer Motion, Taste/Impeccable, Bahasa Indonesia EYD V & KBBI, Scientific Writing, Vercel, Bio/Science, Playwright, Three.js, Shadcn UI, Tailwind v4, Typst, Remotion, Readme Generator, Skill Router, Deck Builder, Reverse Engineer Anything, dll.)
     - Sinkronisasi ke hub dan direktori Claude/Gemini; Codex membaca hub langsung: ~/.agents/skills, ~/.gemini/config/skills, ~/.gemini/skills, dan ~/.claude/skills
     - Setup Konfigurasi 12 MCP Servers (Draw.io, Ripple, Android Emulator, Arduino, Figma, Better Icons, Playwright, Chrome DevTools, GitHub, Context7, REA, Play Console) dengan Smart Merge & Auto-Backup
 #>
@@ -123,7 +123,7 @@ foreach ($d in $dirs) {
 }
 
 # 4. Salin Skills ke Source Hub (~/.agents/skills)
-Write-Host "`n[4/6] Menyalin 197 Skills ke Central Hub (~/.agents/skills)..." -ForegroundColor Yellow
+Write-Host "`n[4/6] Menyalin 198 Skills ke Central Hub (~/.agents/skills)..." -ForegroundColor Yellow
 if (Test-Path $skillsBundle) {
     robocopy $skillsBundle "$env:USERPROFILE\.agents\skills" /E /XO /NP /NFL /NDL /NJH /NJS | Out-Null
     $totalHub = (Get-ChildItem "$env:USERPROFILE\.agents\skills" -Directory | Where-Object { -not $_.Name.StartsWith(".") }).Count
@@ -200,7 +200,7 @@ Write-Host "`n==========================================================" -Foreg
 Write-Host "         INSTALLASI DAN SETUP SELESAI DENGAN SUKSES!      " -ForegroundColor Green
 Write-Host "==========================================================" -ForegroundColor Cyan
 Write-Host "Ringkasan Hasil:" -ForegroundColor White
-Write-Host "1. Seluruh 197 skills kini tersedia di Antigravity, Claude, Codex, dan ~/.agents."
+Write-Host "1. Seluruh 198 skills kini tersedia di Antigravity, Claude, Codex, dan ~/.agents."
 Write-Host "2. 12 MCP Servers (Figma, Draw.io, Ripple, Android, Arduino, Better Icons, Playwright, Chrome DevTools, GitHub, Context7, REA, Play Console) siap dijalankan."
 Write-Host "3. Buka 'New Chat' pada ChatGPT Desktop atau Claude Desktop untuk memuat ulang skill."
 Write-Host ""

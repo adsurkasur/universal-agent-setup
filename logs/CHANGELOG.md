@@ -4,6 +4,16 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.7.0] - 2026-11-13
+
+### Added
+- **1 New Unified Skill** (total skills increased from 197 to 198):
+  - penulisan-ilmiah-sinta: Pedoman dan standar gaya penulisan naskah akademik/artikel jurnal ilmiah Bahasa Indonesia bereputasi (Sinta 1, Sinta 2, Sinta 3, dan Scopus berbahasa Indonesia). Menegakkan aturan sintaksis fleksibel tanpa storytelling/cerpen populer, tanpa arkaisme kuno, larangan total em dash bergaya, kepatuhan koma EYD V (larangan koma sebelum *sehingga*, larangan *namun* di tengah kalimat), kaidah keutuhan alinea (minimal 3 kalimat per paragraf), dan glosarium baku teknik/agroindustri/riset operasi.
+- **Skill Router Enhancement**:
+  - Diintegrasikan ke dalam skill-router (Playbook B: Penulisan Bahasa Indonesia, Skripsi & Laporan Akademik) untuk mengorkestrasi penulisan naskah jurnal nasional bereputasi.
+- **Automated Test Suite Expansion (scripts/test-suite.ps1)**:
+  - Test 4 ditingkatkan untuk memvalidasi keberadaan dan aturan integritas penulisan-ilmiah-sinta bersama ahasa-inti dan ahasa-peneliti (198 skills verified).
+
 ## [1.6.0] - 2026-10-30
 
 ### Added
