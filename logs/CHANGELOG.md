@@ -4,6 +4,19 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.8.0] - 2026-11-14
+
+### Added
+- **2 New Unified Skills (200 Unified Skills Milestone)**:
+  - `find-docs`: Official Upstash Context7 documentation retrieval skill providing real-time, version-specific API reference fetching directly into agent context.
+  - `context7`: Dedicated dual-mode (MCP `@upstash/context7-mcp` & CLI `ctx7`) developer knowledge orchestrator to eliminate hallucinations for modern software stacks (Next.js 15, React 19, Tailwind v4, Prisma, etc.).
+- **Global Documentation Lookup Directives**:
+  - Deployed mandatory Context7 lookup rules across Google Antigravity (`~/.gemini/GEMINI.md`), Anthropic Claude (`~/.claude/CLAUDE.md`), and OpenAI Codex (`~/.codex/instructions.md`), requiring agents to consult authoritative docs before generating code for modern libraries or frameworks.
+- **Skill Router Enhancement**:
+  - Updated `skills/skill-router/SKILL.md` Playbook A (High-Craft Frontend) and MCP Decision Matrix with Context7 tools (`resolve-library-id`, `query-docs`).
+- **Automated Test Suite Expansion**:
+  - Updated `scripts/test-suite.ps1` to assert 200 unified skills across all local agent hubs with 100% test gate passing.
+
 ## [1.7.0] - 2026-11-13
 
 ### Added

@@ -1,5 +1,18 @@
 # Architecture Decision Log (ADR)
 
+## [DEC-009] Context7 Documentation Retrieval & Grounding Architecture
+- **Status**: Accepted
+- **Context**: AI models frequently suffer from training cutoff hallucination when generating code for fast-evolving software libraries and modern frameworks (e.g. Next.js 15 App Router caching, React 19 hooks and Server Actions, Tailwind CSS v4 CSS-first configuration, Prisma 6, and modern cloud SDKs). Relying on general web search often returns outdated blog posts, deprecated StackOverflow answers, or SEO noise.
+- **Decision**: 
+  1. Integrate Context7 as a universal knowledge retrieval suite with dual access mechanisms: MCP server (`@upstash/context7-mcp` providing `resolve-library-id` and `query-docs`) and CLI (`ctx7` via `npx -y ctx7@latest`).
+  2. Deploy both the official Upstash `find-docs` skill and a dedicated `context7` orchestrator skill, expanding the catalog to 200 Unified Skills.
+  3. Deploy global instructions in `~/.gemini/GEMINI.md`, `~/.claude/CLAUDE.md`, and `~/.codex/instructions.md` instructing agents to query Context7 before generating code or providing advice on framework APIs and migration tasks.
+  4. Ensure graceful degradation: if MCP is disabled or unreachable in an environment, agents seamlessly fall back to `npx -y ctx7@latest`.
+- **Consequences**:
+  - Positive: Guarantees 100% up-to-date, version-specific, hallucination-free code generation for modern APIs.
+  - Positive: Seamless operation without mandatory API keys for standard queries, with optional higher limits via `CONTEXT7_API_KEY`.
+  - Positive: Unified across all three flagship environments (Antigravity/Gemini, Claude Desktop/Code, and OpenAI Codex).
+
 ## [DEC-008] Indonesian Academic Journal Standards (Sinta 1–3) Skill Adoption
 - **Status**: Accepted
 - **Context**: While ahasa-inti (EYD V) and ahasa-peneliti (academic integrity and IMRaD structure) cover general grammatical and thesis standards, papers submitted to national accredited journals (Sinta 1 to Sinta 3) frequently fall into two extreme traps: conversational storytelling (popular journalism style with casual metaphors and dangling enclitics) or pompous archaisms (archaic medieval conjunctions like *kendati demikian*, *ihwal*, *niscaya*). Furthermore, journals enforce strict paragraph cohesion (at least 3 sentences per paragraph) and domain-specific terminology for applied sciences, agroindustry, and operations research.

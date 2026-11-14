@@ -40,14 +40,14 @@ Audit tag: Every routing output or plan emitted by this router should be tagged 
 
 ## 2. Domain Taxonomy & Core Playbooks
 
-Workstation ini memiliki 197 skill terpadu dan 12 server MCP. Gunakan playbook siap pakai berikut untuk tugas multi-langkah:
+Workstation ini memiliki 200 skill terpadu dan 12 server MCP. Gunakan playbook siap pakai berikut untuk tugas multi-langkah:
 
 ### Playbook A: High-Craft Frontend & Web UI
 **Pemicu**: Membuat tampilan web, dashboard, landing page, komponen React/Next.js, redesign UI, atau perbaikan estetika.
 * **Alur Eksekusi**:
   1. `writing-plans` (Perencanaan bertahap jika fitur besar)
   2. `impeccable` + `taste-skill` (Art direction anti-slop & penentuan standar craft/tokens)
-  3. `shadcn-ui` + `tailwind-v4` (Scaffolding komponen Radix & arsitektur CSS-first)
+  3. `context7` / `find-docs` [MCP/CLI] + `shadcn-ui` + `tailwind-v4` (Dokumentasi versi mutakhir, scaffolding Radix & arsitektur CSS-first)
   4. `better-icons` [MCP] (Pencarian dan penulisan SVG ikon langsung ke file)
   5. `framer-motion` / `gsap` (Interaksi mikro, transisi layout, atau animasi timeline)
   6. `playwright` [MCP] (Membuka browser, inspeksi visual, verifikasi interaksi, dan screenshot)
@@ -128,7 +128,7 @@ Kapan agent harus memanggil tool MCP tertentu (Total 12 Servers):
 | **Debug console error / Network request gagal** | `chrome-devtools` | `chrome-devtools-mcp` (Connect ke Edge/Chrome) |
 | **Butuh ikon UI (Lucide, Heroicons, Material)** | `better-icons` | `better-icons search <query>` / get SVG |
 | **Cari kode di GitHub / Buat PR / Cek CI** | `github` | `@modelcontextprotocol/server-github` via token `gh` |
-| **Dokumentasi library mutakhir (Next.js 15, React 19)** | `context7` | `https://mcp.context7.com/mcp` |
+| **Dokumentasi library mutakhir (Next.js 15, React 19, Tailwind v4, Prisma)** | `context7` / `find-docs` | `@upstash/context7-mcp` (`resolve-library-id`, `query-docs`) / `npx ctx7` |
 | **Reverse engineering binary / APK / JS bundle** | `rea` | `cmd.exe /c npx rea-agents@6.7.0 mcp` (207 analysis tools) |
 | **Google Play tracks / Release / Vitals audit** | `play-console` | `cmd.exe /c npx @orellbuehler/play-console-mcp@0.3.1` |
 | **Terminal Windows interaktif / REPL** | `ripple` | `@ytsuda/ripple@latest` |

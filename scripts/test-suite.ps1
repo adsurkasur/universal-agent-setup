@@ -38,7 +38,7 @@ Write-Host " -> OpenAI Codex: shared hub; $($codexDuplicates.Count) legacy dupli
 Write-Host " -> Anthropic Claude: $claudeCount skills"
 Write-Host " -> Google Antigravity: $geminiCount skills"
 
-if ($totalHub -ge 198 -and $codexDuplicates.Count -eq 0 -and $claudeCount -ge $totalHub -and $geminiCount -ge $totalHub) {
+if ($totalHub -ge 200 -and $codexDuplicates.Count -eq 0 -and $claudeCount -ge $totalHub -and $geminiCount -ge $totalHub) {
     Write-Host " [PASS] Hub and Agents are fully synced.`n" -ForegroundColor Green
     $results.HubSync = $true
 } else {
@@ -155,16 +155,16 @@ $readmePath  = Join-Path $RepoPath "README.md"
 if ((Test-Path $sourcesPath) -and (Test-Path $licensePath) -and (Test-Path $readmePath)) {
     $sourcesRaw = Get-Content $sourcesPath -Raw -Encoding UTF8
     $licenseRaw = Get-Content $licensePath -Raw -Encoding UTF8
-    $has195Attribution = ($sourcesRaw -match "196") -or ($sourcesRaw -match "195") -or ($sourcesRaw -match "Total")
+    $hasSkillAttribution = ($sourcesRaw -match "200") -or ($sourcesRaw -match "198") -or ($sourcesRaw -match "196") -or ($sourcesRaw -match "195") -or ($sourcesRaw -match "Total")
     $hasMitNotice = ($licenseRaw -match "MIT License") -and ($licenseRaw -match "Third-Party")
 
-    Write-Host " -> has195Attribution: $has195Attribution, hasMitNotice: $hasMitNotice"
-    if ($has195Attribution -and $hasMitNotice) {
+    Write-Host " -> hasSkillAttribution: $hasSkillAttribution, hasMitNotice: $hasMitNotice"
+    if ($hasSkillAttribution -and $hasMitNotice) {
         Write-Host " -> Verified: SOURCES.md attribution and LICENSE compilation notice intact."
         Write-Host " [PASS] Documentation, licensing, and legal disclaimers verified.`n" -ForegroundColor Green
         $results.DocumentationAudit = $true
     } else {
-        Write-Host " [FAIL] SOURCES.md or LICENSE missing key terms (has195=$has195Attribution, hasMit=$hasMitNotice).`n" -ForegroundColor Red
+        Write-Host " [FAIL] SOURCES.md or LICENSE missing key terms (hasSkill=$hasSkillAttribution, hasMit=$hasMitNotice).`n" -ForegroundColor Red
     }
 } else {
     Write-Host " [FAIL] Core docs missing from repository.`n" -ForegroundColor Red

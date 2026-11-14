@@ -1,6 +1,6 @@
 # Upstream Sources & Attribution Catalog
 
-Dokumen ini memuat atribusi lengkap, pencipta asli (*upstream authors*), lisensi, dan tautan repositori sumber untuk seluruh **196 Agent Skills** dan **11 Server MCP** yang terkurasi di dalam repositori ini.
+Dokumen ini memuat atribusi lengkap, pencipta asli (*upstream authors*), lisensi, dan tautan repositori sumber untuk seluruh **200 Agent Skills** dan **11 Server MCP** yang terkurasi di dalam repositori ini.
 
 Repositori ini berperan sebagai sistem distribusi, orkestrator, dan kurator multi-mesin (*compilation & distribution framework*). Hak cipta atas masing-masing skill dan perkakas tetap dimiliki sepenuhnya oleh para pencipta aslinya masing-masing.
 
@@ -134,6 +134,14 @@ Repositori ini berperan sebagai sistem distribusi, orkestrator, dan kurator mult
 | Skill | Pencipta / Sumber Asli | Repositori Asal | Lisensi |
 | :--- | :--- | :--- | :--- |
 | `play-console` | **Orell Buehler** & Community | [`orellbuehler/play-console-mcp`](https://github.com/orellbuehler/play-console-mcp) | MIT |
+
+---
+
+### Q. Developer Documentation & Knowledge Retrieval Suite (Context7)
+| Skill | Pencipta / Sumber Asli | Repositori Asal | Lisensi |
+| :--- | :--- | :--- | :--- |
+| `find-docs` | **Upstash / Context7 Team** | Official Context7 Documentation Retrieval Skill ([`upstash/context7`](https://github.com/upstash/context7)) | MIT |
+| `context7` | **Upstash & Community Integration** | Context7 Dual-Mode (MCP & CLI) Knowledge Brain ([`context7.com`](https://context7.com)) | MIT |
 
 ---
 

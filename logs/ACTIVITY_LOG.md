@@ -1,5 +1,18 @@
 # Activity Log
 
+## [2026-11-14 11:00 +07:00] - Release v1.8.0: Integration of Context7 Knowledge Brain & 200 Skills Milestone
+- **Agent Identity / Role**: Antigravity Assistant (AI Systems Architect)
+- **Session Goal**: Integrate Context7 (dual-mode MCP and CLI `ctx7`) and official Upstash `find-docs` skills into the universal agent setup repository, establish 200 unified skills across all workstations, deploy global documentation retrieval rules across Gemini/Antigravity, Claude, and Codex, and achieve 100% verification test gate compliance.
+- **Actions Taken**:
+  1. Integrated official Upstash `find-docs` skill and created dedicated `context7` dual-mode orchestrator skill, achieving the 200 Unified Skills milestone.
+  2. Verified live MCP server (`context7` exposing `resolve-library-id` and `query-docs`) and CLI mode (`npx -y ctx7@latest`).
+  3. Deployed global documentation retrieval rules across `~/.gemini/GEMINI.md`, `~/.claude/CLAUDE.md`, and `~/.codex/instructions.md` ensuring agents fetch authoritative docs prior to library code generation.
+  4. Synchronized all 200 skills outward to `~/.agents/skills`, `~/.gemini/config/skills`, `~/.gemini/skills`, and `~/.claude/skills` via `scripts/sync-skills.py`.
+  5. Archived legacy duplicate skills in `~/.codex/skills` to preserve shared hub discovery from `~/.agents/skills` without duplicate collisions.
+  6. Enhanced `skills/skill-router/SKILL.md` Playbook A and MCP decision matrix.
+  7. Updated `scripts/test-suite.ps1` to assert 200 skills and verified 100% pass across all 6 test gates, 5 python unit tests, and `codex doctor`.
+  8. Updated documentation (`README.md`, `SOURCES.md`, `CHANGELOG.md`, `DECISION_LOG.md`) and rebuilt distribution archive `agent-setup-bundle.zip`.
+
 ## [2026-11-13 14:45 +07:00] - Release v1.7.0: Integration of penulisan-ilmiah-sinta (198 Skills Parity)
 - **Agent Identity / Role**: Antigravity Assistant (AI Systems Architect)
 - **Session Goal**: Integrate penulisan-ilmiah-sinta into the universal agent setup repository, update skill-router (Playbook B), and achieve 100% cryptographic parity across all 6 agent hubs (Hub, Codex, Antigravity config, Antigravity fallback, Claude, and Repo).
