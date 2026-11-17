@@ -4,6 +4,17 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.9.0] - 2026-11-17
+
+### Added
+- **2 New Unified Skills (202 Unified Skills Milestone - Token Optimization Suite)**:
+  - `caveman`: Official prompt behavioral optimization skill based on Julius Brussee's viral framework (*"Why use many token when few token do trick"*). Strips conversational filler, pleasantries, and unnecessary articles while maintaining 100% byte-for-byte fidelity for code blocks, file paths, commands, and error logs, backed by auto-clarity guardrails.
+  - `rtk`: Rust Token Killer CLI proxy integration guide and command wrapper for terminal commands (`git status/log/diff`, `pytest`, `cargo`, `npm test`, `docker build`). Compresses CLI outputs by 60%–90% before entering LLM context, with support for `rtk gain` savings analytics.
+- **Skill Router Enhancement**:
+  - Added **Playbook J: Token Optimization & High-Efficiency Agent Runs** to `skills/skill-router/SKILL.md` orchestrating paired usage of `caveman` (output prose compression) and `rtk` (input CLI log compression).
+- **Automated Test Suite Expansion**:
+  - Updated `scripts/test-suite.ps1` to assert 202 unified skills, validating frontmatter integrity and Playbook J routing logic.
+
 ## [1.8.0] - 2026-11-14
 
 ### Added

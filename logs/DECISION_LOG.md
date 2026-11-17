@@ -1,5 +1,19 @@
 # Architecture Decision Log (ADR)
 
+## [DEC-010] Token Optimization & High-Efficiency Developer Stack (RTK & Caveman)
+- **Status**: Accepted
+- **Context**: Long-running agentic development sessions, repetitive test suites (`pytest`, `npm test`, `cargo test`), git inspection (`git log`, `diff`, `status`), and multi-turn refactoring loops heavily bloat the LLM context window. This creates two distinct cost/latency bottlenecks: (1) voluminous raw terminal logs consumed as input tokens, and (2) verbose conversational pleasantries/filler generated as output tokens.
+- **Decision**: 
+  1. Adopt a dual-axis token optimization strategy:
+     - **Input Axis (`rtk`)**: Integrate RTK (Rust Token Killer by `rtk-ai/rtk`) as the standard CLI proxy to filter, collapse, and summarize terminal outputs by 60%–90% without mutating underlying code or exit codes.
+     - **Output Axis (`caveman`)**: Integrate Caveman (by Julius Brussee) as the prompt behavioral modifier stripping polite fluff, filler, and unnecessary articles while maintaining 100% byte-for-byte code, path, and error fidelity.
+  2. Implement `skills/caveman/SKILL.md` and `skills/rtk/SKILL.md`, advancing the catalog to **202 Unified Skills**.
+  3. Integrate **Playbook J: Token Optimization & High-Efficiency Agent Runs** into `skills/skill-router/SKILL.md`.
+  4. Preserve critical auto-clarity guardrails in Caveman (dropping brevity for security alerts and destructive operations).
+- **Consequences**:
+  - Positive: Drastically minimizes token burn rate and context window degradation during prolonged coding sessions.
+  - Positive: Accelerates agent response velocity while guaranteeing strict preservation of code blocks, syntax, and paths.
+
 ## [DEC-009] Context7 Documentation Retrieval & Grounding Architecture
 - **Status**: Accepted
 - **Context**: AI models frequently suffer from training cutoff hallucination when generating code for fast-evolving software libraries and modern frameworks (e.g. Next.js 15 App Router caching, React 19 hooks and Server Actions, Tailwind CSS v4 CSS-first configuration, Prisma 6, and modern cloud SDKs). Relying on general web search often returns outdated blog posts, deprecated StackOverflow answers, or SEO noise.

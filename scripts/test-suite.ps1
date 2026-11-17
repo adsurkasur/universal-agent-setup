@@ -38,7 +38,7 @@ Write-Host " -> OpenAI Codex: shared hub; $($codexDuplicates.Count) legacy dupli
 Write-Host " -> Anthropic Claude: $claudeCount skills"
 Write-Host " -> Google Antigravity: $geminiCount skills"
 
-if ($totalHub -ge 200 -and $codexDuplicates.Count -eq 0 -and $claudeCount -ge $totalHub -and $geminiCount -ge $totalHub) {
+if ($totalHub -ge 202 -and $codexDuplicates.Count -eq 0 -and $claudeCount -ge $totalHub -and $geminiCount -ge $totalHub) {
     Write-Host " [PASS] Hub and Agents are fully synced.`n" -ForegroundColor Green
     $results.HubSync = $true
 } else {
@@ -88,11 +88,13 @@ if (Test-Path $routerPath) {
     $hasPlaybookB = $routerContent -match "Playbook B: Penulisan Bahasa Indonesia"
     $hasPlaybookC = $routerContent -match "Playbook C: Lazy Senior Dev"
     $hasPlaybookG = $routerContent -match "Playbook G: Repository Polish"
+    $hasPlaybookI = $routerContent -match "Playbook I: Reverse Engineering"
+    $hasPlaybookJ = $routerContent -match "Playbook J: Token Optimization"
     $hasMcpMatrix = $routerContent -match "Matriks Keputusan MCP Server"
     $hasFallback  = $routerContent -match "Fallback Jaringan"
 
-    if ($hasPlaybookA -and $hasPlaybookB -and $hasPlaybookC -and $hasPlaybookG -and $hasMcpMatrix -and $hasFallback) {
-        Write-Host " -> Verified: Playbook A, B, C, G + MCP Matrix + Network Fallback present."
+    if ($hasPlaybookA -and $hasPlaybookB -and $hasPlaybookC -and $hasPlaybookG -and $hasPlaybookI -and $hasPlaybookJ -and $hasMcpMatrix -and $hasFallback) {
+        Write-Host " -> Verified: Playbook A, B, C, G, I, J + MCP Matrix + Network Fallback present."
         Write-Host " [PASS] skill-router structure and routing pathways verified.`n" -ForegroundColor Green
         $results.SkillRouter = $true
     } else {
@@ -155,7 +157,7 @@ $readmePath  = Join-Path $RepoPath "README.md"
 if ((Test-Path $sourcesPath) -and (Test-Path $licensePath) -and (Test-Path $readmePath)) {
     $sourcesRaw = Get-Content $sourcesPath -Raw -Encoding UTF8
     $licenseRaw = Get-Content $licensePath -Raw -Encoding UTF8
-    $hasSkillAttribution = ($sourcesRaw -match "200") -or ($sourcesRaw -match "198") -or ($sourcesRaw -match "196") -or ($sourcesRaw -match "195") -or ($sourcesRaw -match "Total")
+    $hasSkillAttribution = ($sourcesRaw -match "202") -or ($sourcesRaw -match "200") -or ($sourcesRaw -match "198") -or ($sourcesRaw -match "196") -or ($sourcesRaw -match "195") -or ($sourcesRaw -match "Total")
     $hasMitNotice = ($licenseRaw -match "MIT License") -and ($licenseRaw -match "Third-Party")
 
     Write-Host " -> hasSkillAttribution: $hasSkillAttribution, hasMitNotice: $hasMitNotice"

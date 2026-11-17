@@ -40,7 +40,7 @@ Audit tag: Every routing output or plan emitted by this router should be tagged 
 
 ## 2. Domain Taxonomy & Core Playbooks
 
-Workstation ini memiliki 200 skill terpadu dan 12 server MCP. Gunakan playbook siap pakai berikut untuk tugas multi-langkah:
+Workstation ini memiliki 202 skill terpadu dan 12 server MCP. Gunakan playbook siap pakai berikut untuk tugas multi-langkah:
 
 ### Playbook A: High-Craft Frontend & Web UI
 **Pemicu**: Membuat tampilan web, dashboard, landing page, komponen React/Next.js, redesign UI, atau perbaikan estetika.
@@ -115,6 +115,13 @@ Workstation ini memiliki 200 skill terpadu dan 12 server MCP. Gunakan playbook s
   2. `rea` [MCP] (207 MCP tools terpadu untuk analisis statis/dinamis mendalam)
   3. `systematic-debugging` (Isolasi alur eksekusi & identifikasi fungsi kunci)
   4. `accidental-data-loss-prevention` (Integritas lingkungan & keamanan eksekusi)
+
+### Playbook J: Token Optimization & High-Efficiency Agent Runs
+**Pemicu**: Sesi coding/debugging panjang, eksekusi test runner bervolume besar, pembatasan token/kuota context window, atau permintaan respons padat/ringkas tanpa basa-basi.
+* **Alur Eksekusi**:
+  1. `caveman` (Aktifkan mode pangkas fluff tekstual: hilangkan basa-basi & artikel, pertahankan 100% kode, path, dan error)
+  2. `rtk` (Bungkus command shell bervolume besar: `rtk git status`, `rtk git diff`, `rtk pytest`, `rtk npm test` untuk kompresi 60%–90%)
+  3. `rtk gain` (Pantau akumulasi penghematan token dan kalkulasi reduksi biaya)
 
 ---
 

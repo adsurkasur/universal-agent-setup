@@ -1,6 +1,6 @@
 # Universal AI Agent Setup & Skills Bundle (Multi-Machine)
 
-[![Skills](https://img.shields.io/badge/Skills-200%20Unified%20Skills-blue?style=for-the-badge&logo=anthropic)](./skills/)
+[![Skills](https://img.shields.io/badge/Skills-202%20Unified%20Skills-blue?style=for-the-badge&logo=anthropic)](./skills/)
 [![MCP Servers](https://img.shields.io/badge/MCP%20Servers-12%20Active-green?style=for-the-badge&logo=fastapi)](./configs/)
 [![License](https://img.shields.io/badge/License-MIT-orange?style=for-the-badge)](./LICENSE)
 [![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20macOS%20%7C%20Linux-lightgrey?style=for-the-badge&logo=windows)](./scripts/)
@@ -14,7 +14,7 @@
 
 > **Repositori ini awalnya dibuat dan dikelola untuk menyinkronkan ekosistem AI Agent pribadi saya antar-mesin (laptop dan desktop)** agar memiliki standar kemampuan, *skills*, dan perkakas MCP yang 100% seragam.
 > 
-> Namun, seluruh konfigurasi, arsitektur *router*, skrip otomasi, serta kurasi **200 skills** dan **12 MCP servers** di sini dirancang secara terbuka dan modular. **Jika bundel ini bermanfaat untuk setup produktivitas Anda, silakan gunakan, fork, atau adaptasi dengan bebas!**
+> Namun, seluruh konfigurasi, arsitektur *router*, skrip otomasi, serta kurasi **202 skills** dan **12 MCP servers** di sini dirancang secara terbuka dan modular. **Jika bundel ini bermanfaat untuk setup produktivitas Anda, silakan gunakan, fork, atau adaptasi dengan bebas!**
 
 Dengan bundel ini, setiap mesin baru akan langsung memiliki lingkungan kerja yang setara untuk 4 platform agent utama:
 1. **Google Antigravity** (IDE & CLI)
@@ -26,11 +26,14 @@ Dengan bundel ini, setiap mesin baru akan langsung memiliki lingkungan kerja yan
 
 ## 🌟 Apa Saja yang Ada di Dalam Bundle Ini?
 
-### 1. Koleksi 200 Unified Skills (`skills/`)
-Seluruh 200 skill tersusun dalam format standar `SKILL.md` (progressive disclosure) yang didukung oleh berbagai agen:
+### 1. Koleksi 202 Unified Skills (`skills/`)
+Seluruh 202 skill tersusun dalam format standar `SKILL.md` (progressive disclosure) yang didukung oleh berbagai agen:
 
 * **The Meta-Orchestrator (Pusat Navigasi Utama)**:
   * `skill-router` — Otomatis menganalisis maksud prompt secara bilingual (ID/EN), menghilangkan *skill blindness*, memetakan alat MCP yang relevan, dan menjalankan *multi-skill playbooks*.
+* **Token Optimization & High-Efficiency Developer Stack (RTK & Caveman)**:
+  * `rtk` (Rust Token Killer) — CLI proxy otomatis berbasis Rust yang memfilter, meringkas, dan mengelompokkan log terminal (`git status/log/diff`, `pytest`, `cargo`, `npm test`, `docker build`), memangkas 60%–90% token output shell tanpa mengubah kode.
+  * `caveman` (Julius Brussee) — Prompt behavioral framework super efisien yang membuang seluruh basa-basi dan filler tekstual (*"Why use many token when few token do trick"*), sambil menjaga 100% presisi kode, path, error, dan guardrail keamanan.
 * **Developer Documentation & Up-to-Date Knowledge Brain (Context7 Suite)**:
   * `find-docs` (Upstash Context7) — Pengambilan dokumentasi resmi, referensi API, dan contoh kode terkini (*version-accurate*) tanpa halusinasi LLM untuk library modern (React 19, Next.js 15, Tailwind v4, Prisma, Express, dll.).
   * `context7` — Orkestrator dual-mode Context7 yang mendukung pemanggilan langsung via MCP Server (`resolve-library-id`, `query-docs`) dan CLI (`npx ctx7@latest`).
