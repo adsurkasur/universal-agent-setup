@@ -77,6 +77,8 @@ Rincian per bab + templat abstrak: [references/struktur-sitasi.md](references/st
 
 ## Pemeriksaan tambahan peneliti
 
+Untuk audit padanan teknis, istilah yang dipertanyakan, atau ketidakkonsistenan antarbab, gunakan [Audit Istilah Ilmiah](../audit-istilah-ilmiah/SKILL.md).
+
 Setelah pemeriksaan `bahasa-inti`:
 
 1. **Semua sitasi bersumber nyata (diberikan/diverifikasi)?** Ada yang dari ingatan: ganti dengan penanda `[RUJUKAN DIPERLUKAN]`.

@@ -1,50 +1,48 @@
 ---
 name: audit-istilah-ilmiah
-description: "Audit sistematis istilah teknis, terjemahan harfiah (calque), diksi tidak terstandar, inkonsistensi lintas bab, dan singkatan dalam penulisan ilmiah berbahasa Indonesia (skripsi, tesis, disertasi, artikel jurnal Sinta, prosiding, dan laporan riset) lintas disiplin ilmu. WAJIB dipakai sebelum merevisi atau menyerahkan naskah ilmiah Indonesia ketika perlu mengecek apakah suatu istilah benar-benar baku di jurnal Indonesia, KBBI VI, dan glosarium disiplin ilmunya."
+description: "Audit istilah teknis dalam naskah ilmiah bahasa Indonesia lintas disiplin. Gunakan saat pengguna mempertanyakan padanan, kelaziman di jurnal, arti atau satuan variabel, singkatan, terjemahan harfiah, atau konsistensi istilah antarbab."
 ---
 
-# Audit Istilah Ilmiah Bahasa Indonesia (Lintas Disiplin)
+# Audit istilah ilmiah bahasa Indonesia
 
-Skill ini melengkapi `bahasa-inti`, `bahasa-peneliti`, `penulisan-ilmiah-sinta`, dan `skripsi-ftab-ub`. Fokusnya bukan pada ejaan atau gaya kalimat umum, melainkan pada **keabsahan dan ketepatan terminologi ilmiah Indonesia** berdasarkan pemakaian nyata di jurnal terakreditasi (Sinta/DOAJ), KBBI VI, PASTI/Glosarium Kemendikbudristek, dan regulasi teknis terkait.
+Audit istilah sesuai pertanyaan dan cakupan pengguna. Untuk audit baca-saja, hasilnya berupa daftar temuan terpisah dari naskah. Gunakan bersama `bahasa-peneliti` untuk konteks penulisan ilmiah dan ikuti pedoman jurnal, kampus, atau proyek yang berlaku.
 
-Prinsip dasar: **jangan mengarang istilah terjemahan yang terdengar ilmiah tetapi asing bagi komunitas peneliti Indonesia.** Satu konsep ilmiah wajib memakai satu istilah baku yang konsisten dari judul/abstrak hingga kesimpulan dan lampiran.
+## Inventarisasi
 
----
+1. Tetapkan versi dokumen dan bagian yang diperiksa. Untuk audit menyeluruh, telusuri judul, ringkasan dalam tiap bahasa, badan naskah, tabel, keterangan gambar, rumus, daftar singkatan, dan lampiran. Catat materi yang tidak terbaca, misalnya teks di dalam gambar.
+2. Gunakan pencarian frasa persis, variasi ejaan, padanan Inggris, dan singkatan untuk menemukan kandidat. Baca kalimat serta kemunculan pertamanya di setiap bagian yang dibaca mandiri. Catat lokasi yang dapat ditemukan kembali. Tambahkan jumlah kemunculan hanya jika dihitung dengan kriteria yang dijelaskan.
+3. Tentukan referen dan definisi operasional sebelum mencari padanan. Untuk variabel, catat objek, pembilang dan penyebut bila relevan, satuan, waktu pengukuran, serta asal nilai: dicatat, diukur, dihitung, diprediksi, atau disimulasikan. Untuk istilah kelembagaan, bedakan nama resmi, istilah historis, dan label data.
 
-## 1. Lima Kategori Masalah Istilah yang Diaudit
+## Verifikasi bukti
 
-| Kode | Kategori Masalah | Ciri Umum di Naskah | Contoh Kasus & Perbaikan |
-|---|---|---|---|
-| **K1** | ***Calque* (Terjemahan Harfiah)** | Menerjemahkan istilah Inggris kata demi kata sehingga maknanya menyimpang atau janggal di KBBI/bidang ilmunya. | *sugar recovery* -> "pemulihan/dipulihkan" (keliru, berkonotasi medis) => **perolehan sukrosa / rendemen**.<br>*mill feed* -> "umpan" => **pasokan bahan baku giling**.<br>*opening stock* -> "stok pembuka" => **stok awal / stok sisa pagi**. |
-| **K2** | **Istilah Buatan / Tidak Terstandar** | Gabungan kata yang tidak pernah dipakai di jurnal Indonesia atau terbalik struktur frasanya, meski secara tata bahasa tampak masuk akal. | "rendemen taksiran" (0 temuan di jurnal gula lokal) => **prediksi rendemen** / **estimasi rendemen** (untuk keluaran model) atau **rendemen sementara** (untuk uji lab awal). |
-| **K3** | **Singkatan Sebelum Definisi** | Singkatan/akronim teknis muncul lebih dulu daripada kepanjangannya, atau kepanjangannya baru muncul di paragraf/bab berikutnya. | Menulis `FCFS` di alinea ke-8 padahal kepanjangannya (*first come, first served*, FCFS) baru ditulis di alinea ke-9 => **wajib ekspansi penuh pada kemunculan pertama**. |
-| **K4** | **Inkonsistensi Lintas Bagian** | Satu konsep disebut dengan 2–4 nama berbeda di abstrak, pendahuluan, metode, dan lampiran. | Mencampur *peubah* vs *variabel*, *galat* vs *error*, *taksiran* vs *estimasi* vs *prediksi*, *nilai tujuan* vs *fungsi tujuan* => **pilih satu istilah baku dan seragamkan di seluruh berkas**. |
-| **K5** | **Ketidakpresisian Konteks & Angka** | Kata pelemah di depan angka eksak (*sekitar 49,05%*), penyebutan wilayah/dokumen terlalu umum padahal sumber primer menyebut spesifik. | "sekitar 49,05%" => **49,05%**.<br>"pedoman budi daya" => **Pedoman Budidaya Tebu Giling yang Baik (Permentan No. 53/2015)**. |
+| Pertanyaan | Bukti relevan |
+| --- | --- |
+| Apakah ejaan atau makna umum bentuk ini baku? | KBBI, EYD, PASTI, atau glosarium resmi. |
+| Apakah bidang tersebut memakai istilah ini untuk konsep yang sama? | Teks penuh artikel primer berbahasa Indonesia dengan objek, metode, atau pengukuran yang sepadan. Periksa frasa, kalimat, dan lokasi di artikel. |
+| Apakah definisinya mengikat untuk kasus ini? | Standar teknis, peraturan, pedoman institusi, protokol pengukuran, atau kamus data yang benar-benar berlaku. |
 
----
+Gunakan bukti yang menjawab pertanyaannya dan nyatakan apa yang dibuktikan. Satu artikel menunjukkan penggunaan oleh penulisnya. Jika menyatakan suatu bentuk lazim, bandingkan sumber independen dari bidang yang sama. Bila istilah tidak ditemukan, sebutkan frasa, korpus, dan keterbatasan pencarian. Jangan menyimpulkan bahwa istilah itu dilarang atau tidak pernah dipakai. Bedakan teks lengkap, abstrak, dan metadata. Catat halaman, tabel, rumus, atau bagian yang benar-benar terbaca beserta DOI/tautan jika tersedia. Pertahankan ejaan dalam judul resmi dan kutipan langsung.
 
-## 2. Protokol Audit 5 Langkah (Read-Only Dulu)
+## Putuskan tindakan menurut konteks
 
-Lakukan audit secara *read-only* sebelum menyentuh isi naskah:
+- **Pertahankan** bila referen tepat dan pembaca dapat memahaminya. Istilah asing dapat dipertahankan dengan penjelasan Indonesia bila padanan mapan belum ditemukan. Kenalkan singkatan saat pertama dipakai pada bagian yang berdiri sendiri.
+- **Jelaskan** bila istilah sah tetapi mudah disalahartikan. Jangan menyatukan label untuk konsep berbeda, misalnya pengukuran, keluaran model, dan ambang evaluasi.
+- **Seragamkan** bila beberapa sebutan menunjuk konsep yang sama. Padankan istilah pada prosa, tabel, simbol, satuan, dan ringkasan bahasa lain.
+- **Ganti** bila istilah mengaburkan atau menggeser makna. Usulkan frasa yang memperjelas proses atau objek dan berikan contoh kalimat. Jaga tingkat kepastian, cakupan, serta satuan semula.
+- **Perlu verifikasi** bila sumber belum cukup atau definisi operasional belum diketahui. Catat dokumen, pengukuran, atau keputusan yang perlu dikonfirmasi. Hindari penggantian massal.
 
-1. **Inventarisasi Lintas Berkas:** Pindai seluruh berkas naskah (judul, abstrak/ringkasan, Bab I–V atau IMRaD, tabel, gambar, dan lampiran) untuk mengumpulkan seluruh istilah teknis, istilah serapan, singkatan, dan terjemahan konsep asing beserta lokasi baris dan frekuensinya.
-2. **Uji Silang 3 Lapis Otoritas:**
-   - **Lapis 1 (Korpus Jurnal Disiplin):** Cek pemakaian istilah di jurnal ilmiah berbahasa Indonesia (Sinta 1–3, repositori PTN, prosiding, atau PDF pustaka primer proyek). Catat istilah mana yang benar-benar dipakai peneliti bidang tersebut.
-   - **Lapis 2 (Kamus & Glosarium Resmi):** Cek makna dan kelas kata di **KBBI VI** dan padanan resmi di **PASTI / Glosarium Kemendikbudristek**.
-   - **Lapis 3 (Regulasi & Standar Teknis):** Cek SNI, Peraturan Menteri, atau pedoman lembaga riset sektor terkait (misal P3GI untuk gula, BPS untuk statistik, BSN untuk mutu).
-3. **Klasifikasi Tindakan:** Beri label tegas pada setiap temuan:
-   - **`WAJIB GANTI`**: terbukti *calque* (K1) atau istilah buatan yang tidak dipakai di jurnal (K2).
-   - **`SERAGAMKAN`**: istilah sah, tetapi muncul dalam beberapa varian berbeda di dalam naskah (K4).
-   - **`PERJELAS / DEFINISIKAN`**: istilah teknis atau singkatan yang muncul mendadak tanpa definisi operasional atau kepanjangan (K3, K5).
-   - **`PERTAHANKAN`**: istilah sudah baku di jurnal Indonesia dan KBBI.
-4. **Dokumentasikan dalam Matriks Audit:** Sajikan tabel terstruktur berisi kolom: *Istilah di Naskah | Lokasi & Frekuensi | Kategori (K1–K5) | Temuan Literatur Indonesia | Rekomendasi Baku & Status*.
-5. **Verifikasi Pasca-Revisi:** Setelah revisi diterapkan, jalankan pemindaian ulang kata kunci terlarang untuk memastikan 0 sisa istilah lama dan 100% konsistensi lintas bab.
+| Contoh lintas bidang | Uji sebelum memutuskan |
+| --- | --- |
+| Agronomi: *rendemen taksiran* | Bila nilainya berasal dari model untuk kondisi yang belum teramati, jelaskan sebagai *rendemen hasil prediksi*. Rendemen sementara dari pengukuran awal perlu definisi tersendiri. |
+| Kesehatan masyarakat: insidensi dan prevalensi | Periksa apakah pembilang berisi kasus baru pada periode tertentu atau semua kasus yang ada pada waktu/periode tertentu. Periksa penyebutnya sebelum mengubah istilah. |
+| Statistika: galat, residu, galat baku | Pisahkan galat teoretis, selisih yang dihitung dari data, dan ukuran ketidakpastian penaksir. Bedakan pula persentase dari poin persentase. |
+| Rekayasa: stok awal dan stok penyangga | Stok awal menyatakan posisi dalam periode pencatatan. Stok penyangga menyatakan fungsi persediaan. Keduanya dapat bertumpang tindih dengan definisi yang tetap berbeda. |
+| Ilmu sosial: responden dan partisipan | Tentukan peran orang dalam survei, wawancara, atau eksperimen. Gunakan satu istilah hanya untuk kelompok yang memang sama. |
 
----
+Contoh tersebut menguji keputusan kontekstual. Gunakan sumber disiplin yang relevan untuk memvalidasi setiap kasus nyata.
 
-## 3. Aturan Penanganan Istilah Tanpa Padanan Baku
+## Laporan dan pemeriksaan
 
-Jika suatu konsep baru dari literatur internasional belum memiliki padanan Indonesia yang mapan di jurnal nasional:
-1. Jangan memaksakan terjemahan harfiah yang janggal.
-2. Pada kemunculan pertama, tulis deskripsi fungsional Bahasa Indonesia yang jernih diikuti istilah Inggris asli dalam huruf miring, misalnya: *pasokan di luar petak keputusan (*background supply*)*.
-3. Gunakan istilah deskriptif tersebut secara konsisten pada kemunculan berikutnya, atau cantumkan definisi operasionalnya di subbab Metode.
+Sajikan **istilah asli | lokasi | referen dan masalah | bukti dan tingkat kepastian | tindakan dan usulan redaksi**. Dahulukan kesalahan yang dapat mengubah interpretasi metode, data, atau hasil. Catat cakupan, sumber yang tidak bisa dibuka, serta pertanyaan yang masih terbuka.
+
+Setelah revisi yang diminta pengguna, pindai ulang varian istilah. Tinjau sisa kemunculan berdasarkan makna, termasuk istilah historis atau kutipan yang tetap sah. Periksa kemunculan pertama, rujukan simbol, ketepatan definisi, satuan, dan kesetaraan lintas bahasa. Laporkan pengecualian yang disengaja.
